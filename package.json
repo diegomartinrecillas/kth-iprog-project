@@ -20,7 +20,12 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"lint": "tslint --project tsconfig.json --fix \"src/**/*.{ts,tsx}\"; sass-lint -c .sass-lint.yml \"src/**/*.scss\" -v -q"
+		"lint": "yarn ts-lint && yarn sass-lint",
+		"lint:fix": "yarn ts-lint:fix && yarn sass-lint:fix",
+		"ts-lint": "tslint --project tsconfig.json \"src/**/*.{ts,tsx}\"",
+		"ts-lint:fix": "tslint --project tsconfig.json --fix \"src/**/*.{ts,tsx}\"",
+		"sass-lint": "sass-lint -c .sass-lint.yml \"src/**/*.scss\" -v -q",
+		"sass-lint:fix": "sass-lint-auto-fix"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
@@ -45,7 +50,17 @@
 		}
 	},
 	"lint-staged": {
-		"*.{ts,tsx,json,css,md}": [
+		"*.{ts,tsx}": [
+			"yarn ts-lint:fix",
+			"prettier --write",
+			"git add"
+		],
+		"*.scss": [
+			"yarn sass-lint:fix && yarn sass-lint",
+			"prettier --write",
+			"git add"
+		],
+		"*.{js,jsx,json,css,md}": [
 			"prettier --write",
 			"git add"
 		]
