@@ -25,7 +25,7 @@
 		"ts-lint": "tslint --project tsconfig.json \"src/**/*.{ts,tsx}\"",
 		"ts-lint:fix": "tslint --project tsconfig.json --fix \"src/**/*.{ts,tsx}\"",
 		"sass-lint": "sass-lint -c .sass-lint.yml \"src/**/*.scss\" -v -q",
-		"sass-lint:fix": "sass-lint-auto-fix"
+		"sass-lint:fix": "sass-lint-auto-fix -c .sass-lint.yml"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
@@ -55,8 +55,9 @@
 			"prettier --write",
 			"git add"
 		],
-		"*.scss": [
-			"yarn sass-lint:fix && yarn sass-lint",
+		"*.{sass,scss}": [
+			"yarn sass-lint:fix",
+			"yarn sass-lint",
 			"prettier --write",
 			"git add"
 		],
