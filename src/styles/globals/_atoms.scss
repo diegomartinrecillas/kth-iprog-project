@@ -1,0 +1,145 @@
+// sass-lint:disable no-important
+@import '../mixins/index';
+
+$values: 0,
+4,
+8,
+10,
+12,
+16,
+20,
+24,
+28,
+32,
+36,
+40;
+
+@each $i in $values {
+
+	// margins
+	.m#{$i} {
+		margin: #{$i}px !important;
+	}
+
+	.mt#{$i} {
+		margin-top: #{$i}px !important;
+	}
+
+	.mr#{$i} {
+		margin-right: #{$i}px !important;
+	}
+
+	.mb#{$i} {
+		margin-bottom: #{$i}px !important;
+	}
+
+	.ml#{$i} {
+		margin-left: #{$i}px !important;
+	}
+
+	.mtb#{$i} {
+		margin-bottom: #{$i}px !important;
+		margin-top: #{$i}px !important;
+	}
+
+	.mlr#{$i} {
+		margin-left: #{$i}px !important;
+		margin-right: #{$i}px !important;
+	}
+
+	// paddings
+	.p#{$i} {
+		padding: #{$i}px !important;
+	}
+
+	.pt#{$i} {
+		padding-top: #{$i}px !important;
+	}
+
+	.pr#{$i} {
+		padding-right: #{$i}px !important;
+	}
+
+	.pb#{$i} {
+		padding-bottom: #{$i}px !important;
+	}
+
+	.pl#{$i} {
+		padding-left: #{$i}px !important;
+	}
+
+	.ptb#{$i} {
+		padding-bottom: #{$i}px !important;
+		padding-top: #{$i}px !important;
+	}
+
+	.plr#{$i} {
+		padding-left: #{$i}px !important;
+		padding-right: #{$i}px !important;
+	}
+}
+
+.box {
+	padding: 8px 0 !important;
+
+	@include at-least-md {
+		padding: 8px 16px !important;
+	}
+
+	&.box_large {
+		padding: 32px 16px !important;
+	}
+}
+
+.scroll {
+	overflow-y: auto;
+}
+
+// height
+.h100 {
+	height: 100% !important;
+}
+
+// width
+.w100 {
+	width: 100% !important;
+}
+
+.mxw100 {
+	max-width: 100% !important;
+}
+
+.mnw100 {
+	min-width: 100% !important;
+}
+
+// flex
+.flex {
+	display: flex;
+}
+
+.flex-col {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.flex-1 {
+	flex: 1;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-justify {
+	text-align: justify;
+}

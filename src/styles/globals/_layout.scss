@@ -1,0 +1,23 @@
+@import '../mixins/index';
+
+.main {
+	display: block;
+	margin: auto;
+	width: 100%;
+}
+
+.wrap {
+	margin: 0 auto;
+
+	@include at-least-lg {
+		max-width: $cl-breakpoint-lg;
+	}
+}
+
+.content {
+	padding: 16px;
+
+	@include at-least-lg {
+		padding: 24px;
+	}
+}

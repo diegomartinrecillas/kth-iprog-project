@@ -1,0 +1,19 @@
+@import '../mixins/index';
+
+.md {
+	@include until-md {
+		display: none;
+	}
+}
+
+.lg {
+	@include until-lg {
+		display: none;
+	}
+}
+
+.sm {
+	@include at-least-md {
+		display: none;
+	}
+}
