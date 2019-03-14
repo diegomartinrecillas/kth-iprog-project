@@ -4,7 +4,6 @@ import NetworkService from './api/NetworkService';
 class App extends Component {
 	public componentWillMount() {
 		const programmes = NetworkService.getProgrammes();
-		// const courses = NetworkService.getCourses();
 		// return { programmes, courses };
 	}
 	public render() {
