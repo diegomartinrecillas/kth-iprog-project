@@ -8,7 +8,12 @@ class App extends Component {
 		// return { programmes, courses };
 	}
 	public render() {
-		return <div>RundBok</div>;
+		return (
+			<div>
+				RundBok <br />
+				An amazing service...
+			</div>
+		);
 	}
 }
 
