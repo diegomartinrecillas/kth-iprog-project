@@ -1,6 +1,6 @@
 # RundBok
 
-RundBok is a service meant to help and allow students at KTH Royal Institute of Technology
+RundBok is a service meant to help and allow students at KTH Royal Institute of Technology<br/>
 to list and sell their old course literature.
 
 ## Directories and files
