@@ -1,93 +1,69 @@
 // sass-lint:disable no-important
 @import '../mixins/index';
 
-$values: 0,
-4,
-8,
-10,
-12,
-16,
-20,
-24,
-28,
-32,
-36,
-40;
+$values: 1, 2, 3, 4, 5, 6, 7, 8, 9;
 
 @each $i in $values {
-
 	// margins
 	.m#{$i} {
-		margin: #{$i}px !important;
+		margin: #{$i}rem !important;
 	}
 
 	.mt#{$i} {
-		margin-top: #{$i}px !important;
+		margin-top: #{$i}rem !important;
 	}
 
 	.mr#{$i} {
-		margin-right: #{$i}px !important;
+		margin-right: #{$i}rem !important;
 	}
 
 	.mb#{$i} {
-		margin-bottom: #{$i}px !important;
+		margin-bottom: #{$i}rem !important;
 	}
 
 	.ml#{$i} {
-		margin-left: #{$i}px !important;
+		margin-left: #{$i}rem !important;
 	}
 
 	.mtb#{$i} {
-		margin-bottom: #{$i}px !important;
-		margin-top: #{$i}px !important;
+		margin-bottom: #{$i}rem !important;
+		margin-top: #{$i}rem !important;
 	}
 
 	.mlr#{$i} {
-		margin-left: #{$i}px !important;
-		margin-right: #{$i}px !important;
+		margin-left: #{$i}rem !important;
+		margin-right: #{$i}rem !important;
 	}
 
 	// paddings
 	.p#{$i} {
-		padding: #{$i}px !important;
+		padding: #{$i}rem !important;
 	}
 
 	.pt#{$i} {
-		padding-top: #{$i}px !important;
+		padding-top: #{$i}rem !important;
 	}
 
 	.pr#{$i} {
-		padding-right: #{$i}px !important;
+		padding-right: #{$i}rem !important;
 	}
 
 	.pb#{$i} {
-		padding-bottom: #{$i}px !important;
+		padding-bottom: #{$i}rem !important;
 	}
 
 	.pl#{$i} {
-		padding-left: #{$i}px !important;
+		padding-left: #{$i}rem !important;
 	}
 
 	.ptb#{$i} {
-		padding-bottom: #{$i}px !important;
-		padding-top: #{$i}px !important;
+		padding-bottom: #{$i}rem !important;
+		padding-top: #{$i}rem !important;
 	}
 
 	.plr#{$i} {
-		padding-left: #{$i}px !important;
-		padding-right: #{$i}px !important;
-	}
-}
-
-.box {
-	padding: 8px 0 !important;
-
-	@include at-least-md {
-		padding: 8px 16px !important;
-	}
-
-	&.box_large {
-		padding: 32px 16px !important;
+		padding-left: #{$i}rem !important;
+		padding-right: #{$i}rem !important;
 	}
 }
 
