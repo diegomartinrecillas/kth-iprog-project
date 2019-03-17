@@ -1,0 +1,19 @@
+.book-item {
+	font-size: 16px;
+
+	small {
+		font-size: 14px;
+	}
+
+	&__cover {
+		background-color: $color-light-gray;
+		border-radius: $radius;
+		display: block;
+		height: 18vw;
+		max-height: 250px;
+		max-width: 15vw;
+		min-height: 200px;
+		min-width: 140px;
+		width: 100%;
+	}
+}

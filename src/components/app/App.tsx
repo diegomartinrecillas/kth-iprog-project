@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import { AppProvider } from '../../contexts/App.context';
 import NetworkService from '../../api/NetworkService';
+import Home from '../pages/Home';
 
 import Title from '../title/Title';
 import InputTitle from '../title/InputTitle';
 import ResetTitle from '../title/ResetTitle';
 
-import styles from './App.module.scss';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const App = () => {
 	useEffect(() => {
+		/*
 		const programmes = NetworkService.getProgrammes();
 		const courses = NetworkService.getCourses();
 
@@ -26,18 +29,17 @@ const App = () => {
 		console.log(course.then(data => console.log(data)));
 		console.log(books.then(data => console.log(data)));
 		console.log(book.then(data => console.log(data)));
+		*/
 	}, []);
 
 	return (
-		<AppProvider>
-			<div className={styles.app}>
-				<header className={styles.header}>
-					<Title />
-					<InputTitle />
-					<ResetTitle />
-				</header>
-			</div>
-		</AppProvider>
+		<Router>
+			<AppProvider>
+				<div className="container app">
+					<Route path="/" exact component={Home} />
+				</div>
+			</AppProvider>
+		</Router>
 	);
 };
 

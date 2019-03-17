@@ -1,0 +1,11 @@
+.sidebar {
+	border-right: 1px solid $color-light-gray;
+	height: 100vh;
+	overflow-y: scroll;
+	padding-right: $spacing;
+	font-size: 18px;
+
+	a {
+		font-weight: 500;
+	}
+}

@@ -1,0 +1,25 @@
+.sidebar-selects {
+	ul {
+		padding-left: none;
+
+		li {
+			list-style: none;
+			margin-bottom: $spacing / 3;
+
+			a {
+				max-width: 80%;
+				display: block;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+
+	.sidebar-selects__custom-select {
+		&:active,
+		&:focus {
+			outline: 0;
+		}
+	}
+}

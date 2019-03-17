@@ -1,0 +1,8 @@
+@import './globals/index';
+
+// FontAwesome
+$fa-font-path: '../static/webfonts';
+@import './fontAwesome/fontawesome';
+@import './fontAwesome/solid';
+@import './fontAwesome/regular';
+@import './fontAwesome/brands';

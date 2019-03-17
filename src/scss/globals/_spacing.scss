@@ -1,0 +1,43 @@
+.spacing {
+  height: $spacing;
+
+  &--large {
+    height: $spacing * 2;
+  }
+
+  &--extra-large {
+    height: $spacing * 3;
+  }
+
+  &--small {
+    height: $spacing / 2;
+  }
+
+  &--extra-small {
+    height: $spacing / 3;
+  }
+}
+.spacing-h {
+  display: inline-block;
+  width: $spacing;
+
+  &--large {
+    width: $spacing * 2;
+  }
+
+  &--extra-large {
+    width: $spacing * 3;
+  }
+
+  &--small {
+    width: $spacing / 2;
+  }
+
+  &--extra-small {
+    width: $spacing / 3;
+  }
+
+  &--space {
+    width: $spacing / 6;
+  }
+}
