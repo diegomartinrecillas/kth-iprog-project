@@ -1,30 +1,24 @@
-import React, { useReducer, PropsWithChildren } from 'react';
+import React, { useReducer, useMemo, PropsWithChildren, useState } from 'react';
 
 export enum AppActionType {
 	'SET',
 	'RESET',
 }
 
-interface IAppAction {
+interface AppAction {
 	type: AppActionType;
 	title?: string;
 }
 
-interface IAppState {
+interface AppState {
 	readonly title: string;
 }
 
-const initialState: IAppState = {
+const initialState: AppState = {
 	title: 'Hello World',
 };
 
-interface IAppContext {
-	title: string;
-	setTitle: (title: string) => void;
-	resetTitle: () => void;
-}
-
-const reducer = (state: IAppState, action: IAppAction) => {
+const reducer = (state: AppState, action: AppAction) => {
 	switch (action.type) {
 		case AppActionType.SET:
 			return { ...state, title: action.title };
@@ -35,20 +29,29 @@ const reducer = (state: IAppState, action: IAppAction) => {
 	}
 };
 
-export const AppContext = React.createContext<IAppContext>(null);
+export interface AppContextValue {
+	title: string;
+	setTitle: (title: string) => void;
+	resetTitle: () => void;
+}
+
+export const AppContext = React.createContext<AppContextValue>(null);
 
 export const AppConsumer = AppContext.Consumer;
 
 export const AppProvider = (props: PropsWithChildren<{}>) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
-	const getValue = (): IAppContext => ({
-		title: state.title,
-		setTitle: (title: string) => dispatch({ type: AppActionType.SET, title }),
-		resetTitle: () => dispatch({ type: AppActionType.RESET }),
-	});
+	const contextValue = useMemo(
+		(): AppContextValue => ({
+			title: state.title,
+			setTitle: (title: string) => dispatch({ type: AppActionType.SET, title }),
+			resetTitle: () => dispatch({ type: AppActionType.RESET }),
+		}),
+		[state.title]
+	);
 
 	return (
-		<AppContext.Provider value={getValue()}>
+		<AppContext.Provider value={contextValue}>
 			{props.children}
 		</AppContext.Provider>
 	);

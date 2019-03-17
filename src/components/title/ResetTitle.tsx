@@ -1,10 +1,32 @@
-import React, { useContext } from 'react';
-import { AppContext } from '../../contexts/App.context';
+import React, { FunctionComponent, memo } from 'react';
+import { AppContext, AppContextValue } from '../../contexts/App.context';
+import { withContext } from '../../utils/withContext';
 
-const ResetTitle = () => {
-	const { resetTitle } = useContext(AppContext);
+interface OwnProps {
+	label?: string;
+}
 
-	return <button onClick={resetTitle}>RESET</button>;
+interface ContextProps {
+	resetTitle: AppContextValue['resetTitle'];
+}
+
+type Props = OwnProps & ContextProps;
+
+// memoization example
+const ResetTitle: FunctionComponent<Props> = memo(
+	(props: Props) => <button onClick={props.resetTitle}>{props.label}</button>,
+	() => true // now that we are getting the context as props we can memoize it to avoid unnessesary renders
+);
+
+ResetTitle.defaultProps = {
+	label: 'Reset',
 };
 
-export default ResetTitle;
+const mapContextToProps = (context: AppContextValue): ContextProps => ({
+	resetTitle: context.resetTitle,
+});
+
+export default withContext<AppContextValue, OwnProps>(
+	AppContext,
+	mapContextToProps
+)(ResetTitle);

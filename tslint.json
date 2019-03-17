@@ -13,7 +13,8 @@
 		"member-ordering": false,
 		"jsx-no-lambda": false,
 		"jsx-boolean-value": false,
-		"strict-type-predicates": false
+		"strict-type-predicates": false,
+		"interface-name": false
 	},
 	"rulesDirectory": []
 }
