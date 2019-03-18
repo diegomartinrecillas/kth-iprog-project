@@ -11,7 +11,7 @@ const Logo = () => (
 				<div className="col-9">
 					<img
 						className="logo__rundbok"
-						src={require('../static/images/rundbok-logo-black.svg')}
+						src={require('../static/images/rundbok-logo-black.png')}
 						alt="Rundbok"
 					/>
 				</div>
