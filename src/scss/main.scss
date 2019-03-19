@@ -2,7 +2,7 @@
 
 // FontAwesome
 $fa-font-path: '../static/webfonts';
-@import './fontAwesome/fontawesome';
-@import './fontAwesome/solid';
-@import './fontAwesome/regular';
-@import './fontAwesome/brands';
+@import './vendor/font-awesome/fontawesome';
+@import './vendor/font-awesome/solid';
+@import './vendor/font-awesome/regular';
+@import './vendor/font-awesome/brands';

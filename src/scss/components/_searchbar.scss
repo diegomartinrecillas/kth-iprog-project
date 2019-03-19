@@ -7,19 +7,19 @@
 		position: relative;
 
 		i {
-			font-size: 20px;
 			color: $color-gray;
-			position: absolute;
+			font-size: 20px;
 			pointer-events: none;
+			position: absolute;
 			top: 16px;
 		}
 
 		input {
-			width: 100%;
+			border: zero;
+			color: $color-black;
 			height: 50px;
 			padding-left: 30px;
-			border: none;
-			color: $color-black;
+			width: 100%;
 
 			&:focus {
 				outline: none;
@@ -28,17 +28,17 @@
 	}
 
 	&__separator {
-		height: 50px;
-		width: 1px;
 		background-color: $color-light-gray;
 		display: block;
+		height: 50px;
+		width: 1px;
 	}
 
 	&__profile-image {
-		display: block;
-		width: 50px;
-		height: 50px;
 		background-color: $color-light-gray;
 		border-radius: 50%;
+		display: block;
+		height: 50px;
+		width: 50px;
 	}
 }

@@ -1,7 +1,15 @@
 .sidebar {
+<<<<<<< HEAD
 	height: 100vh;
 	overflow-y: scroll;
 	font-size: 18px;
+=======
+	border-right: 1px solid $color-light-gray;
+	font-size: 18px;
+	height: 100vh;
+	overflow-y: scroll;
+	padding-right: $spacing;
+>>>>>>> 62af136c2a02bf6d08758ecf993bd9effbd1a72b
 
 	a {
 		font-weight: 500;
