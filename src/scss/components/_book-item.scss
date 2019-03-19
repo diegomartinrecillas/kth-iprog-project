@@ -5,6 +5,10 @@
 		font-size: 14px;
 	}
 
+	b {
+		color: $color-black;
+	}
+
 	&__cover {
 		background-color: $color-light-gray;
 		border-radius: $radius;

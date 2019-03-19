@@ -1,12 +1,18 @@
 .logo {
-	max-width: 250px;
+	max-width: 255px;
 
 	img {
+		display: block;
 		max-width: 100%;
-		width: 100%;
+		object-fit: contain;
 	}
 
 	&__rundbok {
 		padding-left: $spacing / 2;
+		width: 336px;
+	}
+
+	&__school {
+		width: 90px;
 	}
 }
