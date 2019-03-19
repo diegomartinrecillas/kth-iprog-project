@@ -1,8 +1,13 @@
-@import './globals/index';
-
-// FontAwesome
+// Vendors Styles
+// Bootstrap
+@import '~bootstrap/dist/css/bootstrap.css';
+// FontAwesome font path
 $fa-font-path: '../static/webfonts';
+// FontAwesome
 @import './vendor/font-awesome/fontawesome';
 @import './vendor/font-awesome/solid';
 @import './vendor/font-awesome/regular';
 @import './vendor/font-awesome/brands';
+
+// Project Styles
+@import './globals/index';
