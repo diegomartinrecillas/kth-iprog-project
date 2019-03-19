@@ -46,13 +46,13 @@
 		margin-bottom: 5px;
 		text-transform: uppercase;
 
-		&--large {
+		&_lg {
 			font-size: 1.25rem;
 		}
 	}
 
 	.text-size {
-		&--small {
+		&_sm {
 			font-size: 16px;
 		}
 	}
@@ -61,12 +61,16 @@
 		font-weight: 600;
 	}
 
-	label.text-label {
-		font-size: 1rem;
+	label {
+		&.text-label {
+			font-size: 1rem;
+		}
 	}
 
-	i.fab {
-		font-weight: 400;
+	i {
+		&.fab {
+			font-weight: 400;
+		}
 	}
 
 	a {

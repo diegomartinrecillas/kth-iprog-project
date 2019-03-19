@@ -2,8 +2,8 @@
 	margin-left: -$spacing;
 	margin-right: -$spacing;
 
-	> .col,
-	> [class*='col-'] {
+	>.col,
+	>[class*='col-'] {
 		padding-left: $spacing;
 		padding-right: $spacing;
 	}
@@ -13,8 +13,8 @@
 	margin-left: -$spacing / 4;
 	margin-right: -$spacing / 4;
 
-	> .col,
-	> [class*='col-'] {
+	>.col,
+	>[class*='col-'] {
 		padding-left: $spacing / 4;
 		padding-right: $spacing / 4;
 	}
@@ -24,20 +24,20 @@
 	margin-left: -$spacing / 2;
 	margin-right: -$spacing / 2;
 
-	> .col,
-	> [class*='col-'] {
+	>.col,
+	>[class*='col-'] {
 		padding-left: $spacing / 2;
 		padding-right: $spacing / 2;
 	}
 }
 
 .extra-small-gutters {
-	margin-left: -0.25em;
-	margin-right: -0.25em;
+	margin-left: -.25em;
+	margin-right: -.25em;
 
-	> .col,
-	> [class*='col-'] {
-		padding-left: 0.25em;
-		padding-right: 0.25em;
+	>.col,
+	>[class*='col-'] {
+		padding-left: .25em;
+		padding-right: .25em;
 	}
 }

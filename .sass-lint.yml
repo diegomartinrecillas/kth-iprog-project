@@ -64,7 +64,7 @@ rules:
     - 2
     - size: tab
   leading-zero:
-    - 2
+    - 1
     - include: false
   mixin-name-format:
     - 2
@@ -95,9 +95,9 @@ rules:
       allow-element-with-id: false
   no-trailing-zero: 1
   no-transition-all: 0
-  no-url-protocols: 1
+  no-url-protocols: 0
   no-vendor-prefixes:
-    - 1
+    - 0
     - additional-identifiers: []
       excluded-identifiers: []
   placeholder-in-extend: 1

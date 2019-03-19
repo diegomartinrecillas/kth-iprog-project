@@ -17,7 +17,7 @@ const Searchbar = () => {
 								<a href="">
 									<i className="fas fa-bookmark" />
 								</a>
-								<div className="spacing-h spacing-h--small" />
+								<div className="spacing-h spacing-h_sm" />
 								<a href="">
 									<i className="fas fa-bell" />
 								</a>

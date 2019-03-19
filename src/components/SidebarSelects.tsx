@@ -35,13 +35,13 @@ class SidebarSelects extends React.Component<{}, OwnProps> {
 		return (
 			<div className="sidebar-selects">
 				<a href="">Handpicked</a>
-				<div className="spacing spacing--small" />
+				<div className="spacing spacing_sm" />
 				<a className="active" href="">
 					Latest Listings
 				</a>
-				<div className="spacing spacing--large" />
+				<div className="spacing spacing_lg" />
 				<div className="text-label">PROGRAMMES</div>
-				<div className="spacing spacing--extra-small" />
+				<div className="spacing spacing_xs" />
 				<select
 					className="sidebar-selects__custom-select custom-select"
 					id="programme-select"
@@ -56,7 +56,7 @@ class SidebarSelects extends React.Component<{}, OwnProps> {
 				</select>
 				<div className="spacing spacing--medium" />
 				<div className="text-label">COURSES</div>
-				<div className="spacing spacing--extra-small" />
+				<div className="spacing spacing_xs" />
 				<select
 					className="sidebar-selects__custom-select custom-select"
 					id="programme-select"

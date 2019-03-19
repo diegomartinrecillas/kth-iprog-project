@@ -7,7 +7,7 @@ const Sidebar = () => {
 		<div className="sidebar">
 			<div className="spacing" />
 			<Logo />
-			<div className="spacing spacing--large" />
+			<div className="spacing spacing_lg" />
 			<SidebarSelects />
 			<div className="spacing" />
 		</div>

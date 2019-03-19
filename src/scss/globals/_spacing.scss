@@ -1,44 +1,44 @@
 .spacing {
-  height: $spacing;
+	height: $spacing;
 
-  &--large {
-    height: $spacing * 2;
-  }
+	&_lg {
+		height: $spacing * 2;
+	}
 
-  &--extra-large {
-    height: $spacing * 3;
-  }
+	&_xl {
+		height: $spacing * 3;
+	}
 
-  &--small {
-    height: $spacing / 2;
-  }
+	&_sm {
+		height: $spacing / 2;
+	}
 
-  &--extra-small {
-    height: $spacing / 3;
-  }
+	&_xs {
+		height: $spacing / 3;
+	}
 }
 
 .spacing-h {
-  display: inline-block;
-  width: $spacing;
+	display: inline-block;
+	width: $spacing;
 
-  &--large {
-    width: $spacing * 2;
-  }
+	&_lg {
+		width: $spacing * 2;
+	}
 
-  &--extra-large {
-    width: $spacing * 3;
-  }
+	&_xl {
+		width: $spacing * 3;
+	}
 
-  &--small {
-    width: $spacing / 2;
-  }
+	&_sm {
+		width: $spacing / 2;
+	}
 
-  &--extra-small {
-    width: $spacing / 3;
-  }
+	&_xs {
+		width: $spacing / 3;
+	}
 
-  &--space {
-    width: $spacing / 6;
-  }
+	&_space {
+		width: $spacing / 6;
+	}
 }
