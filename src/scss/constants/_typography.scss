@@ -1,12 +1,12 @@
 .rundbok {
-	color: theme-color('text-gray');
+	color: $color-gray;
 	font-size: 1.025rem;
 
 	h1,
 	h2,
 	h3,
 	h4 {
-		color: theme-color('black');
+		color: $color-black;
 		font-family: $headline-font;
 		font-weight: $headline-font-weight;
 		line-height: 1.25;
@@ -31,10 +31,10 @@
 	}
 
 	input {
-		color: theme-color('text-gray');
+		color: $color-gray;
 
 		&::-webkit-input-placeholder {
-			color: theme-color('text-gray');
+			color: $color-gray;
 		}
 	}
 
