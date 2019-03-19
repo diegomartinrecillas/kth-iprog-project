@@ -14,7 +14,8 @@
 # Linter VendorPrefix, option "identifier_list"
 
 files:
-  include: '**/*.scss'
+  include: 'src/scss/**/*.s+(a|c)ss'
+  ignore: 'src/scss/vendor/**/*.s+(a|c)ss'
 options:
   formatter: stylish
   merge-default-rules: false
