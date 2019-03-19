@@ -4,7 +4,7 @@ import SidebarSelects from './SidebarSelects';
 
 const Sidebar = () => {
 	return (
-		<div className="sidebar">
+		<div className="sidebar container">
 			<div className="spacing" />
 			<Logo />
 			<div className="spacing spacing--large" />

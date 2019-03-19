@@ -2,22 +2,26 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Logo = () => (
-	<div className="logo">
-		<Link to="/">
-			<div className="row no-gutters align-items-center">
-				<div className="col-3">
-					<img src={require('../static/images/kth.png')} alt="KTH" />
-				</div>
-				<div className="col-9">
+	<Link to="/">
+		<div className="logo">
+			<span className="d-flex align-items-center">
+				<span>
+					<img
+						className="logo__school"
+						src={require('../static/images/kth.png')}
+						alt="KTH"
+					/>
+				</span>
+				<span>
 					<img
 						className="logo__rundbok"
 						src={require('../static/images/rundbok-logo-black.png')}
 						alt="Rundbok"
 					/>
-				</div>
-			</div>
-		</Link>
-	</div>
+				</span>
+			</span>
+		</div>
+	</Link>
 );
 
 export default Logo;
