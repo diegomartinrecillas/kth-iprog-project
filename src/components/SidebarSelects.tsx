@@ -16,9 +16,11 @@ class SidebarSelects extends React.Component<{}, OwnProps> {
 	}
 
 	public componentDidMount() {
-		NetworkService.getProgrammes().then(data => {
-			this.setState({ programmes: data });
-		});
+		NetworkService.getProgrammes()
+			.then(data => {
+				this.setState({ programmes: data });
+			})
+			.catch();
 		/*NetworkService.getCourses().then(data => {
 			this.setState({ courses: data });
 			console.log(this.state.courses);
