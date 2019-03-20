@@ -2,8 +2,8 @@ import React, { useContext, Context } from 'react';
 
 /**
  * Always prefer HOOKs over HOCs! Only use case for this is when we want to memoize part of a context.
- * Due to current limitations in the Context API there is no way easily subscribe to a slice of it's
- * state, so any change in the context value will result in a rerender of all connected components!
+ * Due to current limitations in the Context API there is no way to subscribe to a slice of the
+ * state so any change in the context value will result in a rerender of all connected components!
  */
 export function withContext<T, P = {}>(
 	context: Context<T>,
