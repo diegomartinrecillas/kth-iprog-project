@@ -1,5 +1,5 @@
 class RequestService {
-	static async getRequest(url) {
+	public static async getRequest(url: string) {
 		const options = {
 			method: 'GET',
 			headers: {
@@ -11,9 +11,7 @@ class RequestService {
 			.then(res => {
 				return res.json();
 			})
-			.catch(err => {
-				console.log('Error: ', err);
-			});
+			.catch(err => err);
 		return data;
 	}
 }

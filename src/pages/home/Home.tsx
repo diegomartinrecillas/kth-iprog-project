@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Sidebar from '../Sidebar';
-import SearchView from '../SearchView';
+import React from 'react';
+import Sidebar from '../../components/sidebar/Sidebar';
+import Search from '../../components/search/Search';
 
 const Home = () => {
 	return (
@@ -10,7 +10,7 @@ const Home = () => {
 					<Sidebar />
 				</div>
 				<div className="col-lg-8">
-					<SearchView />
+					<Search />
 				</div>
 			</div>
 		</div>

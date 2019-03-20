@@ -1,4 +1,6 @@
-.book-item {
+@import '../../scss/constants/index';
+
+.book {
 	font-size: 16px;
 
 	small {
@@ -9,7 +11,7 @@
 		color: $color-black;
 	}
 
-	&__cover {
+	.cover {
 		background-color: $color-light-gray;
 		border-radius: $radius;
 		display: block;

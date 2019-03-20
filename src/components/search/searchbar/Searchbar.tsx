@@ -1,11 +1,12 @@
 import React from 'react';
+import styles from './Searchbar.module.scss';
 
 const Searchbar = () => {
 	return (
-		<div className="searchbar">
+		<div className={styles.searchbar}>
 			<div className="row medium-gutters align-items-center">
 				<div className="col-7">
-					<div className="searchbar__form-group">
+					<div className={styles['form-group']}>
 						<i className="far fa-search" />
 						<input type="text" name="search" id="search" placeholder="Search" />
 					</div>
@@ -24,10 +25,10 @@ const Searchbar = () => {
 							</div>
 						</div>
 						<div className="col-auto">
-							<div className="searchbar searchbar__separator" />
+							<div className={styles.separator} />
 						</div>
 						<div className="col-auto">
-							<div className="searchbar searchbar__profile-image" />
+							<div className={styles['profile-image']} />
 						</div>
 					</div>
 				</div>

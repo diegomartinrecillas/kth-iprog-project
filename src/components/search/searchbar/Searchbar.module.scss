@@ -1,9 +1,11 @@
+@import '../../../scss/constants/index';
+
 .searchbar {
 	i {
 		font-size: 22px;
 	}
 
-	&__form-group {
+	.form-group {
 		position: relative;
 
 		i {
@@ -27,14 +29,14 @@
 		}
 	}
 
-	&__separator {
+	.separator {
 		background-color: $color-light-gray;
 		display: block;
 		height: 50px;
 		width: 1px;
 	}
 
-	&__profile-image {
+	.profile-image {
 		background-color: $color-light-gray;
 		border-radius: 50%;
 		display: block;

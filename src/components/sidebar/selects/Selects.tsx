@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import NetworkService from '../api/NetworkService';
+import NetworkService from '../../../api/NetworkService';
+import styles from './Selects.module.scss';
 
 interface Props {
 	programmes?: any;
@@ -21,7 +22,7 @@ const SidebarSelects = (props: Props) => {
 	}
 
 	return (
-		<div className="sidebar-selects">
+		<div className={styles.selects}>
 			<a href="">Handpicked</a>
 			<div className="spacing spacing_sm" />
 			<a className="active" href="">
@@ -47,7 +48,7 @@ const SidebarSelects = (props: Props) => {
 			<div className="text-label">COURSES</div>
 			<div className="spacing spacing_xs" />
 			<select
-				className="sidebar-selects__custom-select custom-select"
+				className={`${styles['custom-select']} custom-select`}
 				id="programme-select"
 			>
 				{courses &&

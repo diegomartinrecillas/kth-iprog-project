@@ -1,14 +1,18 @@
 import React from 'react';
-import BookItem from './BookItem';
+import Book from '../book/Book';
 
-const books: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-const BookGrid = () => {
+interface Props {
+	books: number[];
+}
+
+const Books = (props: Props) => {
+	const { books } = props;
 	return (
 		<div className="book-grid">
 			<div className="row justify-content-between medium-gutters">
 				{books.map(book => (
 					<div className="col-sm-12 col-md-4 margin-bottom-col" key={book}>
-						<BookItem />
+						<Book />
 					</div>
 				))}
 			</div>
@@ -16,4 +20,4 @@ const BookGrid = () => {
 	);
 };
 
-export default BookGrid;
+export default Books;
