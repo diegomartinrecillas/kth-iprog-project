@@ -1,4 +1,4 @@
-class RequestService {
+export class RequestService {
 	public static async getRequest(url: string) {
 		const options = {
 			method: 'GET',
@@ -15,4 +15,3 @@ class RequestService {
 		return data;
 	}
 }
-export default RequestService;

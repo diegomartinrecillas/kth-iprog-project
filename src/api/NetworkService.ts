@@ -1,7 +1,7 @@
-import RequestService from './RequestService';
+import { RequestService } from './RequestService';
 import { apiUrls } from './config';
 
-class NetworkService {
+export class NetworkService {
 	public static getProgrammes() {
 		const url = `${apiUrls.kth}?call=programme`;
 		return RequestService.getRequest(url);
@@ -27,5 +27,3 @@ class NetworkService {
 		return RequestService.getRequest(url);
 	}
 }
-
-export default NetworkService;

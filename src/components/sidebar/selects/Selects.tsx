@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useProgrammes } from '../../../hooks/useProgrammes';
+import { RequestStatus } from '../../../api';
 
 import styles from './Selects.module.scss';
 
@@ -9,10 +10,14 @@ interface Props {
 }
 
 const Selects = (props: Props) => {
-	const programmes = useProgrammes();
+	const [programmes, programmesStatus] = useProgrammes();
 	const [courses, setCourses] = useState([]);
 
-	if (!programmes || !courses) {
+	if (
+		programmesStatus === RequestStatus.IDLE ||
+		programmesStatus === RequestStatus.LOADING ||
+		!courses
+	) {
 		return <div>Loading...</div>;
 	}
 
