@@ -8,7 +8,7 @@ interface Props {
 	courses?: any;
 }
 
-const SidebarSelects = (props: Props) => {
+const Selects = (props: Props) => {
 	const programmes = useProgrammes();
 	const [courses, setCourses] = useState([]);
 
@@ -59,4 +59,4 @@ const SidebarSelects = (props: Props) => {
 	);
 };
 
-export default SidebarSelects;
+export default Selects;
