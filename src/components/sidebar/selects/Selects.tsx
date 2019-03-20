@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import NetworkService from '../../../api/NetworkService';
+import React, { useState } from 'react';
+import { useProgrammes } from '../../../hooks/useProgrammes';
+
 import styles from './Selects.module.scss';
 
 interface Props {
@@ -8,14 +9,8 @@ interface Props {
 }
 
 const SidebarSelects = (props: Props) => {
-	const [programmes, setProgrammes] = useState();
+	const programmes = useProgrammes();
 	const [courses, setCourses] = useState([]);
-
-	useEffect(() => {
-		NetworkService.getProgrammes()
-			.then(data => setProgrammes(data.programmes))
-			.catch(); // TODO: handle error
-	}, []);
 
 	if (!programmes || !courses) {
 		return <div>Loading...</div>;
