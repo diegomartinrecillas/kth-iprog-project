@@ -1,7 +1,15 @@
-# RundBok
+# Rundbok
 
 RundBok is a service meant to help and allow students at<br/>
 KTH Royal Institute of Technology to list and sell their old course literature.
+
+## What we have done
+
+The project skeleton has been setup, intial layout has been implemented and the 3rd party data which will be used in Rundbok is retrieved from the KTH API and Google Books API. A proxy has been implemented at api.rundbok.dev.sharpmind.se in order to solve CORS errors, we plan to let all API requests go through there. Mockups of each view has also been designed.
+
+## What we still plan to do
+
+We plan to start building the backend which we are heavy dependent on since the 3rd party data itself is not what we plan to present in the long run. The 3rd party data is rather supposed to complement and help in the creation process of a book listing/ad. We also plan to integrate Facebook-auth which will be our way of identifying who sells what.
 
 ## Directories and files
 
