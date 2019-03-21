@@ -91,7 +91,7 @@ Runs the Sass linter (sass-lint) to check for errors and style violations within
 
 Runs the TypeScript linter (tslint) to check for errors and style violations within .ts and .tsx files.
 
-### `yarn ts-lint`
+### `yarn ts-lint:fix`
 
 Runs the TypeScript linter (tslint) to check for errors and style violations within .ts and .tsx files and attempts to fix them.
 
