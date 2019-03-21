@@ -37,11 +37,11 @@ Contexts manage the global state of the application; once provided they can be c
 
 ### src/hooks
 
-Custom hooks that enhance components, i.e. `withContext()`. Must start with the word `with`.
+Custom hooks that enhance components, i.e. `useProgrammes()`. Must start with the keyword `use`.
 
 ### src/hocs
 
-Higher-oder components used to inject extra funtionality into components, i.e. `useProgrammes()`. Must start with the word `use`.
+Higher-oder components used to inject extra funtionality into components, i.e. `withContext()`. Must start with the keyword `with`.
 
 ### src/App.tsx
 
