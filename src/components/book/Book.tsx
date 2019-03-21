@@ -1,4 +1,5 @@
 import React from 'react';
+import Price from '../price/Price';
 import styles from './Book.module.scss';
 
 const BookItem = () => {
@@ -6,6 +7,9 @@ const BookItem = () => {
 		<div className={styles.book}>
 			<div className={styles.cover} />
 			<div className="spacing spacing_sm" />
+			<div className="spacing spacing_xs" />
+			<Price price={80} newPrice={450} />
+			<div className="spacing spacing_xs" />
 			<b>Lorem ipsum dolor</b> <br />
 			<small>Lorem ipsum dolor sit amore imum</small>
 		</div>
