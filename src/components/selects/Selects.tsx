@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useProgrammes } from '../../../hooks/useProgrammes';
-import { RequestStatus } from '../../../api';
+import { useProgrammes } from '../../hooks/useProgrammes';
+import { RequestStatus } from '../../api';
 
 import styles from './Selects.module.scss';
 
@@ -32,7 +32,7 @@ const Selects = (props: Props) => {
 			<div className="text-label">PROGRAMMES</div>
 			<div className="spacing spacing_xs" />
 			<select
-				className="sidebar-selects__custom-select custom-select"
+				className={`${styles.select} custom-select`}
 				id="programme-select"
 			>
 				{programmes &&
@@ -48,7 +48,7 @@ const Selects = (props: Props) => {
 			<div className="text-label">COURSES</div>
 			<div className="spacing spacing_xs" />
 			<select
-				className={`${styles['custom-select']} custom-select`}
+				className={`${styles.select} custom-select`}
 				id="programme-select"
 			>
 				{courses &&

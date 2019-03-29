@@ -2,7 +2,7 @@ import React from 'react';
 import Price from '../price/Price';
 import styles from './Book.module.scss';
 
-const BookItem = () => {
+const Book = () => {
 	return (
 		<div className={styles.book}>
 			<div className={styles.cover} />
@@ -16,4 +16,4 @@ const BookItem = () => {
 	);
 };
 
-export default BookItem;
+export default Book;

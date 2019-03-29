@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../logo/Logo';
-import Selects from './selects/Selects';
+import Selects from '../selects/Selects';
 import styles from './Sidebar.module.scss';
 
 const Sidebar = () => {

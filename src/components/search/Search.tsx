@@ -1,5 +1,5 @@
 import React from 'react';
-import Searchbar from './searchbar/Searchbar';
+import Searchbar from '../searchbar/Searchbar';
 import Books from '../books/Books';
 import stlyes from './Search.module.scss';
 

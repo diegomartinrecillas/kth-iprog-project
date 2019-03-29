@@ -6,7 +6,7 @@ interface Props {
 	newPrice: number;
 }
 
-const BookItem = (props: Props) => {
+const Price = (props: Props) => {
 	const { price, newPrice } = props;
 
 	return (
@@ -20,4 +20,4 @@ const BookItem = (props: Props) => {
 	);
 };
 
-export default BookItem;
+export default Price;
