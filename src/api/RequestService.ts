@@ -7,11 +7,12 @@ export class RequestService {
 			},
 		};
 
-		const data = await await fetch(url, options)
-			.then(res => {
-				return res.json();
-			})
-			.catch(err => err);
-		return data;
+		try {
+			const res = await fetch(encodeURI(url), options);
+			const data = await res.json();
+			return data;
+		} catch (err) {
+			throw err;
+		}
 	}
 }
