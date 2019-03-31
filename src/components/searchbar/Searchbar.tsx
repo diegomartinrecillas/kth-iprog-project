@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Searchbar.module.scss';
+import { Link } from 'react-router-dom';
 
 const Searchbar = () => {
 	return (
@@ -15,6 +16,10 @@ const Searchbar = () => {
 					<div className="row justify-content-end medium-gutters align-items-center">
 						<div className="col-auto">
 							<div className="d-flex">
+								<Link to="/edit">
+									<i className="fas fa-plus" />
+								</Link>
+								<div className="spacing-h spacing-h_sm" />
 								<a href="">
 									<i className="fas fa-bookmark" />
 								</a>

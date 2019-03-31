@@ -1,0 +1,15 @@
+@import '../../scss/constants/index';
+
+.form {
+	.cover {
+		background-color: $color-light-gray;
+		border-radius: $radius;
+		display: block;
+		height: 18vw;
+		max-height: 250px;
+		max-width: 14vw;
+		min-height: 200px;
+		min-width: 140px;
+		width: 100%;
+	}
+}

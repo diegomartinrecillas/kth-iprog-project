@@ -1,0 +1,19 @@
+@import '../../scss/constants/index';
+
+.input-field { 
+	input,
+	textarea {
+		border: $border solid $color-light-gray;
+		border-radius: $radius;
+		height: 40px;
+			
+		&::-webkit-input-placeholder {
+			padding: 10px;
+		}
+	}
+
+	textarea {
+		height: 100px;
+		resize: none;
+	}
+}
