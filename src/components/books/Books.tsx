@@ -11,7 +11,7 @@ const Books = (props: Props) => {
 		<div className="book-grid">
 			<div className="row justify-content-between medium-gutters">
 				{books.map(book => (
-					<div className="col-sm-12 col-md-4 margin-bottom-col" key={book}>
+					<div className="col-sm-12 col-md-3 margin-bottom-col" key={book}>
 						<BookItem />
 					</div>
 				))}
