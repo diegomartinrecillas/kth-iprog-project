@@ -1,8 +1,8 @@
 import React from 'react';
 import Price from '../price/Price';
-import styles from './Book.module.scss';
+import styles from './BookItem.module.scss';
 
-const Book = () => {
+const BookItem = () => {
 	return (
 		<div className={styles.book}>
 			<div className={styles.cover} />
@@ -16,4 +16,4 @@ const Book = () => {
 	);
 };
 
-export default Book;
+export default BookItem;

@@ -56,12 +56,10 @@
 	},
 	"lint-staged": {
 		"*.{ts,tsx}": [
-			"yarn ts-lint:fix",
 			"prettier --write",
 			"git add"
 		],
 		"*.{sass,scss}": [
-			"yarn sass-lint:fix",
 			"yarn sass-lint",
 			"prettier --write",
 			"git add"

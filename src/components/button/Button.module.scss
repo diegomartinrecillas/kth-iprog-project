@@ -1,0 +1,19 @@
+@import '../../scss/constants/index';
+
+.button {
+	background-color: $color-black;
+	border: 0;
+	border-radius: $radius;
+	color: $color-white;
+	font-family: $headline-font;
+	font-size: 0.975rem;
+	font-weight: $headline-font-weight;
+	height: 2.5rem;
+	letter-spacing: 1px;
+	line-height: 40px;
+	text-transform: uppercase;
+
+	i {
+		margin-right: 4px;
+	}
+}

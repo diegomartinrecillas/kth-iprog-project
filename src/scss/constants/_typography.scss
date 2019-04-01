@@ -30,12 +30,13 @@
 		}
 	}
 
-	input, textarea {
+	input,
+	textarea {
 		color: $color-gray;
 
 		&::-webkit-input-placeholder {
 			color: $color-light-gray;
-			font-size: .95rem;
+			font-size: 0.95rem;
 		}
 	}
 
@@ -89,24 +90,6 @@
 
 		&.active {
 			color: $color-dark;
-		}
-	}
-
-	.standard-btn {
-		color: $color-white;
-		font-family: $headline-font;
-		font-weight: $headline-font-weight;
-		text-transform: uppercase;
-		font-size: 0.975rem;
-		letter-spacing: 1px;
-		height: 2.5rem;
-		border: none;
-		border-radius: $radius;
-		background-color: $color-black;
-		line-height: 40px;
-
-		i {
-			margin-right: 4px;
 		}
 	}
 }
