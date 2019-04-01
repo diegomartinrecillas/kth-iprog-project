@@ -57,11 +57,12 @@
 	"lint-staged": {
 		"*.{ts,tsx}": [
 			"prettier --write",
+			"yarn tslint",
 			"git add"
 		],
 		"*.{sass,scss}": [
-			"yarn sass-lint",
 			"prettier --write",
+			"yarn sass-lint",
 			"git add"
 		],
 		"*.{js,jsx,json,css,md}": [
