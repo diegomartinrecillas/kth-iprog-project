@@ -6,19 +6,20 @@
 	font-size: 16px;
 
 	.now {
-		background-color: $color-accent;
 		border-radius: $radius;
-		color: $color-white;
+		color: $color-accent;
 		display: inline;
-		font-weight: 600;
+		font-size: 32px;
+		font-weight: 700;
+		line-height: 32px;
 		margin-right: 10px;
-		padding: 5px 10px;
 	}
 
 	.new {
 		color: $color-gray;
-		font-size: 14px;
+		font-size: 10px;
 		line-height: 1.25;
+		margin: auto 0 2px;
 
 		b {
 			color: $color-gray;

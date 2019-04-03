@@ -1,6 +1,10 @@
 .spacing {
 	height: $spacing;
 
+	&_md {
+		height: $spacing * 1.5;
+	}
+
 	&_lg {
 		height: $spacing * 2;
 	}

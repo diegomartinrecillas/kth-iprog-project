@@ -1,0 +1,57 @@
+@import '../../scss/constants/index';
+
+.seller {
+	border: 1px solid $color-light-gray;
+	border-radius: $radius;
+	padding: 20px;
+}
+
+.messenger {
+	align-items: center;
+	background-color: $color-facebook;
+	color: $color-white;
+	display: flex;
+	margin-top: 20px;
+	padding: 6px 0;
+	text-align: left;
+	width: 100%;
+}
+
+.title {
+	font-size: 14px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.legend {
+	font-size: 14px;
+	font-weight: 400px;
+}
+
+.icon {
+	font-size: 32px;
+	margin: 0 16px;
+}
+
+.name {
+	color: $color-dark;
+	font-weight: 700;
+}
+
+.profile {
+	background-color: $color-light-gray;
+	border-radius: 50%;
+	display: block;
+	height: 50px;
+	width: 50px;
+}
+
+.location {
+	color: $color-gray;
+	font-size: 14px;
+}
+
+.description {
+	color: $color-gray;
+	font-size: 14px;
+}

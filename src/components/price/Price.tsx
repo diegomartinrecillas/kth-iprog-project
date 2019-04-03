@@ -14,7 +14,7 @@ const Price = (props: Props) => {
 			<div className={styles.now}>{price} SEK</div>
 			<div className={styles.new}>
 				<b>NEW</b>
-				{newPrice}
+				{newPrice} SEK
 			</div>
 		</div>
 	);

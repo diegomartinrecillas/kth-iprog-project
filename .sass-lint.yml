@@ -64,7 +64,7 @@ rules:
     - 2
     - size: tab
   leading-zero:
-    - 1
+    - 0
     - include: false
   mixin-name-format:
     - 2

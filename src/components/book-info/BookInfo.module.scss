@@ -1,0 +1,35 @@
+@import '../../scss/constants/index';
+
+.cover {
+	background-color: $color-light-gray;
+	border-radius: $radius;
+	display: block;
+	height: 300px;
+	min-width: 200px;
+	object-fit: cover;
+}
+
+.edition {
+	color: $color-gray;
+	font-size: 14px;
+	font-weight: 500;
+	margin-bottom: 0.75rem;
+}
+
+.title {
+	font-family: $headline-font;
+	font-size: 32px;
+	font-weight: $headline-font-weight;
+	margin-bottom: 0.25rem;
+}
+
+.author {
+	color: $color-gray;
+	font-size: 14px;
+}
+
+.description {
+	color: $color-gray;
+	font-size: 14px;
+	margin-top: 1.5rem;
+}
