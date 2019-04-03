@@ -7,6 +7,7 @@ import ViewBook from '../view-book/ViewBook';
 import EditBook from '../edit-book/EditBook';
 
 import stlyes from './Search.module.scss';
+import AddBook from '../add-book/AddBook';
 
 const Search = () => {
 	const books = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -32,6 +33,7 @@ const Search = () => {
 				</Route>
 
 				<Route path="/edit/:id" component={EditBook} />
+				<Route path="/add" component={AddBook} />
 
 				<Route path="/:id" component={ViewBook} />
 			</Switch>

@@ -16,7 +16,7 @@ const Searchbar = () => {
 					<div className="row justify-content-end medium-gutters align-items-center">
 						<div className="col-auto">
 							<div className="d-flex">
-								<Link to="/edit">
+								<Link to="/add">
 									<i className="fas fa-plus" />
 								</Link>
 								<div className="spacing-h spacing-h_sm" />
