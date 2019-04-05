@@ -12,11 +12,11 @@ const ViewBook = () => {
 			<div className={styles.heading}>Arquitecture / course</div>
 			<div className="spacing spacing_md" />
 			<div className="d-flex">
-				<div className="row medium-gutters">
-					<div className="col-7">
+				<div className="row">
+					<div className="col-8">
 						<BookInfo />
 					</div>
-					<div className="col-3">
+					<div className="col-4">
 						<Seller />
 					</div>
 				</div>

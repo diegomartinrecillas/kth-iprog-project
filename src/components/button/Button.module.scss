@@ -2,18 +2,16 @@
 
 .button {
 	background-color: $color-black;
-	border: 0;
 	border-radius: $radius;
 	color: $color-white;
-	font-family: $headline-font;
-	font-size: 0.975rem;
-	font-weight: $headline-font-weight;
-	height: 2.5rem;
+	font-family: $button-font;
+	font-weight: $button-font-weight;
 	letter-spacing: 1px;
-	line-height: 40px;
 	text-transform: uppercase;
+	height: 50px;
+	width: 100%;
 
 	i {
-		margin-right: 4px;
+		margin-right: 10px;
 	}
 }

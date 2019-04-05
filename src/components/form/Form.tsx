@@ -5,44 +5,69 @@ import styles from './Form.module.scss';
 
 const Form = () => {
 	return (
-		<div className="container">
-			<div className="spacing spacing--medium" />
-			<div className={styles.form}>
-				<div className="d-flex flex-row">
+		<div className={styles.form}>
+			<div className="row">
+				<div className="col">
 					<div className={styles.cover} />
-					<div className="spacing-h spacing-h--large" />
-					<div className="d-flex flex-row">
-						<div className="spacing-h spacing-h--medium" />
-						<div className="d-flex flex-column">
-							<div className="d-flex flex-row">
-								<InputField name="Programme" type="text" />
-								<div className="spacing-h spacing-h--medium" />
-								<InputField name="Course" type="text" />
+				</div>
+				<div className="col-9">
+					<div className="row">
+						<div className="col-8">
+							<div className="row medium-gutters">
+								<div className="col-md-6">
+									<InputField name="Programme" type="text" />
+								</div>
+
+								<div className="col-md-6">
+									<InputField name="Course" type="text" />
+								</div>
 							</div>
-							<div className="spacing spacing--medium" />
-							<div className="d-flex flex-row">
-								<InputField name="Title" type="text" />
-								<div className="spacing-h spacing-h--medium" />
-								<InputField name="Author" type="text" />
+
+							<div className="spacing" />
+
+							<div className="row medium-gutters">
+								<div className="col-md-6">
+									<InputField name="Title" type="text" />
+								</div>
+
+								<div className="col-md-6">
+									<InputField name="Author" type="text" />
+								</div>
 							</div>
-							<div className="spacing spacing--medium" />
-							<div className="d-flex flex-row">
-								<InputField name="Price" type="number" />
-								<div className="spacing-h spacing-h--medium" />
-								<InputField name="New Price" type="number" />
+
+							<div className="spacing" />
+
+							<div className="row medium-gutters">
+								<div className="col-md-6">
+									<InputField name="Price" type="number" />
+								</div>
+
+								<div className="col-md-6">
+									<InputField name="New Price" type="number" />
+								</div>
 							</div>
-							<div className="spacing spacing--medium" />
-							<div className="d-flex flex-row">
-								<InputField name="Release Year" type="number" />
-								<div className="spacing-h spacing-h--medium" />
-								<InputField name="Collect location" type="text" />
+
+							<div className="spacing" />
+
+							<div className="row medium-gutters">
+								<div className="col-md-6">
+									<InputField name="Release Year" type="number" />
+								</div>
+
+								<div className="col-md-6">
+									<InputField name="Collect location" type="text" />
+								</div>
 							</div>
-							<div className="spacing spacing--medium" />
+
+							<div className="spacing" />
+
 							<InputField name="Description" type="textarea" />
 						</div>
-						<div className="spacing-h spacing-h--medium" />
-						<div className="d-flex flex-column justify-content-between">
+						<div className="col-4">
 							<InputField name="Personal description" type="textarea" />
+
+							<div className="spacing" />
+
 							<Button text="Add Book" icon="plus" />
 						</div>
 					</div>

@@ -5,12 +5,14 @@ import styles from './BookInfo.module.scss';
 
 const BookInfo = () => {
 	return (
-		<div className="d-flex">
-			<img
-				className={`${styles.cover} mr-5`}
-				src="https://karlavagen31.se/content/images/thumbs/0001932_vi-ger-bort-nasta-lasupplevelse-till-bokcirkeln.jpeg"
-			/>
-			<div>
+		<div className="row">
+			<div className="col-auto">
+				<img
+					className={`${styles.cover}`}
+					src="https://karlavagen31.se/content/images/thumbs/0001932_vi-ger-bort-nasta-lasupplevelse-till-bokcirkeln.jpeg"
+				/>
+			</div>
+			<div className="col">
 				<div className={styles.edition}>Swedish, 2018</div>
 				<div className={styles.title}>Allt jag fått lära mig</div>
 				<div className={styles.author}>By Tara Westover</div>

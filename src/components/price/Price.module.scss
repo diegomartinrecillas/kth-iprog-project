@@ -3,23 +3,19 @@
 .price {
 	align-items: center;
 	display: flex;
-	font-size: 16px;
+	font-size: 18px;
 
 	.now {
-		border-radius: $radius;
 		color: $color-accent;
-		display: inline;
-		font-size: 32px;
+		font-size: 26px;
 		font-weight: 700;
-		line-height: 32px;
 		margin-right: 10px;
 	}
 
 	.new {
 		color: $color-gray;
-		font-size: 10px;
-		line-height: 1.25;
-		margin: auto 0 2px;
+		font-size: 12px;
+		line-height: 1.2;
 
 		b {
 			color: $color-gray;

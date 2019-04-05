@@ -1,11 +1,14 @@
 @import '../../scss/constants/index';
 
 .input-field {
+	width: 100%;
+
 	input,
 	textarea {
 		border: $border solid $color-light-gray;
 		border-radius: $radius;
 		height: 40px;
+		width: 100%;
 
 		&::-webkit-input-placeholder {
 			padding: 10px;

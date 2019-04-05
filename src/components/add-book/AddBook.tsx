@@ -6,11 +6,10 @@ const AddBook = () => {
 	return (
 		<>
 			<div className="container">
-				<div className="spacing spacing--large" />
-				<div className="text-label text-label--large">ADD BOOK</div>
+				<div className="text-label text-label_lg">ADD BOOK</div>
+				<div className="spacing spacing--medium" />
+				<Form />
 			</div>
-			<Form />
-			<div className="spacing spacing--large" />
 		</>
 	);
 };
