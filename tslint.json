@@ -14,7 +14,8 @@
 		"jsx-no-lambda": false,
 		"jsx-boolean-value": false,
 		"strict-type-predicates": false,
-		"interface-name": false
+		"interface-name": false,
+		"no-string-literal": false
 	},
 	"rulesDirectory": []
 }

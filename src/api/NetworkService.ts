@@ -3,19 +3,23 @@ import { apiUrls } from './config';
 
 export class NetworkService {
 	public static getProgrammes() {
-		const url = `${apiUrls.kth}?call=programme`;
+		const url = `${apiUrls.rundbok}?call=programme`;
 		return RequestService.getRequest(url);
 	}
 	public static getProgrammeByCode(code: string) {
-		const url = `${apiUrls.kth}?call=programme&code=${code}`;
+		const url = `${apiUrls.rundbok}?call=programme&code=${code}`;
 		return RequestService.getRequest(url);
 	}
 	public static getCourses() {
-		const url = `${apiUrls.kth}?call=courses`;
+		const url = `${apiUrls.rundbok}?call=courses`;
 		return RequestService.getRequest(url);
 	}
 	public static getCourseByCode(code: string) {
-		const url = `${apiUrls.kth}?call=course&code=${code}`;
+		const url = `${apiUrls.rundbok}?call=course&code=${code}`;
+		return RequestService.getRequest(url);
+	}
+	public static searchListedBooks(query: string) {
+		const url = `${apiUrls.rundbok}/api/books/search/${query}`;
 		return RequestService.getRequest(url);
 	}
 	public static searchForBooks(query: string) {

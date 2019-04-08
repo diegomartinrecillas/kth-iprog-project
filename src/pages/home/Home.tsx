@@ -2,9 +2,11 @@ import React from 'react';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Search from '../../components/search/Search';
 
+import { SearchProvider } from '../../contexts/Search.context';
+
 const Home = () => {
 	return (
-		<div>
+		<SearchProvider>
 			<div className="row">
 				<div className="col-lg-3 border-right">
 					<Sidebar />
@@ -13,7 +15,7 @@ const Home = () => {
 					<Search />
 				</div>
 			</div>
-		</div>
+		</SearchProvider>
 	);
 };
 
