@@ -40,16 +40,12 @@ const Searchbar = () => {
 						<div className="col-auto">
 							<div className="d-flex">
 								<Link to="/add">
-									<i className="fas fa-plus" />
+									<div className="d-flex align-items-center">
+										<i className="fas fa-plus" />
+										<div className="spacing-h spacing-h_xs" />
+										add button
+									</div>
 								</Link>
-								<div className="spacing-h spacing-h_sm" />
-								<a href="">
-									<i className="fas fa-bookmark" />
-								</a>
-								<div className="spacing-h spacing-h_sm" />
-								<a href="">
-									<i className="fas fa-bell" />
-								</a>
 							</div>
 						</div>
 						<div className="col-auto">
