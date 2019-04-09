@@ -8,7 +8,7 @@ const AddBook = () => {
 			<div className="container">
 				<div className="text-label text-label_lg">ADD BOOK</div>
 				<div className="spacing spacing--medium" />
-				<Form />
+				<Form add={true} />
 			</div>
 		</>
 	);

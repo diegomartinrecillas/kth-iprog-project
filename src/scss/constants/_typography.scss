@@ -80,12 +80,16 @@
 		}
 	}
 
-	a {
+	a,
+	.link {
 		color: $color-gray;
 		outline: none;
+		font-weight: 500;
 
 		&:hover {
 			color: $color-gray;
+			cursor: pointer;
+			text-decoration: underline;
 		}
 
 		&.active {

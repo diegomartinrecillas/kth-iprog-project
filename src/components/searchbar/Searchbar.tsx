@@ -39,11 +39,11 @@ const Searchbar = () => {
 					<div className="row justify-content-end medium-gutters align-items-center">
 						<div className="col-auto">
 							<div className="d-flex">
-								<Link to="/edit/2">
-									<i className="fas fa-plus" />
-									<div className="spacing-h spacing-h_sm" />
-									<div className={styles['add-book']}>
-										<p>Add Book</p>
+								<Link to="/add">
+									<div className="d-flex align-items-center">
+										<i className="fas fa-plus" />
+										<div className="spacing-h spacing-h_xs" />
+										add button
 									</div>
 								</Link>
 							</div>

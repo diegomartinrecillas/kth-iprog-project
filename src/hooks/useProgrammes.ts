@@ -9,11 +9,10 @@ export const useProgrammes = () => {
 		setStatus(RequestStatus.LOADING);
 		NetworkService.getProgrammes()
 			.then(data => {
-				setProgrammes(data.programmes);
+				setProgrammes(data);
 				setStatus(RequestStatus.SUCCESS);
 			})
 			.catch(() => setStatus(RequestStatus.ERROR));
 	}, []);
-
 	return [programmes, status];
 };

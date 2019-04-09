@@ -1,40 +1,27 @@
 import React from 'react';
 import styles from './InputField.module.scss';
 
-interface Field {
+interface Props {
 	name: string;
 	type: string;
 }
 
-const InputField = (field: Field) => {
+const InputField = (props: Props) => {
+	const { name, type } = props;
 	return (
 		<div className={'d-flex flex-column ' + styles['input-field']}>
-			<label htmlFor={field.name} className="input-label">
-				{field.name}
+			<label htmlFor={name} className="input-label">
+				{name}
 			</label>
-			{field.type === 'dropdown' ? '' : null}
-			{field.type === 'text' ? (
-				<input
-					className="input"
-					type="text"
-					name={field.name}
-					placeholder={field.name}
-				/>
+			{type === 'dropdown' ? '' : null}
+			{type === 'text' ? (
+				<input className="input" type="text" name={name} placeholder={name} />
 			) : null}
-			{field.type === 'textarea' ? (
-				<textarea
-					className="input"
-					name={field.name}
-					placeholder={field.name}
-				/>
+			{type === 'textarea' ? (
+				<textarea className="input" name={name} placeholder={name} />
 			) : null}
-			{field.type === 'number' ? (
-				<input
-					className="input"
-					type="number"
-					name={field.name}
-					placeholder={field.name}
-				/>
+			{type === 'number' ? (
+				<input className="input" type="number" name={name} placeholder={name} />
 			) : null}
 		</div>
 	);
