@@ -23,10 +23,10 @@ const Selects = (props: Props) => {
 
 	return (
 		<div className={styles.selects}>
-			<a href="">Handpicked</a>
+			<a href="">Latest Listings</a>
 			<div className="spacing spacing_sm" />
 			<a className="active" href="">
-				Latest Listings
+				Bookmarks
 			</a>
 			<div className="spacing spacing_lg" />
 			<div className="text-label">PROGRAMMES</div>

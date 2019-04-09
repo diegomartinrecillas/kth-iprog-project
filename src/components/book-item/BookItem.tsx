@@ -2,7 +2,11 @@ import React from 'react';
 import Price from '../price/Price';
 import styles from './BookItem.module.scss';
 
-const BookItem = () => {
+interface Props {
+	editable?: boolean;
+}
+
+const BookItem = ({ editable = false }: Props) => {
 	return (
 		<div className={styles.book}>
 			<div className={styles.cover} />

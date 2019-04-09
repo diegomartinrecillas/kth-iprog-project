@@ -39,13 +39,9 @@ const Searchbar = () => {
 					<div className="row justify-content-end medium-gutters align-items-center">
 						<div className="col-auto">
 							<div className="d-flex">
-								<Link to="/add">
+								<Link to="/edit/2">
 									<i className="fas fa-plus" />
 								</Link>
-								<div className="spacing-h spacing-h_sm" />
-								<a href="">
-									<i className="fas fa-bookmark" />
-								</a>
 								<div className="spacing-h spacing-h_sm" />
 								<a href="">
 									<i className="fas fa-bell" />
@@ -56,7 +52,9 @@ const Searchbar = () => {
 							<div className={styles.separator} />
 						</div>
 						<div className="col-auto">
-							<div className={styles['profile-image']} />
+							<Link to="/mybooks">
+								<div className={styles['profile-image']} />
+							</Link>
 						</div>
 					</div>
 				</div>
