@@ -8,7 +8,7 @@ import { Programme } from '../../models/Programme';
 import { Course } from '../../models/Course';
 
 interface Props {
-	programmes?: Programme;
+	programmes?: Programme[];
 	courses?: Course[];
 }
 
@@ -26,9 +26,12 @@ const Selects = (props: Props) => {
 
 	return (
 		<div className={styles.selects}>
-			<div className="text-label">PROGRAMMES</div>
-			<div className="spacing spacing_xs" />
-
+			{programmes.length > 0 && (
+				<>
+					<div className="text-label">PROGRAMMES</div>
+					<div className="spacing spacing_xs" />
+				</>
+			)}
 			{programmes &&
 				programmes.map((programme: Programme, index: number) => {
 					return (
@@ -44,13 +47,18 @@ const Selects = (props: Props) => {
 					);
 				})}
 
+			{courses.length > 0 && (
+				<>
+					<div className="spacing spacing--medium" />
+					<div className="text-label">COURSES</div>
+					<div className="spacing spacing_xs" />
+				</>
+			)}
+
 			{courses &&
 				courses.map((course: Course, index: number) => {
 					return (
 						<>
-							<div className="spacing spacing--medium" />
-							<div className="text-label">COURSES</div>
-							<div className="spacing spacing_xs" />
 							<p className="link" key={index}>
 								{course.name}
 							</p>
