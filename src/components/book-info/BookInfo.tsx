@@ -1,6 +1,6 @@
 import React from 'react';
 import Price from '../price/Price';
-import NewPrice from '../new-price/NewPrice';
+// import NewPrice from '../new-price/NewPrice';
 
 import styles from './BookInfo.module.scss';
 
@@ -18,8 +18,8 @@ const BookInfo = () => {
 				<div className={styles.title}>Allt jag fått lära mig</div>
 				<div className={styles.author}>By Tara Westover</div>
 				<div className="mt-3">
-					<Price price={80} />
-					<NewPrice newPrice={450} />
+					<Price price={80} newPrice={400} />
+					{/* <NewPrice newPrice={450} /> */}
 				</div>
 				<div className={styles.description}>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis dolorem

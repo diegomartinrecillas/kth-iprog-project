@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Route, Switch } from 'react-router';
+
+import { SearchContext } from '../../contexts/Search.context';
 
 import Searchbar from '../searchbar/Searchbar';
 import Books from '../books/Books';
@@ -11,6 +13,8 @@ import AddBook from '../add-book/AddBook';
 import styles from './Search.module.scss';
 
 const Search = () => {
+	const { results } = useContext(SearchContext);
+
 	return (
 		<div className={styles.search}>
 			<div className="container">
@@ -26,7 +30,7 @@ const Search = () => {
 							<div className={`${styles.books} container`}>
 								<div className="text-label text-label_lg">LATEST LISTINGS</div>
 								<div className="spacing spacing--medium" />
-								<Books />
+								<Books books={results} />
 							</div>
 						)
 					}

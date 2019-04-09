@@ -1,15 +1,18 @@
 import React, { useContext } from 'react';
 
-import { SearchContext } from '../../contexts/Search.context';
 import BookItem from '../book-item/BookItem';
+import { Book } from '../../models/Book';
 
-const Books = () => {
-	const { results } = useContext(SearchContext);
+interface Props {
+	books: Book[];
+}
 
+const Books = (props: Props) => {
+	const { books } = props;
 	return (
 		<div className="book-grid">
 			<div className="row justify-content-between medium-gutters">
-				{results.map((book, index) => (
+				{books.map((book, index) => (
 					<div className="col-sm-12 col-md-3 margin-bottom-col" key={index}>
 						<BookItem book={book} />
 					</div>

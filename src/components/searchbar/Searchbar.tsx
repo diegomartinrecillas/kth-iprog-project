@@ -72,6 +72,9 @@ const Searchbar = (props: RouteComponentProps) => {
 								<div className={styles['profile-image']} />
 							</Link>
 						</div>
+						<div className="col-auto">
+							<i className="fas fa-angle-down" />
+						</div>
 					</div>
 				</div>
 			</div>
