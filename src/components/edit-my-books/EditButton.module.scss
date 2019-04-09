@@ -5,14 +5,14 @@
 	color: $color-gray;
 
 	i {
-		margin-left: 20px;
 		display: inline-block;
+		margin-left: 20px;
 	}
 
 	.edit {
+		display: inline-block;
 		font-size: 12px;
 		line-height: 1.2;
-		display: inline-block;
 		margin-left: 5px;
 	}
 }

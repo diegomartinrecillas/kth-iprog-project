@@ -2,12 +2,14 @@
 
 .searchbar {
 	i {
-		font-size: 20px;
 		display: inline-block;
+		font-size: 20px;
 	}
 
-	a:hover {
-		text-decoration: none;
+	a {
+		&:hover {
+			text-decoration: none;
+		}
 	}
 
 	.form-group {
