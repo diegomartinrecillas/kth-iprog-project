@@ -41,11 +41,11 @@ const Searchbar = () => {
 							<div className="d-flex">
 								<Link to="/edit/2">
 									<i className="fas fa-plus" />
+									<div className="spacing-h spacing-h_sm" />
+									<div className={styles['add-book']}>
+										<p>Add Book</p>
+									</div>
 								</Link>
-								<div className="spacing-h spacing-h_sm" />
-								<a href="">
-									<i className="fas fa-bell" />
-								</a>
 							</div>
 						</div>
 						<div className="col-auto">

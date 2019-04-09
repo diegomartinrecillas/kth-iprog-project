@@ -1,0 +1,18 @@
+@import '../../scss/constants/index';
+
+.price {
+	align-items: center;
+	display: flex;
+	font-size: 18px;
+
+	.new {
+		color: $color-gray;
+		font-size: 12px;
+		line-height: 1.2;
+
+		b {
+			color: $color-gray;
+			display: block;
+		}
+	}
+}

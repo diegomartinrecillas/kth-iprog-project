@@ -2,7 +2,8 @@
 
 .searchbar {
 	i {
-		font-size: 22px;
+		font-size: 20px;
+		display: inline-block;
 	}
 
 	.form-group {
@@ -42,5 +43,10 @@
 		display: block;
 		height: 50px;
 		width: 50px;
+	}
+
+	.add-book {
+		display: inline-block;
+		font-size: 18px;
 	}
 }

@@ -8,7 +8,6 @@ import styles from './ViewBook.module.scss';
 const ViewBook = () => {
 	return (
 		<div className="container">
-			<div className="spacing" />
 			<div className={styles.heading}>Arquitecture / course</div>
 			<div className="spacing spacing_md" />
 			<div className="d-flex">
