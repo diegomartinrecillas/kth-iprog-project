@@ -36,12 +36,12 @@ const Search = () => {
 					}
 				</Route>
 
-				<Route path="/edit/:id" component={EditBook} />
+				<Route path="/book/:bookId" component={ViewBook} />
+				<Route path="/edit/:bookId" component={EditBook} />
+
 				<Route path="/add" component={AddBook} />
 
 				<Route path="/mybooks" component={MyBooks} />
-
-				<Route path="/:id" component={ViewBook} />
 			</Switch>
 		</div>
 	);

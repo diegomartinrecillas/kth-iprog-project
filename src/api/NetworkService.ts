@@ -27,7 +27,7 @@ export class NetworkService {
 		return RequestService.get(url);
 	}
 	public static getBookById(id: string) {
-		const url = `${apiUrls.googleBooks}/${id}`;
+		const url = `${apiUrls.rundbok}/books/${id}`;
 		return RequestService.get(url);
 	}
 }

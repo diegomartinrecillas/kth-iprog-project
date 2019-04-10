@@ -13,6 +13,7 @@ export class Book {
 	public title: string;
 
 	constructor(data: any) {
+		if (!data) return;
 		this.author = data['author'];
 		this.courseId = data['course_id'];
 		this.coverPhoto = data['cover_photo'];
