@@ -1,18 +1,15 @@
 import React from 'react';
-import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 
 import Price from '../price/Price';
-import { useBook } from '../../hooks/useBook';
-
+import { Book } from '../../models/Book';
 import styles from './BookInfo.module.scss';
 
-interface MatchParams {
-	bookId: string;
+interface Params {
+	book: Book;
 }
 
-const BookInfo = (props: RouteComponentProps<MatchParams>) => {
-	const { match } = props;
-	const [book, status] = useBook(match.params.bookId);
+const BookInfo = (props: Params) => {
+	const { book } = props;
 
 	return (
 		<div className="row">
@@ -33,4 +30,4 @@ const BookInfo = (props: RouteComponentProps<MatchParams>) => {
 	);
 };
 
-export default withRouter(BookInfo);
+export default BookInfo;

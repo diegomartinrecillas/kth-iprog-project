@@ -1,33 +1,41 @@
 import React from 'react';
 
 import styles from './Seller.module.scss';
+import { Student } from '../../models/Student';
 
-const Seller = () => {
+interface Props {
+	student: Student;
+}
+
+const Seller = (props: Props) => {
+	const { student } = props;
 	return (
 		<div className="d-flex flex-column">
 			<div className={`${styles.seller} d-flex flex-column`}>
 				<div className="d-flex mb-3">
-					<div className={styles.profile} />
+					<img className={styles.profile} src={student.avatar} />
 					<div className="ml-3 mr-3">
-						<div className={styles.name}>John Walton</div>
-						<div className={styles.location}>Kista, Stockholm</div>
+						<div className={styles.name}>{student.fullName}</div>
+						<div className={styles.location}>{student.location}</div>
 					</div>
-				</div>
-				<div className={styles.description}>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque ipsa
-					dignissimos nesciunt quaerat suscipit fugiat non ea blanditiis quam.
 				</div>
 			</div>
 			<div>
-				<button className={`btn ${styles.messenger}`}>
-					<div className={styles.icon}>
-						<i className="fab fa-facebook-messenger" />
-					</div>
-					<div>
-						<div className={styles.title}>Contact seller</div>
-						<div className={styles.legend}>Chat with John</div>
-					</div>
-				</button>
+				<a
+					className={styles.messenger}
+					target="_blank"
+					href={`mailto:${student.email}`}
+				>
+					<button className="btn">
+						<div className={styles.icon}>
+							<i className="fas fa-paper-plane" />
+						</div>
+						<div>
+							<div className={styles.title}>Contact seller</div>
+							<div className={styles.legend}>Chat with {student.firstName}</div>
+						</div>
+					</button>
+				</a>
 			</div>
 		</div>
 	);
