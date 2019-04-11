@@ -8,7 +8,7 @@ export const useBook = (bookId: string) => {
 
 	useEffect(() => {
 		setStatus(RequestStatus.LOADING);
-		NetworkService.getBookById(bookId)
+		NetworkService.getListedBookById(bookId)
 			.then(data => {
 				setBook(new Book(data));
 				setStatus(RequestStatus.SUCCESS);

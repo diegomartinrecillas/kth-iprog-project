@@ -23,7 +23,11 @@ export class NetworkService {
 		return RequestService.get(url);
 	}
 	public static searchListedBooks(query: string) {
-		const url = `${config.apiUrls.rundbok}/books/search/${query}`;
+		const url = `${config.apiUrls.rundbok}/books/search?query=${query}`;
+		return RequestService.get(url);
+	}
+	public static getListedBookById(id: string) {
+		const url = `${config.apiUrls.rundbok}/books/${id}`;
 		return RequestService.get(url);
 	}
 	public static searchForBooks(query: string) {
