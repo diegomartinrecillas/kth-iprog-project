@@ -1,25 +1,40 @@
-import React, { useContext, ChangeEvent } from 'react';
+import React, { useContext, useEffect, ChangeEvent } from 'react';
+import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
+import qs from 'query-string';
 import styles from './Searchbar.module.scss';
-import { Link } from 'react-router-dom';
 
 import { SearchContext } from '../../contexts/Search.context';
 import Login from '../login/Login';
 import Profile from '../profile/Profile';
 
-const Searchbar = () => {
-	const context = useContext(SearchContext);
+const Searchbar = (props: RouteComponentProps) => {
+	const { search, query } = useContext(SearchContext);
+	const { history, location } = props;
+
+	useEffect(() => {
+		// get the current search param value for 'query'
+		const initialQuery = (qs.parse(location.search).query as string) || '';
+		// if there's no 'query' search param defined, set it to ''
+		!initialQuery &&
+			history.replace({ search: qs.stringify({ query: initialQuery }) });
+		// initial search depending of the iniitial search params
+		search(initialQuery);
+	}, []);
 
 	let timer: ReturnType<typeof setTimeout>;
 
 	const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
 		const value = event.currentTarget.value;
+		// debounce the input change by 300ms
 		if (timer) {
 			clearTimeout(timer);
 		}
 		timer = setTimeout(() => {
-			context.search(value);
+			// update the search params to reflect the search state and redirect to the home page
+			history.push({ search: qs.stringify({ query: value }), pathname: '/' });
+			search(value);
 			timer = null;
-		}, 500);
+		}, 300);
 	};
 
 	const isLogin = true;
@@ -36,6 +51,7 @@ const Searchbar = () => {
 							name="search"
 							id="search"
 							placeholder="Search"
+							defaultValue={query}
 						/>
 					</div>
 				</div>
@@ -56,6 +72,14 @@ const Searchbar = () => {
 							<div className={styles.separator} />
 						</div>
 						<div className="col-auto">{isLogin ? <Profile /> : <Login />}</div>
+						{/* <div className="col-auto">
+							<Link to="/mybooks">
+								<div className={styles['profile-image']} />
+							</Link>
+						</div>
+						<div className="col-auto">
+							<i className="fas fa-angle-down" />
+						</div> */}
 					</div>
 				</div>
 			</div>
@@ -63,4 +87,4 @@ const Searchbar = () => {
 	);
 };
 
-export default Searchbar;
+export default withRouter(Searchbar);

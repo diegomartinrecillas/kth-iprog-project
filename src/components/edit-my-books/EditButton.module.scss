@@ -1,0 +1,18 @@
+@import '../../scss/constants/index';
+
+.button {
+	background-color: none;
+	color: $color-gray;
+
+	i {
+		display: inline-block;
+		margin-left: 20px;
+	}
+
+	.edit {
+		display: inline-block;
+		font-size: 12px;
+		line-height: 1.2;
+		margin-left: 5px;
+	}
+}

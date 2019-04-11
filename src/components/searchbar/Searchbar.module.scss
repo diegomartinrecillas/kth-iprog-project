@@ -2,11 +2,14 @@
 
 .searchbar {
 	i {
-		font-size: 22px;
+		display: inline-block;
+		font-size: 20px;
 	}
 
-	a:hover {
-		text-decoration: none;
+	a {
+		&:hover {
+			text-decoration: none;
+		}
 	}
 
 	.form-group {
@@ -38,5 +41,18 @@
 		display: block;
 		height: 50px;
 		width: 1px;
+	}
+
+	.profile-image {
+		background-color: $color-light-gray;
+		border-radius: 50%;
+		display: block;
+		height: 50px;
+		width: 50px;
+	}
+
+	.add-book {
+		display: inline-block;
+		font-size: 18px;
 	}
 }

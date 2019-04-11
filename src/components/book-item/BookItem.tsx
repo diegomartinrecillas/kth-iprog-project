@@ -1,19 +1,32 @@
 import React from 'react';
+import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import Price from '../price/Price';
+import EditButton from '../edit-my-books/EditButton';
 import styles from './BookItem.module.scss';
+import { Book } from '../../models/Book';
 
-const BookItem = () => {
+interface Props extends RouteComponentProps {
+	book: Book;
+	editable?: boolean;
+}
+
+const BookItem = (props: Props) => {
+	const { book, editable, location } = props;
+
 	return (
-		<div className={styles.book}>
-			<div className={styles.cover} />
-			<div className="spacing spacing_sm" />
-			<div className="spacing spacing_xs" />
-			<Price price={80} newPrice={450} />
-			<div className="spacing spacing_xs" />
-			<b>Lorem ipsum dolor</b> <br />
-			<small>Lorem ipsum dolor sit amore imum</small>
-		</div>
+		<Link to={{ ...location, pathname: `book/${book.id}` }}>
+			<div className={styles.book}>
+				<img className={`${styles.cover}`} src={book.coverPhoto} />
+				<div className="spacing spacing_sm" />
+				<div className="spacing spacing_xs" />
+				<Price price={book.price} />
+				{editable && <EditButton />}
+				<div className="spacing spacing_xs" />
+				<b>{book.title}</b> <br />
+				<small>{book.author}</small>
+			</div>
+		</Link>
 	);
 };
 
-export default BookItem;
+export default withRouter(BookItem);
