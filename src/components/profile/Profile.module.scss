@@ -1,0 +1,31 @@
+@import '../../scss/constants/index';
+
+.profile {
+	.image {
+		background-color: $color-light-gray;
+		border-radius: 50%;
+		display: block;
+		height: 50px;
+		width: 50px;
+	}
+
+	i {
+		cursor: pointer;
+	}
+
+	.dropdown {
+		position: absolute;
+		background-color: $color-white;
+		padding: 20px;
+		z-index: 1;
+		width: 170px;
+		transform: translate(-75%, 25%);
+		-webkit-transform: translate(-53%, 25%);
+		border: $border solid $color-light-gray;
+		border-radius: $radius;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+}

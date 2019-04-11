@@ -1,0 +1,19 @@
+@import '../../scss/constants/index';
+
+.login {
+	position: relative;
+	background-color: $color-black;
+	border-radius: $radius;
+	color: $color-white;
+	font-family: $button-font;
+	font-weight: $button-font-weight;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	height: 50px;
+	width: 100%;
+	outline: none;
+
+	i {
+		margin-right: 10px;
+	}
+}

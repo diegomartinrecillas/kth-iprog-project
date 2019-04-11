@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useProgrammes } from '../../hooks/useProgrammes';
+import { useAvailableProgrammes } from '../../hooks/useAvailableProgrammes';
 import { RequestStatus } from '../../api';
 
 import styles from './Selects.module.scss';
@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Selects = (props: Props) => {
-	const [programmes, programmesStatus] = useProgrammes();
+	const [programmes, programmesStatus] = useAvailableProgrammes();
 	const [courses, setCourses] = useState([]);
 
 	if (

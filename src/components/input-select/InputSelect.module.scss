@@ -1,0 +1,28 @@
+@import '../../scss/constants/index';
+
+.selects {
+	width: 100%;
+	ul {
+		padding-left: none;
+
+		li {
+			list-style: none;
+			margin-bottom: $spacing / 3;
+
+			a {
+				display: block;
+				max-width: 80%;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+		}
+	}
+
+	.select {
+		&:active,
+		&:focus {
+			outline: 0;
+		}
+	}
+}

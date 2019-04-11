@@ -3,6 +3,8 @@ import styles from './Searchbar.module.scss';
 import { Link } from 'react-router-dom';
 
 import { SearchContext } from '../../contexts/Search.context';
+import Login from '../login/Login';
+import Profile from '../profile/Profile';
 
 const Searchbar = () => {
 	const context = useContext(SearchContext);
@@ -20,10 +22,12 @@ const Searchbar = () => {
 		}, 500);
 	};
 
+	const isLogin = true;
+
 	return (
 		<div className={styles.searchbar}>
 			<div className="row medium-gutters align-items-center">
-				<div className="col-7">
+				<div className="col">
 					<div className={styles['form-group']}>
 						<i className="far fa-search" />
 						<input
@@ -35,7 +39,7 @@ const Searchbar = () => {
 						/>
 					</div>
 				</div>
-				<div className="col-5">
+				<div className="col">
 					<div className="row justify-content-end medium-gutters align-items-center">
 						<div className="col-auto">
 							<div className="d-flex">
@@ -51,9 +55,7 @@ const Searchbar = () => {
 						<div className="col-auto">
 							<div className={styles.separator} />
 						</div>
-						<div className="col-auto">
-							<div className={styles['profile-image']} />
-						</div>
+						<div className="col-auto">{isLogin ? <Profile /> : <Login />}</div>
 					</div>
 				</div>
 			</div>

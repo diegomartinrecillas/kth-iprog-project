@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InputField from '../input-field/InputField';
 import Button from '../button/Button';
 import styles from './Form.module.scss';
+import InputSelect from '../input-select/InputSelect';
+import { useProgrammes } from '../../hooks/useProgrammes';
+import { Programme } from '../../models/Programme';
+import { Course } from '../../models/Course';
 
 interface Props {
 	add?: boolean;
@@ -9,22 +13,50 @@ interface Props {
 
 const Form = (props: Props) => {
 	const { add } = props;
+	const [programmes, programmesStatus] = useProgrammes();
+	const [courses, setCourses] = useState([]);
+
 	return (
-		<div className={styles.form}>
+		<form method="POST" action="some url" className={styles.form}>
 			<div className="row">
 				<div className="col">
 					<div className={styles.cover} />
+					<div className="spacing" />
+					<InputField name="Cover picture" type="file" />
 				</div>
 				<div className="col-lg-9 col-sm-12">
 					<div className="row">
 						<div className="col-lg-8 col-sm-12">
 							<div className="row medium-gutters">
 								<div className="col-md-6">
-									<InputField name="Programme" type="text" />
+									<InputSelect name="Programme">
+										{programmes &&
+											programmes.map((programme: Programme, index: number) => {
+												return (
+													<option
+														key={index}
+														onSelect={event => {
+															setCourses(programme.courses);
+														}}
+													>
+														{programme.name}
+													</option>
+												);
+											})}
+									</InputSelect>
 								</div>
 
 								<div className="col-md-6">
-									<InputField name="Course" type="text" />
+									<InputSelect name="Course">
+										{courses &&
+											courses.map((course: Course, index: number) => {
+												return (
+													<>
+														<option key={index}>{course.name}</option>
+													</>
+												);
+											})}
+									</InputSelect>
 								</div>
 							</div>
 
@@ -66,10 +98,10 @@ const Form = (props: Props) => {
 
 							<div className="spacing" />
 
-							<InputField name="Description" type="textarea" />
+							<InputField name="Book description" type="textarea" />
 						</div>
 						<div className="col-lg-4">
-							<InputField name="Personal description" type="textarea" />
+							<InputField name="Book condition" type="textarea" />
 
 							<div className="spacing" />
 
@@ -81,7 +113,7 @@ const Form = (props: Props) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	);
 };
 
