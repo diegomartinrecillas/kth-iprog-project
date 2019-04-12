@@ -58,11 +58,9 @@ const Selects = (props: Props) => {
 			{courses &&
 				courses.map((course: Course, index: number) => {
 					return (
-						<>
-							<p className="link" key={index}>
-								{course.name}
-							</p>
-						</>
+						<p className="link" key={index}>
+							{course.name}
+						</p>
 					);
 				})}
 		</div>

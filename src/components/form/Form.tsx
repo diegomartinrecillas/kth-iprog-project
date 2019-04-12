@@ -6,6 +6,7 @@ import InputSelect from '../input-select/InputSelect';
 import { useProgrammes } from '../../hooks/useProgrammes';
 import { Programme } from '../../models/Programme';
 import { Course } from '../../models/Course';
+import { NetworkService } from '../../api';
 
 interface Props {
 	add?: boolean;
@@ -17,19 +18,23 @@ const Form = (props: Props) => {
 	const [courses, setCourses] = useState([]);
 
 	return (
-		<form method="POST" action="some url" className={styles.form}>
+		<form
+			method="POST"
+			action={NetworkService.postNewBook()}
+			className={styles.form}
+		>
 			<div className="row">
 				<div className="col">
 					<div className={styles.cover} />
 					<div className="spacing" />
-					<InputField name="Cover picture" type="file" />
+					<InputField label="Cover picture" name="cover_photo" type="file" />
 				</div>
 				<div className="col-lg-9 col-sm-12">
 					<div className="row">
 						<div className="col-lg-8 col-sm-12">
 							<div className="row medium-gutters">
 								<div className="col-md-6">
-									<InputSelect name="Programme">
+									<InputSelect label="Programme" name="programme">
 										{programmes &&
 											programmes.map((programme: Programme, index: number) => {
 												return (
@@ -47,7 +52,7 @@ const Form = (props: Props) => {
 								</div>
 
 								<div className="col-md-6">
-									<InputSelect name="Course">
+									<InputSelect label="Course" name="course">
 										{courses &&
 											courses.map((course: Course, index: number) => {
 												return (
@@ -64,11 +69,11 @@ const Form = (props: Props) => {
 
 							<div className="row medium-gutters">
 								<div className="col-md-6">
-									<InputField name="Title" type="text" />
+									<InputField label="Title" name="title" type="text" />
 								</div>
 
 								<div className="col-md-6">
-									<InputField name="Author" type="text" />
+									<InputField label="Author" name="author" type="text" />
 								</div>
 							</div>
 
@@ -76,11 +81,15 @@ const Form = (props: Props) => {
 
 							<div className="row medium-gutters">
 								<div className="col-md-6">
-									<InputField name="Price" type="number" />
+									<InputField label="Price" name="Price" type="number" />
 								</div>
 
 								<div className="col-md-6">
-									<InputField name="New Price" type="number" />
+									<InputField
+										label="New price"
+										name="new_price"
+										type="number"
+									/>
 								</div>
 							</div>
 
@@ -88,20 +97,36 @@ const Form = (props: Props) => {
 
 							<div className="row medium-gutters">
 								<div className="col-md-6">
-									<InputField name="Release Year" type="number" />
+									<InputField
+										label="Release Year"
+										name="release_year"
+										type="number"
+									/>
 								</div>
 
 								<div className="col-md-6">
-									<InputField name="Collect location" type="text" />
+									<InputField
+										label="Pickup location"
+										name="pickup_location"
+										type="text"
+									/>
 								</div>
 							</div>
 
 							<div className="spacing" />
 
-							<InputField name="Book description" type="textarea" />
+							<InputField
+								label="Book description"
+								name="description"
+								type="textarea"
+							/>
 						</div>
 						<div className="col-lg-4">
-							<InputField name="Book condition" type="textarea" />
+							<InputField
+								label="Book condition"
+								name="personal_description"
+								type="textarea"
+							/>
 
 							<div className="spacing" />
 

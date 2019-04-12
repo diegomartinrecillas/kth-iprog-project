@@ -38,4 +38,9 @@ export class NetworkService {
 		const url = `${config.apiUrls.googleBooks}/${id}`;
 		return RequestService.get(url);
 	}
+
+	public static postNewBook() {
+		const url = `${config.apiUrls.rundbok}/student/book/create`;
+		return url;
+	}
 }

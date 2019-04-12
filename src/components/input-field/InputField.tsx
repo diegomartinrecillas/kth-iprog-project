@@ -2,16 +2,17 @@ import React from 'react';
 import styles from './InputField.module.scss';
 
 interface Props {
+	label: string;
 	name: string;
 	type: string;
 }
 
 const InputField = (props: Props) => {
-	const { name, type } = props;
+	const { label, name, type } = props;
 	return (
 		<div className={'d-flex flex-column ' + styles['input-field']}>
 			<label htmlFor={name} className="input-label">
-				{name}
+				{label}
 			</label>
 			{type === 'textarea' && (
 				<textarea className="input" name={name} placeholder={name} required />

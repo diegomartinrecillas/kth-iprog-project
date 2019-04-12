@@ -9,7 +9,7 @@ interface Button {
 
 const Button = (button: Button) => {
 	return (
-		<button className={styles.button}>
+		<button className={styles.button} type="submit">
 			<i className={'fas fa-' + button.icon} />
 			{button.text}
 		</button>
