@@ -8,6 +8,7 @@ export class Programme {
 	public courses: Course[];
 
 	constructor(data: any) {
+		if (!data) return;
 		this.id = data['id'];
 		this.name = data['name'];
 		this.createdAt = data['created_at'];

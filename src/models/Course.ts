@@ -6,6 +6,7 @@ export class Course {
 	public updatedAt: string;
 
 	constructor(data: any) {
+		if (!data) return;
 		this.id = data['id'];
 		this.name = data['name'];
 		this.programmeId = data['programme_id'];
