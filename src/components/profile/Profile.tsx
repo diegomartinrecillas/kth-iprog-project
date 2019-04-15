@@ -3,10 +3,11 @@ import { UserContext } from '../../contexts/User.context';
 
 import Avatar from '../avatar/Avatar';
 import styles from './Profile.module.scss';
+import { RequestStatus } from '../../api';
 
 const Profile = () => {
 	const [dropdown, setDropdown] = useState();
-	const { loggedIn } = useContext(UserContext);
+	const { signedIn, user, signOut } = useContext(UserContext);
 
 	const toggleDropdown = () => {
 		setDropdown(!dropdown);
@@ -15,9 +16,9 @@ const Profile = () => {
 	return (
 		<div className={styles.profile}>
 			<div className="d-flex align-items-center">
-				{loggedIn ? (
+				{signedIn ? (
 					<>
-						<Avatar src="foo" />
+						<Avatar src={user.avatar} />
 						<div className="spacing spacing-h_xs" />
 						<i
 							className={dropdown ? 'fa fa-chevron-up' : 'fa fa-chevron-down'}
@@ -31,15 +32,11 @@ const Profile = () => {
 			{dropdown && (
 				<div className={styles.dropdown}>
 					<div className="row">
-						<a href="" className="col-md-12">
-							My books
-						</a>
-						<a href="" className="col-md-12">
+						<div className={`${styles.item} col-md-12`}>My books</div>
+						<div className={`${styles.item} col-md-12`} onClick={signOut}>
 							Sign out
-						</a>
-						<a href="" className="col-md-12">
-							Delete account
-						</a>
+						</div>
+						<div className={`${styles.item} col-md-12`}>Delete account</div>
 					</div>
 				</div>
 			)}

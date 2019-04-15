@@ -1,12 +1,14 @@
 import React, { useMemo, PropsWithChildren, useState } from 'react';
+import { NetworkService, RequestStatus } from '../api/';
+
 import { User } from '../models/User';
 
 export interface UserContextValue {
-	uuid: string;
-	username: string;
-	loggedIn: boolean;
-	token: string;
-	setUser: (data: User) => void;
+	user: User;
+	signedIn: boolean;
+	status: NetworkService;
+	signIn: (facebookToken: string) => void;
+	signOut: () => void;
 }
 
 export const UserContext = React.createContext<UserContextValue>(null);
@@ -14,24 +16,37 @@ export const UserContext = React.createContext<UserContextValue>(null);
 export const UserConsumer = UserContext.Consumer;
 
 export const UserProvider = (props: PropsWithChildren<{}>) => {
-	const [uuid, setUuid] = useState<string>();
-	const [username, setUsername] = useState<string>();
-	const [loggedIn, setLoggedIn] = useState<boolean>();
-	const [token, setToken] = useState<string>();
+	const [user, setUser] = useState<User>(null);
+	const [signedIn, setSignedIn] = useState(false);
+	const [status, setStatus] = useState(RequestStatus.IDLE);
 
 	const contextValue = useMemo(
 		(): UserContextValue => ({
-			uuid,
-			username,
-			loggedIn,
-			token,
-			setUser: data => {
-				setUsername(data.username);
-				setUuid(data.uuid);
-				setUuid(data.uuid);
+			user,
+			status,
+			signedIn,
+			signIn: facebookToken => {
+				setStatus(RequestStatus.LOADING);
+				NetworkService.signIn(facebookToken)
+					.then(response => {
+						setUser(new User(response));
+						setSignedIn(true);
+						setStatus(RequestStatus.SUCCESS);
+					})
+					.catch(() => setStatus(RequestStatus.ERROR));
+			},
+			signOut: () => {
+				setStatus(RequestStatus.LOADING);
+				NetworkService.signOut(user.rundbokToken)
+					.then(response => {
+						setUser(null);
+						setSignedIn(false);
+						setStatus(RequestStatus.SUCCESS);
+					})
+					.catch(() => setStatus(RequestStatus.ERROR));
 			},
 		}),
-		[uuid]
+		[status]
 	);
 
 	return (

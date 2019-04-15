@@ -16,10 +16,14 @@
 		width: 170px;
 		z-index: 1;
 	}
+}
 
-	a {
-		&:hover {
-			text-decoration: underline;
-		}
+.item {
+	color: $color-gray;
+	cursor: pointer;
+	font-weight: 500;
+
+	&:hover {
+		text-decoration: underline;
 	}
 }

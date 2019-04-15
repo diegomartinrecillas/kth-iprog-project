@@ -1,14 +1,20 @@
 export class User {
-	public pictureUrl: string;
-	public uuid: string;
-	public username: string;
-	public token: string;
+	public avatar: string;
+	public email: string;
+	public firstName: string;
+	public fullName: string;
+	public lastName: string;
+	public location: string;
+	public rundbokToken: string;
 
 	constructor(data: any) {
 		if (!data) return;
-		this.pictureUrl = data['picture_url'];
-		this.uuid = data['uuid'];
-		this.username = data['username'];
-		this.token = data['token'];
+		this.avatar = data['avatar'];
+		this.email = data['email'];
+		this.firstName = data['first_name'];
+		this.fullName = data['full_name'];
+		this.lastName = data['last_name'];
+		this.location = data['location'];
+		this.rundbokToken = data['rundbok_token'];
 	}
 }

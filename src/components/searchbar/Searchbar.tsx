@@ -6,10 +6,11 @@ import styles from './Searchbar.module.scss';
 import { SearchContext, UserContext } from '../../contexts';
 import Login from '../login/Login';
 import Profile from '../profile/Profile';
+import { RequestStatus } from '../../api';
 
 const Searchbar = (props: RouteComponentProps) => {
 	const { search, query } = useContext(SearchContext);
-	const { loggedIn } = useContext(UserContext);
+	const { signedIn, status } = useContext(UserContext);
 	const { history, location } = props;
 
 	useEffect(() => {
@@ -38,6 +39,42 @@ const Searchbar = (props: RouteComponentProps) => {
 		}, 300);
 	};
 
+	const renderBarItems = () => {
+		switch (status) {
+			case RequestStatus.IDLE:
+			case RequestStatus.LOADING: {
+				return <div>loading...</div>;
+			}
+			case RequestStatus.SUCCESS: {
+				return (
+					<>
+						{signedIn && (
+							<>
+								<div className="col-auto">
+									<div className="d-flex">
+										<Link to="/add">
+											<div className="d-flex align-items-center">
+												<i className="fas fa-plus" />
+												<div className="spacing-h spacing-h_xs" />
+												new book
+											</div>
+										</Link>
+									</div>
+								</div>
+								<div className="col-auto">
+									<div className={styles.separator} />
+								</div>
+							</>
+						)}
+					</>
+				);
+			}
+			case RequestStatus.ERROR: {
+				return <div>error</div>;
+			}
+		}
+	};
+
 	return (
 		<div className={styles.searchbar}>
 			<div className="row medium-gutters align-items-center">
@@ -56,25 +93,17 @@ const Searchbar = (props: RouteComponentProps) => {
 				</div>
 				<div className="col">
 					<div className="row justify-content-end medium-gutters align-items-center">
-						{loggedIn && (
-							<>
-								<div className="col-auto">
-									<div className="d-flex">
-										<Link to="/add">
-											<div className="d-flex align-items-center">
-												<i className="fas fa-plus" />
-												<div className="spacing-h spacing-h_xs" />
-												new book
-											</div>
-										</Link>
-									</div>
-								</div>
-								<div className="col-auto">
-									<div className={styles.separator} />
-								</div>
-							</>
-						)}
-						<div className="col-auto">{loggedIn ? <Profile /> : <Login />}</div>
+						{renderBarItems()}
+						{/* this needs to be hidden (and not conditionally rendered) due to the way the Facebook Auth call is done by the component */}
+						<div
+							hidden={
+								status === RequestStatus.IDLE ||
+								status === RequestStatus.LOADING
+							}
+							className="col-auto"
+						>
+							{signedIn ? <Profile /> : <Login />}
+						</div>
 						{/* <div className="col-auto">
 							<Link to="/mybooks">
 								<div className={styles['profile-image']} />

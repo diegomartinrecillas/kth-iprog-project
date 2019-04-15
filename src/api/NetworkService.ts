@@ -38,9 +38,18 @@ export class NetworkService {
 		const url = `${config.apiUrls.googleBooks}/${id}`;
 		return RequestService.get(url);
 	}
-
 	public static postNewBook() {
 		const url = `${config.apiUrls.rundbok}/student/book/create`;
 		return url;
+	}
+	public static signIn(facebookToken: string) {
+		const url = `${config.apiUrls.rundbok}/student/sign-in`;
+		return RequestService.post(url, {
+			facebook_token: facebookToken,
+		});
+	}
+	public static signOut(rundbokToken: string) {
+		const url = `${config.apiUrls.rundbok}/student/sign-out`;
+		return RequestService.post(url, null, rundbokToken);
 	}
 }
