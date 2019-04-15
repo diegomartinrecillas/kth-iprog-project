@@ -1,31 +1,25 @@
 @import '../../scss/constants/index';
 
 .profile {
-	.image {
-		background-color: $color-light-gray;
-		border-radius: 50%;
-		display: block;
-		height: 50px;
-		width: 50px;
-	}
-
 	i {
 		cursor: pointer;
 	}
 
 	.dropdown {
-		position: absolute;
-		background-color: $color-white;
-		padding: 20px;
-		z-index: 1;
-		width: 170px;
-		transform: translate(-75%, 25%);
 		-webkit-transform: translate(-53%, 25%);
+		background-color: $color-white;
 		border: $border solid $color-light-gray;
 		border-radius: $radius;
+		padding: 20px;
+		position: absolute;
+		transform: translate(-75%, 25%);
+		width: 170px;
+		z-index: 1;
 	}
 
-	a:hover {
-		text-decoration: underline;
+	a {
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 }

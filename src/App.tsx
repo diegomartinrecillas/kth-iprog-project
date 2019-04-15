@@ -1,17 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import { AppProvider } from './contexts/App.context';
+import { UserProvider } from './contexts';
+import Router from './router/Router';
 import Home from './pages/home/Home';
 
 const App = () => {
 	return (
 		<Router>
-			<AppProvider>
+			<UserProvider>
 				<div className="container app">
 					<Home />
 				</div>
-			</AppProvider>
+			</UserProvider>
 		</Router>
 	);
 };

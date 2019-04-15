@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { UserContext } from '../../contexts/User.context';
+
+import Avatar from '../avatar/Avatar';
 import styles from './Profile.module.scss';
 
 const Profile = () => {
 	const [dropdown, setDropdown] = useState();
+	const { loggedIn } = useContext(UserContext);
 
 	const toggleDropdown = () => {
 		setDropdown(!dropdown);
@@ -11,12 +15,18 @@ const Profile = () => {
 	return (
 		<div className={styles.profile}>
 			<div className="d-flex align-items-center">
-				<div className={styles.image} />
-				<div className="spacing spacing-h_xs" />
-				<i
-					className={dropdown ? 'fa fa-chevron-up' : 'fa fa-chevron-down'}
-					onClick={toggleDropdown}
-				/>
+				{loggedIn ? (
+					<>
+						<Avatar src="foo" />
+						<div className="spacing spacing-h_xs" />
+						<i
+							className={dropdown ? 'fa fa-chevron-up' : 'fa fa-chevron-down'}
+							onClick={toggleDropdown}
+						/>
+					</>
+				) : (
+					<div>sign in</div>
+				)}
 			</div>
 			{dropdown && (
 				<div className={styles.dropdown}>

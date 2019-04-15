@@ -16,7 +16,7 @@ const Login = () => {
 			autoLoad={true}
 			callback={responseFacebook}
 			cssClass={styles.login}
-			icon="fa-facebook"
+			icon="fab fa-facebook-square"
 		/>
 	);
 };

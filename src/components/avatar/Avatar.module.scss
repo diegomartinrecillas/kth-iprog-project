@@ -1,0 +1,9 @@
+@import '../../scss/constants/index';
+
+.pic {
+	background-color: $color-light-gray;
+	border-radius: 50%;
+	display: block;
+	height: 50px;
+	width: 50px;
+}

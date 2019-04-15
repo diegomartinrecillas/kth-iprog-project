@@ -1,17 +1,19 @@
 @import '../../scss/constants/index';
 
 .login {
-	position: relative;
-	background-color: $color-black;
+	align-items: center;
+	background-color: $color-facebook;
 	border-radius: $radius;
 	color: $color-white;
+	display: flex;
 	font-family: $button-font;
 	font-weight: $button-font-weight;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	height: 50px;
-	width: 100%;
+	letter-spacing: 0.05rem;
 	outline: none;
+	padding: 10px 15px;
+	position: relative;
+	text-transform: uppercase;
+	width: 100%;
 
 	i {
 		margin-right: 10px;

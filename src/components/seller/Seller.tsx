@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Avatar from '../avatar/Avatar';
+
 import styles from './Seller.module.scss';
 import { Student } from '../../models/Student';
 
@@ -12,8 +14,8 @@ const Seller = (props: Props) => {
 	return (
 		<div className="d-flex flex-column">
 			<div className={`${styles.seller} d-flex flex-column`}>
-				<div className="d-flex mb-3">
-					<img className={styles.profile} src={student.avatar} />
+				<div className="d-flex">
+					<Avatar src={student.avatar} />
 					<div className="ml-3 mr-3">
 						<div className={styles.name}>{student.fullName}</div>
 						<div className={styles.location}>{student.location}</div>

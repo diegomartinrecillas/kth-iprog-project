@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { RouteComponentProps, withRouter, Link } from 'react-router-dom';
 
 import { useBook } from '../../hooks/useBook';
 
@@ -14,34 +14,52 @@ interface MatchParams {
 }
 
 const ViewBook = (props: RouteComponentProps<MatchParams>) => {
-	const { match } = props;
+	const { match, location } = props;
 	const [book, status] = useBook(match.params.bookId);
 	const { student, programme, course } = book;
 
-	if (status === RequestStatus.IDLE || status === RequestStatus.LOADING) {
-		return <div>loading...</div>;
-	}
-
-	if (status === RequestStatus.ERROR) {
-		return <div>error</div>;
-	}
+	const renderBook = () => {
+		switch (status) {
+			case RequestStatus.IDLE:
+			case RequestStatus.LOADING: {
+				return <div>loading...</div>;
+			}
+			case RequestStatus.SUCCESS: {
+				return (
+					<>
+						<div className={styles.heading}>
+							{programme.name} / {course.name}
+						</div>
+						<div className="spacing" />
+						<div className="d-flex">
+							<div className="row no-gutters">
+								<div className="col-8">
+									<BookInfo book={book} />
+								</div>
+								<div className="col-4">
+									<Seller student={student} />
+								</div>
+							</div>
+						</div>
+					</>
+				);
+			}
+			case RequestStatus.ERROR: {
+				return <div>error</div>;
+			}
+		}
+	};
 
 	return (
 		<div className="container">
-			<div className={styles.heading}>
-				{programme.name} / {course.name}
+			<div className={styles.back}>
+				<Link to={{ ...location, pathname: '/' }}>
+					<i className="fas fa-arrow-left" /> <span>Back to search</span>
+				</Link>
 			</div>
-			<div className="spacing spacing_md" />
-			<div className="d-flex">
-				<div className="row">
-					<div className="col-8">
-						<BookInfo book={book} />
-					</div>
-					<div className="col-4">
-						<Seller student={student} />
-					</div>
-				</div>
-			</div>
+			<div className="spacing spacing_sm" />
+
+			{renderBook()}
 			<div className="spacing" />
 		</div>
 	);

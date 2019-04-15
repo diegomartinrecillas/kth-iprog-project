@@ -3,3 +3,26 @@
 .heading {
 	color: $color-gray;
 }
+
+.back {
+	display: flex;
+
+	a {
+		border: 1px solid transparent;
+		color: $color-dark;
+		cursor: pointer;
+		flex: none;
+		font-size: 0.975rem;
+		font-weight: $headline-font-weight;
+		margin-bottom: 5px;
+		text-transform: uppercase;
+
+		i {
+			margin-right: 5px;
+		}
+
+		span {
+			font-family: $headline-font;
+		}
+	}
+}

@@ -3,12 +3,13 @@ import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import qs from 'query-string';
 import styles from './Searchbar.module.scss';
 
-import { SearchContext } from '../../contexts/Search.context';
+import { SearchContext, UserContext } from '../../contexts';
 import Login from '../login/Login';
 import Profile from '../profile/Profile';
 
 const Searchbar = (props: RouteComponentProps) => {
 	const { search, query } = useContext(SearchContext);
+	const { loggedIn } = useContext(UserContext);
 	const { history, location } = props;
 
 	useEffect(() => {
@@ -37,8 +38,6 @@ const Searchbar = (props: RouteComponentProps) => {
 		}, 300);
 	};
 
-	const isLogin = true;
-
 	return (
 		<div className={styles.searchbar}>
 			<div className="row medium-gutters align-items-center">
@@ -57,21 +56,25 @@ const Searchbar = (props: RouteComponentProps) => {
 				</div>
 				<div className="col">
 					<div className="row justify-content-end medium-gutters align-items-center">
-						<div className="col-auto">
-							<div className="d-flex">
-								<Link to="/add">
-									<div className="d-flex align-items-center">
-										<i className="fas fa-plus" />
-										<div className="spacing-h spacing-h_xs" />
-										add button
+						{loggedIn && (
+							<>
+								<div className="col-auto">
+									<div className="d-flex">
+										<Link to="/add">
+											<div className="d-flex align-items-center">
+												<i className="fas fa-plus" />
+												<div className="spacing-h spacing-h_xs" />
+												new book
+											</div>
+										</Link>
 									</div>
-								</Link>
-							</div>
-						</div>
-						<div className="col-auto">
-							<div className={styles.separator} />
-						</div>
-						<div className="col-auto">{isLogin ? <Profile /> : <Login />}</div>
+								</div>
+								<div className="col-auto">
+									<div className={styles.separator} />
+								</div>
+							</>
+						)}
+						<div className="col-auto">{loggedIn ? <Profile /> : <Login />}</div>
 						{/* <div className="col-auto">
 							<Link to="/mybooks">
 								<div className={styles['profile-image']} />
