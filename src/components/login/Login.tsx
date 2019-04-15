@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import FacebookLogin from 'react-facebook-login';
+import FacebookLogin, { ReactFacebookLoginInfo } from 'react-facebook-login';
 
 import { UserContext } from '../../contexts/User.context';
 import styles from './Login.module.scss';
@@ -8,7 +8,8 @@ const Login = () => {
 	const facebookAppId = '397496977695939';
 	const { signIn } = useContext(UserContext);
 
-	const responseFacebook = (response: any) => signIn(response['accessToken']);
+	const responseFacebook = (response: ReactFacebookLoginInfo) =>
+		signIn(response.accessToken);
 
 	return (
 		<FacebookLogin
