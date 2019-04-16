@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { NetworkService, RequestStatus } from '../api';
+import { KthProgramme } from '../models/KthProgramme';
 
 export const useProgrammes = () => {
-	const [programmes, setProgrammes] = useState();
+	const [programmes, setProgrammes] = useState([]);
 	const [status, setStatus] = useState(RequestStatus.IDLE);
 
 	useEffect(() => {
@@ -14,5 +15,5 @@ export const useProgrammes = () => {
 			})
 			.catch(() => setStatus(RequestStatus.ERROR));
 	}, []);
-	return [programmes, status];
+	return [programmes, status] as [KthProgramme[], RequestStatus];
 };

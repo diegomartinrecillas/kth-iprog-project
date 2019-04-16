@@ -14,7 +14,11 @@ export class NetworkService {
 		const url = `${config.apiUrls.rundbok}/programmes/${code}`;
 		return RequestService.get(url);
 	}
-	public static getCourses() {
+	public static getCourses(query: string) {
+		const url = `${config.apiUrls.rundbok}/courses/search?query=${query}`;
+		return RequestService.get(url);
+	}
+	public static getAvailableCourses() {
 		const url = `${config.apiUrls.rundbok}/available/courses`;
 		return RequestService.get(url);
 	}
@@ -38,9 +42,9 @@ export class NetworkService {
 		const url = `${config.apiUrls.googleBooks}/${id}`;
 		return RequestService.get(url);
 	}
-	public static postNewBook() {
+	public static addNewBook(book: any, rundbokToken: string) {
 		const url = `${config.apiUrls.rundbok}/student/book/create`;
-		return url;
+		return RequestService.post(url, book, rundbokToken);
 	}
 	public static signIn(facebookToken: string) {
 		const url = `${config.apiUrls.rundbok}/student/sign-in`;

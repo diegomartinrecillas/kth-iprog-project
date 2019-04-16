@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { DetailedHTMLProps } from 'react';
 
 import styles from './Button.module.scss';
 
-interface Button {
+interface Props
+	extends DetailedHTMLProps<
+		React.ButtonHTMLAttributes<HTMLButtonElement>,
+		HTMLButtonElement
+	> {
 	text: string;
 	icon: string;
 }
 
-const Button = (button: Button) => {
+const Button = (props: Props) => {
+	const { icon, text, ...rest } = props;
 	return (
-		<button className={styles.button} type="submit">
-			<i className={'fas fa-' + button.icon} />
-			{button.text}
+		<button className={styles.button} {...rest}>
+			<i className={'fas fa-' + icon} />
+			{text}
 		</button>
 	);
 };

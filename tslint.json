@@ -15,7 +15,8 @@
 		"jsx-boolean-value": false,
 		"strict-type-predicates": false,
 		"interface-name": false,
-		"no-string-literal": false
+		"no-string-literal": false,
+		"no-console": false
 	},
 	"rulesDirectory": []
 }
