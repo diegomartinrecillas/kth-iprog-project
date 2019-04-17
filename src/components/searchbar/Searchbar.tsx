@@ -52,19 +52,19 @@ const Searchbar = (props: RouteComponentProps) => {
 							<>
 								<div className="col-auto">
 									<div className="d-flex">
-										<Link to="/add">
-											<div className="d-flex align-items-center text-button-font">
-												<i className="fas fa-plus" />
-												<div className="spacing-h spacing-h_xs" />
-												Add book
-											</div>
-										</Link>
-										<div className="spacing-h" />
 										<Link to="/my-books">
 											<div className="d-flex align-items-center text-button-font">
 												<i className="fas fa-books" />
 												<div className="spacing-h spacing-h_xs" />
 												My books
+											</div>
+										</Link>
+										<div className="spacing-h" />
+										<Link to="/add">
+											<div className="d-flex align-items-center text-button-font">
+												<i className="fas fa-plus" />
+												<div className="spacing-h spacing-h_xs" />
+												Add book
 											</div>
 										</Link>
 									</div>
