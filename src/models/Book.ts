@@ -18,6 +18,7 @@ export class Book {
 	public student: Student;
 	public studentId: number;
 	public title: string;
+	public rawData: any;
 
 	constructor(data: any) {
 		if (!data) return;
@@ -37,5 +38,6 @@ export class Book {
 		this.student = new Student(data['student']);
 		this.studentId = data['student_id'];
 		this.title = data['title'];
+		this.rawData = data;
 	}
 }

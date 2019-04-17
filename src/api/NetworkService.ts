@@ -74,4 +74,8 @@ export class NetworkService {
 		const url = `${config.apiUrls.rundbok}/student/remove`;
 		return RequestService.delete(url, rundbokToken);
 	}
+	public static removeBook(rundbokToken: string, bookId: string) {
+		const url = `${config.apiUrls.rundbok}/student/book/remove/${bookId}`;
+		return RequestService.delete(url, rundbokToken);
+	}
 }
