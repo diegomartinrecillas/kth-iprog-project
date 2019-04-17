@@ -22,7 +22,7 @@
 		font-size: 1.1rem;
 		font-family: $button-font;
 		font-weight: $button-font-weight;
-		opacity: 0.5;
+		opacity: 0.9;
 		transition: $transition;
 
 		i {
@@ -36,7 +36,7 @@
 
 		&:hover {
 			color: $color-dark;
-			opacity: 0.4;
+			opacity: 0.7;
 		}
 	}
 }

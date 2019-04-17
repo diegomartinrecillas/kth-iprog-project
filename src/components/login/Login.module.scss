@@ -8,14 +8,14 @@
 	display: flex;
 	font-family: $button-font;
 	font-weight: $button-font-weight;
-	letter-spacing: 0.05rem;
 	outline: none;
 	padding: 10px 15px;
 	position: relative;
-	text-transform: uppercase;
 	width: 100%;
+	font-size: 18px;
 
 	i {
 		margin-right: 10px;
+		font-size: 24px;
 	}
 }
