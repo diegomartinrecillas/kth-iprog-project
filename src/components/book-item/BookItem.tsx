@@ -14,7 +14,7 @@ const BookItem = (props: Props) => {
 	const { book, editable, location } = props;
 
 	const content = (
-		<div className={styles.book}>
+		<div className={`${styles.book}`}>
 			<img className={`${styles.cover}`} src={book.coverPhoto} />
 			<div className="spacing spacing_sm" />
 			<div className="spacing spacing_xs" />
