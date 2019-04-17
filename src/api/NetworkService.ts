@@ -48,14 +48,25 @@ export class NetworkService {
 		const url = `${config.apiUrls.googleBooks}/${id}`;
 		return RequestService.get(url);
 	}
-	public static addNewBook(bookData: BookUpload, rundbokToken: string) {
-		console.log(bookData);
+	public static addNewBook(rundbokToken: string, bookData: BookUpload) {
 		const url = `${config.apiUrls.rundbok}/student/book/create`;
 		return RequestService.post(url, bookData, rundbokToken, {
 			enctype: 'multipart/form-data',
 			accept: 'application/json',
 		});
 	}
+	public static editBook(
+		rundbokToken: string,
+		bookData: BookUpload,
+		bookId: string | number
+	) {
+		const url = `${config.apiUrls.rundbok}/student/book/update/${bookId}`;
+		return RequestService.post(url, bookData, rundbokToken, {
+			enctype: 'multipart/form-data',
+			accept: 'application/json',
+		});
+	}
+
 	public static signIn(facebookToken: string) {
 		const url = `${config.apiUrls.rundbok}/student/sign-in`;
 		return RequestService.post(url, {

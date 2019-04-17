@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
+
 import { AsyncTypeahead, Typeahead } from 'react-bootstrap-typeahead';
 import { Formik } from 'formik';
 
@@ -13,15 +15,17 @@ import { useCourses } from '../../hooks/useKthCourses';
 import { NetworkService, RequestStatus } from '../../api';
 import { KthCourse } from '../../models/KthCourse';
 import { BookUpload } from '../../models/BookUpload';
+import { SearchContext } from '../../contexts';
 
-interface Props {
+interface Props extends RouteComponentProps {
 	add?: boolean;
 	book?: BookUpload;
 }
 
 const Form = (props: Props) => {
-	const { add, book } = props;
+	const { add, book, history } = props;
 	const { user } = useContext(UserContext);
+	const { search } = useContext(SearchContext);
 	const [programmes, programmeStatus] = useProgrammes();
 	const [courses, courseStatus, setCourseQuery] = useCourses();
 
@@ -30,10 +34,19 @@ const Form = (props: Props) => {
 			initialValues={book ? book : new BookUpload()}
 			onSubmit={(values, { setSubmitting }) => {
 				setSubmitting(true);
-				NetworkService.addNewBook(values, user.rundbokToken)
-					.finally(() => setSubmitting(false))
-					.then(response => console.log(response))
-					.catch(error => console.log(error));
+				if (add) {
+					NetworkService.addNewBook(user.rundbokToken, values)
+						.finally(() => setSubmitting(false))
+						.then(response => console.log(response))
+						.catch(error => console.log(error));
+				} else {
+					NetworkService.editBook(user.rundbokToken, values, book.id)
+						.finally(() => setSubmitting(false))
+						.then(response => {
+							history.replace('/my-books');
+						})
+						.catch(error => console.log(error));
+				}
 			}}
 		>
 			{({
@@ -226,4 +239,4 @@ const Form = (props: Props) => {
 	);
 };
 
-export default Form;
+export default withRouter(Form);

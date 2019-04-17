@@ -1,6 +1,7 @@
 // tslint:disable: variable-name
 
 export class BookUpload {
+	public id: number;
 	public cover_photo: File = null;
 	public programme_code: string;
 	public course_code: string;

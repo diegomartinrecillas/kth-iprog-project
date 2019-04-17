@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 import Form from '../form/Form';
