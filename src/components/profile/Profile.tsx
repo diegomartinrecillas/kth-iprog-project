@@ -25,10 +25,14 @@ const Profile = () => {
 				<div className={styles.links}>
 					<b>{user.fullName}</b>
 					<div className={styles.separator} />
-					<a className="mt-2" onClick={signOut}>
+					<a className="mt-2 font-weight-medium" onClick={signOut}>
+						<i className="far fa-sign-out mr-2" />
 						Sign out
 					</a>
-					<a className="text-danger">Remove account</a>
+					<a className="text-danger font-weight-medium">
+						<i className="far fa-trash text-danger mr-2" />
+						Remove account
+					</a>
 				</div>
 			</div>
 			<div className="spacing d-lg-none" />
