@@ -61,7 +61,7 @@ const Form = (props: Props) => {
 											labelKey="title"
 											options={programmes}
 											onChange={selected =>
-												setFieldValue('programme', selected[0])
+												setFieldValue('programme', selected[0].programmeCode)
 											}
 											placeholder="Search programme..."
 										/>
@@ -82,7 +82,7 @@ const Form = (props: Props) => {
 											minLength={3}
 											onSearch={setCourseQuery}
 											onChange={selected =>
-												setFieldValue('course', selected[0])
+												setFieldValue('course', selected[0].courseCode)
 											}
 											placeholder="Search course..."
 											renderMenuItemChildren={(option: KthCourse, _, index) => (
@@ -173,7 +173,9 @@ const Form = (props: Props) => {
 								label="Cover picture"
 								name="cover_photo"
 								type="file"
-								onChange={handleChange}
+								onChange={event =>
+									setFieldValue('cover_photo', event.currentTarget.files[0])
+								}
 							/>
 
 							<div className="spacing" />
