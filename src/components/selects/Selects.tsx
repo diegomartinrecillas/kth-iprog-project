@@ -101,7 +101,7 @@ const Selects = (props: RouteComponentProps) => {
 									}),
 									pathname: '/',
 								});
-								search({ courseId: '' });
+								search({ courseId: '', programmeId: '' });
 								setCourses([]);
 							}}
 						>
