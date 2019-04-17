@@ -14,7 +14,10 @@ const BookInfo = (props: Params) => {
 	return (
 		<div className="row special-gutters">
 			<div className="col-xl-auto">
-				<img className="cover" src={book.coverPhoto} />
+				<img
+					className={`${book.coverPhoto ? 'cover' : 'cover small'}`}
+					src={book.coverPhoto}
+				/>
 				<div className="spacing d-xl-none" />
 			</div>
 			<div className="col">

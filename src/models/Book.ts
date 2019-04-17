@@ -24,7 +24,7 @@ export class Book {
 		this.author = data['author'];
 		this.course = new Course(data['course']);
 		this.courseId = data['course_id'];
-		this.coverPhoto = data['cover_photo'];
+		this.coverPhoto = data['cover_photo_url'];
 		this.description = data['description'];
 		this.id = data['id'];
 		this.newPrice = data['new_price'];

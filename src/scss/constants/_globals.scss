@@ -14,6 +14,11 @@ body {
 	min-width: 166px;
 	min-height: 250px;
 	transition: $transition;
+
+	&.small {
+		width: 166px;
+		height: 250px;
+	}
 }
 
 .back-button {
