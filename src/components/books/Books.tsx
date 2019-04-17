@@ -12,7 +12,7 @@ const Books = (props: Props) => {
 	const { books, editable } = props;
 	return (
 		<div className="book-grid">
-			<div className="row justify-content-between medium-gutters">
+			<div className="row medium-gutters">
 				{books.map((book, index) => (
 					<div className="col-sm-12 col-md-3 margin-bottom-col" key={index}>
 						<BookItem editable={editable} book={book} />
