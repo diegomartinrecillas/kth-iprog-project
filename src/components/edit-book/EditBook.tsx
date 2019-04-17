@@ -1,25 +1,66 @@
-import React from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 import Form from '../form/Form';
+import { UserContext } from '../../contexts';
+import { RequestStatus, NetworkService } from '../../api';
+import { useBook } from '../../hooks/useBook';
 
-const EditBook = () => {
+interface MatchParams {
+	bookId: string;
+}
+
+const EditBook = (props: RouteComponentProps<MatchParams>) => {
+	const { match, history } = props;
+	const { user } = useContext(UserContext);
+	const [status, setStatus] = useState(RequestStatus.IDLE);
+	const [book, bookStatus] = useBook(match.params.bookId);
+
+	const removeBook = () => {
+		setStatus(RequestStatus.LOADING);
+
+		NetworkService.removeBook(user.rundbokToken, match.params.bookId)
+			.then(() => {
+				history.push('/my-books');
+				setStatus(RequestStatus.SUCCESS);
+			})
+			.catch(() => setStatus(RequestStatus.ERROR));
+	};
+
 	return (
 		<>
 			<div className="container">
 				<div className="d-flex">
 					<div className="text-label text-label_lg">EDIT BOOK</div>
 					<div className="spacing-h" />
-					<a className="text-danger font-weight-bold">
-						<i className="fas fa-trash mr-2" />
-						Remove book
-					</a>
+					{(() => {
+						switch (status) {
+							case RequestStatus.IDLE: {
+								return (
+									<a
+										onClick={removeBook}
+										className="text-danger font-weight-bold"
+									>
+										<i className="fas fa-trash mr-2" />
+										Remove book
+									</a>
+								);
+							}
+							case RequestStatus.LOADING: {
+								return <div>loading...</div>;
+							}
+							case RequestStatus.ERROR: {
+								return <div>error</div>;
+							}
+						}
+					})()}
 				</div>
 				<div className="spacing spacing--medium" />
-				<Form />
+				{bookStatus === RequestStatus.SUCCESS && <Form book={book.rawData} />}
 			</div>
 			<div className="spacing spacing--large" />
 		</>
 	);
 };
 
-export default EditBook;
+export default withRouter(EditBook);

@@ -16,17 +16,18 @@ import { BookUpload } from '../../models/BookUpload';
 
 interface Props {
 	add?: boolean;
+	book?: BookUpload;
 }
 
 const Form = (props: Props) => {
-	const { add } = props;
+	const { add, book } = props;
 	const { user } = useContext(UserContext);
 	const [programmes, programmeStatus] = useProgrammes();
 	const [courses, courseStatus, setCourseQuery] = useCourses();
 
 	return (
 		<Formik
-			initialValues={new BookUpload()}
+			initialValues={book ? book : new BookUpload()}
 			onSubmit={(values, { setSubmitting }) => {
 				setSubmitting(true);
 				NetworkService.addNewBook(values, user.rundbokToken)
@@ -36,6 +37,7 @@ const Form = (props: Props) => {
 			}}
 		>
 			{({
+				initialValues,
 				values,
 				handleChange,
 				handleSubmit,
@@ -102,6 +104,7 @@ const Form = (props: Props) => {
 										label="Title"
 										name="title"
 										type="text"
+										defaultValue={initialValues.title}
 										onChange={handleChange}
 									/>
 								</div>
@@ -112,6 +115,7 @@ const Form = (props: Props) => {
 										label="Author"
 										name="author"
 										type="text"
+										defaultValue={initialValues.author}
 										onChange={handleChange}
 									/>
 								</div>
@@ -125,6 +129,7 @@ const Form = (props: Props) => {
 										label="Price"
 										name="price"
 										type="number"
+										defaultValue={initialValues.price.toString()}
 										onChange={handleChange}
 									/>
 								</div>
@@ -135,6 +140,7 @@ const Form = (props: Props) => {
 										label="New price"
 										name="new_price"
 										type="number"
+										defaultValue={initialValues.new_price.toString()}
 										onChange={handleChange}
 									/>
 								</div>
@@ -148,6 +154,7 @@ const Form = (props: Props) => {
 										label="Release Year"
 										name="release_year"
 										type="number"
+										defaultValue={initialValues.release_year.toString()}
 										onChange={handleChange}
 									/>
 								</div>
@@ -159,6 +166,7 @@ const Form = (props: Props) => {
 								label="Book description"
 								name="description"
 								type="textarea"
+								defaultValue={initialValues.description}
 								onChange={handleChange}
 							/>
 						</div>
@@ -182,6 +190,7 @@ const Form = (props: Props) => {
 								label="Book condition"
 								name="personal_description"
 								type="textarea"
+								defaultValue={initialValues.personal_description}
 								onChange={handleChange}
 							/>
 
