@@ -1,3 +1,7 @@
 .border-right {
 	border-right: 1px solid $color-light-gray;
+
+	@media only screen and (max-width: 991px) {
+		border-right: 0px !important;
+	}
 }
