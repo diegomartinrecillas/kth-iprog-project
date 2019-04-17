@@ -19,8 +19,12 @@ const BookItem = (props: Props) => {
 				<img className={`${styles.cover}`} src={book.coverPhoto} />
 				<div className="spacing spacing_sm" />
 				<div className="spacing spacing_xs" />
-				<Price price={book.price} />
-				{editable && <EditButton />}
+				<div className="row">
+					<div className="col">
+						<Price price={book.price} />
+					</div>
+					<div className="col">{editable && <EditButton />}</div>
+				</div>
 				<small>{book.author}</small> <br />
 				<b>{book.title}</b>
 			</div>
