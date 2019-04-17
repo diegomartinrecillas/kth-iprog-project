@@ -13,7 +13,7 @@ interface Props {
 const Seller = (props: Props) => {
 	const { student, personalDescription } = props;
 	return (
-		<div className="d-flex flex-column">
+		<div className={`${styles.container} d-flex flex-column`}>
 			<div className={`${styles.seller} d-flex flex-column`}>
 				<div className="d-flex">
 					<Avatar src={student.avatar} />

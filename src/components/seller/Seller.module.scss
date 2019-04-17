@@ -1,5 +1,9 @@
 @import '../../scss/constants/index';
 
+.container {
+	min-width: 250px;
+}
+
 .seller {
 	border: 1px solid $color-light-gray;
 	border-radius: $radius;
