@@ -1,7 +1,6 @@
 @import '../../scss/constants/index';
 
 .book {
-	cursor: pointer;
 	font-size: 20px;
 
 	small {
@@ -12,17 +11,21 @@
 		color: $color-dark;
 	}
 
-	&:hover {
-		.cover {
-			transform: translateY(-5px);
-			box-shadow: $box-shadow;
-		}
-	}
+	&.hover {
+		cursor: pointer;
 
-	&:active {
-		.cover {
-			transform: translateY(10px);
-			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0);
+		&:hover {
+			.cover {
+				transform: translateY(-5px);
+				box-shadow: $box-shadow;
+			}
+		}
+
+		&:active {
+			.cover {
+				transform: translateY(10px);
+				box-shadow: 0px 5px 10px rgba(0, 0, 0, 0);
+			}
 		}
 	}
 }

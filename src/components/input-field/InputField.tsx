@@ -48,7 +48,6 @@ const InputField = (props: Props) => {
 						type="file"
 						className="custom-file-input"
 						id="customFile"
-						required
 					/>
 					<label className="custom-file-label" htmlFor="customFile">
 						Choose file
