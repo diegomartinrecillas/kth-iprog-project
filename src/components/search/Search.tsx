@@ -62,7 +62,7 @@ const Search = () => {
 
 				<Route path="/add" component={AddBook} />
 
-				<Route path="/mybooks" component={MyBooks} />
+				<Route path="/my-books" component={MyBooks} />
 			</Switch>
 		</div>
 	);

@@ -59,6 +59,14 @@ const Searchbar = (props: RouteComponentProps) => {
 												Add book
 											</div>
 										</Link>
+										<div className="spacing-h" />
+										<Link to="/my-books">
+											<div className="d-flex align-items-center text-button-font">
+												<i className="fas fa-books" />
+												<div className="spacing-h spacing-h_xs" />
+												My books
+											</div>
+										</Link>
 									</div>
 								</div>
 								<div className="col-auto">
@@ -104,14 +112,6 @@ const Searchbar = (props: RouteComponentProps) => {
 						>
 							{signedIn ? <Profile /> : <Login />}
 						</div>
-						{/* <div className="col-auto">
-							<Link to="/mybooks">
-								<div className={styles['profile-image']} />
-							</Link>
-						</div>
-						<div className="col-auto">
-							<i className="fas fa-angle-down" />
-						</div> */}
 					</div>
 				</div>
 			</div>

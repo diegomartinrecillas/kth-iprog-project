@@ -23,9 +23,11 @@ const Profile = () => {
 			</div>
 			<div className={styles.dropdown}>
 				<div className={styles.links}>
-					<a>My books</a>
-					<a onClick={signOut}>Sign out</a>
+					<b>{user.fullName}</b>
 					<div className={styles.separator} />
+					<a className="mt-2" onClick={signOut}>
+						Sign out
+					</a>
 					<a className="text-danger">Remove account</a>
 				</div>
 			</div>
