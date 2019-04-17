@@ -67,7 +67,10 @@ const Form = (props: Props) => {
 					description,
 					release_year,
 					title,
+					__courseName,
+					__programmeName,
 				} = initialValues;
+
 				return (
 					<form className={styles.form} onSubmit={handleSubmit}>
 						<div className="row special-gutters">
@@ -79,6 +82,12 @@ const Form = (props: Props) => {
 												Programme
 											</label>
 											<Typeahead
+												defaultSelected={[
+													{
+														programmeCode: programme_code,
+														title: __programmeName,
+													},
+												]}
 												id="programme"
 												isLoading={programmeStatus === RequestStatus.LOADING}
 												inputProps={{ name: 'programme', required: true }}
@@ -102,6 +111,14 @@ const Form = (props: Props) => {
 												Course
 											</label>
 											<AsyncTypeahead
+												defaultSelected={[
+													{
+														courseCode: course_code,
+														credits: null,
+														educationalLevel: null,
+														title: __courseName,
+													},
+												]}
 												id="course"
 												isLoading={courseStatus === RequestStatus.LOADING}
 												inputProps={{ name: 'course', required: true }}
@@ -204,7 +221,7 @@ const Form = (props: Props) => {
 									label="Cover picture"
 									name="cover_photo"
 									type="file"
-									text={values.cover_photo && values.cover_photo.name}
+									text={values.cover_photo && (values.cover_photo as File).name}
 									onChange={event => {
 										console.log(event.currentTarget.files[0]);
 										setFieldValue('cover_photo', event.currentTarget.files[0]);

@@ -56,7 +56,9 @@ const EditBook = (props: RouteComponentProps<MatchParams>) => {
 					})()}
 				</div>
 				<div className="spacing spacing--medium" />
-				{bookStatus === RequestStatus.SUCCESS && <Form book={book.rawData} />}
+				{bookStatus === RequestStatus.SUCCESS && (
+					<Form book={book.getBookUpload()} />
+				)}
 			</div>
 			<div className="spacing spacing--large" />
 		</>

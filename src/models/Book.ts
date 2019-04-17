@@ -1,6 +1,9 @@
 import { Student } from './Student';
 import { Course } from './Course';
 import { Programme } from './Programme';
+import { BookUpload } from './BookUpload';
+import { throws } from 'assert';
+
 export class Book {
 	public author: string;
 	public course: Course;
@@ -13,7 +16,7 @@ export class Book {
 	public price: number;
 	public programme: Programme;
 	public programmeId: number;
-	public releaseYear: string;
+	public releaseYear: number;
 	public pickupLocation?: string;
 	public student: Student;
 	public studentId: number;
@@ -39,5 +42,23 @@ export class Book {
 		this.studentId = data['student_id'];
 		this.title = data['title'];
 		this.rawData = data;
+	}
+
+	public getBookUpload(): BookUpload {
+		return {
+			id: this.id,
+			cover_photo: this.coverPhoto,
+			programme_code: this.programme.code,
+			course_code: this.course.code,
+			title: this.title,
+			author: this.author,
+			price: this.price,
+			new_price: this.newPrice,
+			release_year: this.releaseYear,
+			description: this.description,
+			personal_description: this.personalDescription,
+			__courseName: this.course.name,
+			__programmeName: this.programme.name,
+		};
 	}
 }

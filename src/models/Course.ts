@@ -3,6 +3,7 @@ export class Course {
 	public name: string;
 	public programmeId: number;
 	public createdAt: string;
+	public code: string;
 	public updatedAt: string;
 
 	constructor(data: any) {
@@ -12,5 +13,6 @@ export class Course {
 		this.programmeId = data['programme_id'];
 		this.createdAt = data['created_at'];
 		this.updatedAt = data['updated_at'];
+		this.code = data['code'];
 	}
 }
