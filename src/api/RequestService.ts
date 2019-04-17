@@ -25,7 +25,7 @@ export class RequestService {
 		const options = {
 			method: 'POST',
 			headers: {
-				authorization,
+				Authorization: authorization,
 				'content-type': 'application/json',
 			},
 			body: JSON.stringify(data),
