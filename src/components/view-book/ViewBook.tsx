@@ -32,12 +32,15 @@ const ViewBook = (props: RouteComponentProps<MatchParams>) => {
 						</div>
 						<div className="spacing" />
 						<div className="d-flex">
-							<div className="row no-gutters">
+							<div className="row special-gutters">
 								<div className="col-8">
 									<BookInfo book={book} />
 								</div>
 								<div className="col-4">
-									<Seller student={student} />
+									<Seller
+										personalDescription={book.personalDescription}
+										student={student}
+									/>
 								</div>
 							</div>
 						</div>
@@ -52,12 +55,12 @@ const ViewBook = (props: RouteComponentProps<MatchParams>) => {
 
 	return (
 		<div className="container">
-			<div className={styles.back}>
+			<div className="back-button">
 				<Link to={{ ...location, pathname: '/' }}>
-					<i className="fas fa-arrow-left" /> <span>Back to search</span>
+					<i className="fas fa-arrow-left" /> <span>Latest books</span>
 				</Link>
 			</div>
-			<div className="spacing spacing_sm" />
+			<div className="spacing spacing_medium" />
 
 			{renderBook()}
 			<div className="spacing" />

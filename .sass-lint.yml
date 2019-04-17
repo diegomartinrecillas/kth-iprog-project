@@ -75,14 +75,12 @@ rules:
     - 2
     - max-depth: 3
   no-color-keywords: 2
-  no-color-literals: 2
   no-css-comments: 1
   no-debug: 1
   no-duplicate-properties: 1
   no-empty-rulesets: 2
   no-extends: 0
   no-ids: 1
-  no-important: 2
   no-invalid-hex: 2
   no-mergeable-selectors: 1
   no-misspelled-properties:
@@ -176,4 +174,3 @@ rules:
     - 2
     - allow-leading-underscore: true
       convention: hyphenatedlowercase
-  zero-unit: 2

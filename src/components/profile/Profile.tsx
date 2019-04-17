@@ -6,40 +6,29 @@ import styles from './Profile.module.scss';
 import { RequestStatus } from '../../api';
 
 const Profile = () => {
-	const [dropdown, setDropdown] = useState();
 	const { signedIn, user, signOut } = useContext(UserContext);
-
-	const toggleDropdown = () => {
-		setDropdown(!dropdown);
-	};
 
 	return (
 		<div className={styles.profile}>
 			<div className="d-flex align-items-center">
 				{signedIn ? (
-					<>
+					<div className="d-flex align-items-center">
 						<Avatar src={user.avatar} />
 						<div className="spacing spacing-h_xs" />
-						<i
-							className={dropdown ? 'fa fa-chevron-up' : 'fa fa-chevron-down'}
-							onClick={toggleDropdown}
-						/>
-					</>
+						<i className="fa fa-chevron-down" />
+					</div>
 				) : (
 					<div>sign in</div>
 				)}
 			</div>
-			{dropdown && (
-				<div className={styles.dropdown}>
-					<div className="row">
-						<div className={`${styles.item} col-md-12`}>My books</div>
-						<div className={`${styles.item} col-md-12`} onClick={signOut}>
-							Sign out
-						</div>
-						<div className={`${styles.item} col-md-12`}>Delete account</div>
-					</div>
+			<div className={styles.dropdown}>
+				<div className={styles.links}>
+					<a>My books</a>
+					<a onClick={signOut}>Sign out</a>
+					<div className={styles.separator} />
+					<a className="text-danger">Remove account</a>
 				</div>
-			)}
+			</div>
 		</div>
 	);
 };

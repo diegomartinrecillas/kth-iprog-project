@@ -35,7 +35,8 @@
 		color: $color-gray;
 
 		&::-webkit-input-placeholder {
-			color: $color-light-gray;
+			color: $color-gray;
+			opacity: 0.8;
 			font-size: 0.95rem;
 		}
 	}

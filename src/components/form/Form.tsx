@@ -46,160 +46,153 @@ const Form = (props: Props) => {
 		>
 			{({ handleChange, handleSubmit, isSubmitting, setFieldValue }) => (
 				<form className={styles.form} onSubmit={handleSubmit}>
-					<div className="row">
-						<div className="col">
-							<div className={styles.cover} />
+					<div className="row special-gutters">
+						<div className="col-lg-8 col-sm-12">
+							<div className="row medium-gutters">
+								<div className="col-md-6">
+									<div className="d-flex flex-column">
+										<label htmlFor="programme" className="input-label">
+											Programme
+										</label>
+										<Typeahead
+											id="programme"
+											isLoading={programmeStatus === RequestStatus.LOADING}
+											inputProps={{ name: 'programme', required: true }}
+											labelKey="title"
+											options={programmes}
+											onChange={selected =>
+												setFieldValue('programme', selected[0])
+											}
+											placeholder="Search programme..."
+										/>
+									</div>
+								</div>
+
+								<div className="col-md-6">
+									<div className="d-flex flex-column">
+										<label htmlFor="course" className="input-label">
+											Course
+										</label>
+										<AsyncTypeahead
+											id="course"
+											isLoading={courseStatus === RequestStatus.LOADING}
+											inputProps={{ name: 'course', required: true }}
+											options={courses}
+											labelKey="title"
+											minLength={3}
+											onSearch={setCourseQuery}
+											onChange={selected =>
+												setFieldValue('course', selected[0])
+											}
+											placeholder="Search course..."
+											renderMenuItemChildren={(option: KthCourse, _, index) => (
+												<div key={index}>{option.title}</div>
+											)}
+										/>
+									</div>
+								</div>
+							</div>
+
 							<div className="spacing" />
+
+							<div className="row medium-gutters">
+								<div className="col-md-6">
+									<InputField
+										label="Title"
+										name="title"
+										type="text"
+										onChange={handleChange}
+									/>
+								</div>
+
+								<div className="col-md-6">
+									<InputField
+										label="Author"
+										name="author"
+										type="text"
+										onChange={handleChange}
+									/>
+								</div>
+							</div>
+
+							<div className="spacing" />
+
+							<div className="row medium-gutters">
+								<div className="col-md-6">
+									<InputField
+										label="Price"
+										name="price"
+										type="number"
+										onChange={handleChange}
+									/>
+								</div>
+
+								<div className="col-md-6">
+									<InputField
+										label="New price"
+										name="new_price"
+										type="number"
+										onChange={handleChange}
+									/>
+								</div>
+							</div>
+
+							<div className="spacing" />
+
+							<div className="row medium-gutters">
+								<div className="col-md-6">
+									<InputField
+										label="Release Year"
+										name="release_year"
+										type="number"
+										onChange={handleChange}
+									/>
+								</div>
+
+								<div className="col-md-6">
+									<InputField
+										label="Pickup location"
+										name="pickup_location"
+										type="text"
+										onChange={handleChange}
+									/>
+								</div>
+							</div>
+
+							<div className="spacing" />
+
+							<InputField
+								label="Book description"
+								name="description"
+								type="textarea"
+								onChange={handleChange}
+							/>
+						</div>
+						<div className="col-lg-4">
 							<InputField
 								label="Cover picture"
 								name="cover_photo"
 								type="file"
 								onChange={handleChange}
 							/>
-						</div>
-						<div className="col-lg-9 col-sm-12">
-							<div className="row">
-								<div className="col-lg-8 col-sm-12">
-									<div className="row medium-gutters">
-										<div className="col-md-6">
-											<div className="d-flex flex-column">
-												<label htmlFor="programme" className="input-label">
-													Programme
-												</label>
-												<Typeahead
-													id="programme"
-													isLoading={programmeStatus === RequestStatus.LOADING}
-													inputProps={{ name: 'programme' }}
-													labelKey="title"
-													options={programmes}
-													onChange={selected =>
-														setFieldValue('programme', selected[0])
-													}
-													placeholder="Search for a programme..."
-												/>
-											</div>
-										</div>
 
-										<div className="col-md-6">
-											<div className="d-flex flex-column">
-												<label htmlFor="course" className="input-label">
-													Course
-												</label>
-												<AsyncTypeahead
-													id="course"
-													isLoading={courseStatus === RequestStatus.LOADING}
-													inputProps={{ name: 'course' }}
-													options={courses}
-													labelKey="title"
-													minLength={3}
-													onSearch={setCourseQuery}
-													onChange={selected =>
-														setFieldValue('course', selected[0])
-													}
-													placeholder="Search for a course"
-													renderMenuItemChildren={(
-														option: KthCourse,
-														_,
-														index
-													) => <div key={index}>{option.title}</div>}
-												/>
-											</div>
-										</div>
-									</div>
+							<div className="spacing" />
 
-									<div className="spacing" />
+							<InputField
+								label="Book condition"
+								name="personal_description"
+								type="textarea"
+								onChange={handleChange}
+							/>
 
-									<div className="row medium-gutters">
-										<div className="col-md-6">
-											<InputField
-												label="Title"
-												name="title"
-												type="text"
-												onChange={handleChange}
-											/>
-										</div>
+							<div className="spacing" />
 
-										<div className="col-md-6">
-											<InputField
-												label="Author"
-												name="author"
-												type="text"
-												onChange={handleChange}
-											/>
-										</div>
-									</div>
-
-									<div className="spacing" />
-
-									<div className="row medium-gutters">
-										<div className="col-md-6">
-											<InputField
-												label="Price"
-												name="price"
-												type="number"
-												onChange={handleChange}
-											/>
-										</div>
-
-										<div className="col-md-6">
-											<InputField
-												label="New price"
-												name="new_price"
-												type="number"
-												onChange={handleChange}
-											/>
-										</div>
-									</div>
-
-									<div className="spacing" />
-
-									<div className="row medium-gutters">
-										<div className="col-md-6">
-											<InputField
-												label="Release Year"
-												name="release_year"
-												type="number"
-												onChange={handleChange}
-											/>
-										</div>
-
-										<div className="col-md-6">
-											<InputField
-												label="Pickup location"
-												name="pickup_location"
-												type="text"
-												onChange={handleChange}
-											/>
-										</div>
-									</div>
-
-									<div className="spacing" />
-
-									<InputField
-										label="Book description"
-										name="description"
-										type="textarea"
-										onChange={handleChange}
-									/>
-								</div>
-								<div className="col-lg-4">
-									<InputField
-										label="Book condition"
-										name="personal_description"
-										type="textarea"
-										onChange={handleChange}
-									/>
-
-									<div className="spacing" />
-
-									<Button
-										text={add ? 'Add book' : 'Edit book'}
-										icon={add ? 'plus' : 'edit'}
-										type="submit"
-										disabled={isSubmitting}
-									/>
-								</div>
-							</div>
+							<Button
+								text={add ? 'Add book' : 'Edit book'}
+								icon={add ? 'plus' : 'edit'}
+								type="submit"
+								disabled={isSubmitting}
+							/>
 						</div>
 					</div>
 				</form>

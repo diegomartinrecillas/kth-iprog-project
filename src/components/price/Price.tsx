@@ -14,8 +14,7 @@ const Price = (props: Props) => {
 			<div className={styles.now}>{price} SEK</div>
 			{newPrice != null && (
 				<div className={styles.new}>
-					<b>NEW</b>
-					{newPrice}
+					<b>NEW {newPrice}</b>
 				</div>
 			)}
 		</div>

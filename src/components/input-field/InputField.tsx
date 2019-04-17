@@ -26,7 +26,7 @@ const InputField = (props: Props) => {
 					>}
 					className="input"
 					name={name}
-					placeholder={name}
+					placeholder={label}
 					required
 				/>
 			)}
@@ -36,7 +36,7 @@ const InputField = (props: Props) => {
 					className="input"
 					type={type}
 					name={name}
-					placeholder={name}
+					placeholder={label}
 					min={type === 'number' ? 0 : null}
 					required
 				/>
@@ -48,6 +48,7 @@ const InputField = (props: Props) => {
 						type="file"
 						className="custom-file-input"
 						id="customFile"
+						required
 					/>
 					<label className="custom-file-label" htmlFor="customFile">
 						Choose file

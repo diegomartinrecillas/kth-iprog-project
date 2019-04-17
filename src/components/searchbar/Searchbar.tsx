@@ -53,10 +53,10 @@ const Searchbar = (props: RouteComponentProps) => {
 								<div className="col-auto">
 									<div className="d-flex">
 										<Link to="/add">
-											<div className="d-flex align-items-center">
+											<div className="d-flex align-items-center text-button-font">
 												<i className="fas fa-plus" />
 												<div className="spacing-h spacing-h_xs" />
-												new book
+												Add book
 											</div>
 										</Link>
 									</div>

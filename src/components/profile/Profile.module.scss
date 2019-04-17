@@ -1,29 +1,63 @@
 @import '../../scss/constants/index';
 
 .profile {
+	cursor: pointer;
+
 	i {
-		cursor: pointer;
+		color: $color-gray;
+	}
+
+	&:hover {
+		.dropdown {
+			visibility: visible;
+		}
 	}
 
 	.dropdown {
-		-webkit-transform: translate(-53%, 25%);
-		background-color: $color-white;
-		border: $border solid $color-light-gray;
-		border-radius: $radius;
-		padding: 20px;
 		position: absolute;
-		transform: translate(-75%, 25%);
-		width: 170px;
-		z-index: 1;
+		z-index: 10;
+		top: 0px;
+		right: 0px;
+		visibility: hidden;
+		padding-top: 70px;
+
+		&:hover {
+			visibility: visible;
+		}
 	}
-}
 
-.item {
-	color: $color-gray;
-	cursor: pointer;
-	font-weight: 500;
+	.links {
+		background-color: $color-white;
+		border-radius: $radius;
+		box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.01);
+		padding: 15px;
+		border: 1px solid $color-light-gray;
 
-	&:hover {
-		text-decoration: underline;
+		.separator {
+			margin-top: 25px;
+			margin-bottom: 10px;
+			width: 100%;
+			height: 2px;
+			display: block;
+			background-color: $color-light-gray;
+			opacity: 0.2;
+		}
+
+		a {
+			color: $color-gray;
+			cursor: pointer;
+			font-weight: 500;
+			width: 200px;
+			display: block;
+			margin-bottom: 10px;
+
+			&:last-child {
+				margin-bottom: 0px;
+			}
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 }

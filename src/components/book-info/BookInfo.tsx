@@ -12,9 +12,9 @@ const BookInfo = (props: Params) => {
 	const { book } = props;
 
 	return (
-		<div className="row">
+		<div className="row special-gutters">
 			<div className="col-auto">
-				<img className={`${styles.cover}`} src={book.coverPhoto} />
+				<img className="cover" src={book.coverPhoto} />
 			</div>
 			<div className="col">
 				<div className={styles.edition}>{book.releaseYear}</div>
@@ -23,7 +23,6 @@ const BookInfo = (props: Params) => {
 				<div className="mt-3">
 					<Price price={book.price} newPrice={book.newPrice} />
 				</div>
-				<div className={styles.description}>{book.personalDescription}</div>
 				<div className={styles.description}>{book.description}</div>
 			</div>
 		</div>

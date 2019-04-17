@@ -27,7 +27,7 @@ const Search = () => {
 				return results.length > 0 ? (
 					<Books books={results} />
 				) : (
-					<div>no results</div>
+					<div>We couldn't find the book you were looking for</div>
 				);
 			}
 			case RequestStatus.ERROR: {
@@ -49,7 +49,7 @@ const Search = () => {
 					{({ match }) =>
 						match && (
 							<div className={`${styles.books} container`}>
-								<div className="text-label text-label_lg">LATEST LISTINGS</div>
+								<div className="text-label text-label_lg">Latest books</div>
 								<div className="spacing spacing--medium" />
 								{renderResults()}
 							</div>

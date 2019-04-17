@@ -9,10 +9,7 @@
 		border-radius: $radius;
 		height: 40px;
 		width: 100%;
-
-		&::-webkit-input-placeholder {
-			padding: 10px;
-		}
+		padding: 10px;
 	}
 
 	textarea {

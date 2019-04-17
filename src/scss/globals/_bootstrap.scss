@@ -36,6 +36,17 @@
 	}
 }
 
+.special-gutters {
+	margin-left: -$spacing / 1.5;
+	margin-right: -$spacing / 1.5;
+
+	> .col,
+	> [class*='col-'] {
+		padding-left: $spacing / 1.5;
+		padding-right: $spacing / 1.5;
+	}
+}
+
 .extra-small-gutters {
 	margin-left: -0.25em;
 	margin-right: -0.25em;

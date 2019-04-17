@@ -26,13 +26,14 @@ const Selects = (props: Props) => {
 
 	return (
 		<div className={styles.selects}>
-			{programmes.length > 0 && (
+			{programmes.length > 0 && !courses.length && (
 				<>
 					<div className="text-label">PROGRAMMES</div>
 					<div className="spacing spacing_xs" />
 				</>
 			)}
 			{programmes &&
+				!courses.length &&
 				programmes.map((programme: Programme, index: number) => {
 					return (
 						<p
@@ -49,7 +50,6 @@ const Selects = (props: Props) => {
 
 			{courses.length > 0 && (
 				<>
-					<div className="spacing spacing--medium" />
 					<div className="text-label">COURSES</div>
 					<div className="spacing spacing_xs" />
 				</>
@@ -63,6 +63,21 @@ const Selects = (props: Props) => {
 						</p>
 					);
 				})}
+
+			{courses.length > 0 && (
+				<span>
+					<div className="spacing spacing--medium" />
+					<div className="back-button">
+						<a
+							onClick={() => {
+								setCourses([]);
+							}}
+						>
+							<i className="fas fa-arrow-left" /> <span>Back</span>
+						</a>
+					</div>
+				</span>
+			)}
 		</div>
 	);
 };

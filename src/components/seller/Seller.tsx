@@ -7,10 +7,11 @@ import { Student } from '../../models/Student';
 
 interface Props {
 	student: Student;
+	personalDescription: string;
 }
 
 const Seller = (props: Props) => {
-	const { student } = props;
+	const { student, personalDescription } = props;
 	return (
 		<div className="d-flex flex-column">
 			<div className={`${styles.seller} d-flex flex-column`}>
@@ -21,13 +22,14 @@ const Seller = (props: Props) => {
 						<div className={styles.location}>{student.location}</div>
 					</div>
 				</div>
+				{personalDescription && (
+					<div className="mt-3">
+						<div className={styles.location}>{personalDescription}</div>
+					</div>
+				)}
 			</div>
 			<div>
-				<a
-					className={styles.messenger}
-					target="_blank"
-					href={`mailto:${student.email}`}
-				>
+				<a className={styles.messenger} href={`mailto:${student.email}`}>
 					<button className="btn">
 						<div className={styles.icon}>
 							<i className="fas fa-paper-plane" />

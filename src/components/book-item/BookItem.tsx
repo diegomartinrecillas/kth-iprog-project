@@ -21,9 +21,8 @@ const BookItem = (props: Props) => {
 				<div className="spacing spacing_xs" />
 				<Price price={book.price} />
 				{editable && <EditButton />}
-				<div className="spacing spacing_xs" />
-				<b>{book.title}</b> <br />
-				<small>{book.author}</small>
+				<small>{book.author}</small> <br />
+				<b>{book.title}</b>
 			</div>
 		</Link>
 	);
