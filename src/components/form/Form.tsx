@@ -37,12 +37,16 @@ const Form = (props: Props) => {
 				if (add) {
 					NetworkService.addNewBook(user.rundbokToken, values)
 						.finally(() => setSubmitting(false))
-						.then(response => console.log(response))
+						.then(response => {
+							search({});
+							history.replace('/');
+						})
 						.catch(error => console.log(error));
 				} else {
 					NetworkService.editBook(user.rundbokToken, values, book.id)
 						.finally(() => setSubmitting(false))
 						.then(response => {
+							search({});
 							history.replace('/my-books');
 						})
 						.catch(error => console.log(error));
@@ -82,12 +86,14 @@ const Form = (props: Props) => {
 												Programme
 											</label>
 											<Typeahead
-												defaultSelected={[
-													{
-														programmeCode: programme_code,
-														title: __programmeName,
-													},
-												]}
+												defaultSelected={
+													programme_code && [
+														{
+															programmeCode: programme_code,
+															title: __programmeName,
+														},
+													]
+												}
 												id="programme"
 												isLoading={programmeStatus === RequestStatus.LOADING}
 												inputProps={{ name: 'programme', required: true }}
@@ -111,14 +117,16 @@ const Form = (props: Props) => {
 												Course
 											</label>
 											<AsyncTypeahead
-												defaultSelected={[
-													{
-														courseCode: course_code,
-														credits: null,
-														educationalLevel: null,
-														title: __courseName,
-													},
-												]}
+												defaultSelected={
+													course_code && [
+														{
+															courseCode: course_code,
+															credits: null,
+															educationalLevel: null,
+															title: __courseName,
+														},
+													]
+												}
 												id="course"
 												isLoading={courseStatus === RequestStatus.LOADING}
 												inputProps={{ name: 'course', required: true }}
