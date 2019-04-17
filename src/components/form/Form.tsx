@@ -58,7 +58,10 @@ const Form = (props: Props) => {
 											labelKey="title"
 											options={programmes}
 											onChange={selected =>
-												setFieldValue('programme', selected[0].programmeCode)
+												setFieldValue(
+													'programme_code',
+													selected[0].programmeCode
+												)
 											}
 											placeholder="Search programme..."
 										/>
@@ -80,7 +83,7 @@ const Form = (props: Props) => {
 											minLength={3}
 											onSearch={setCourseQuery}
 											onChange={selected =>
-												setFieldValue('course', selected[0].courseCode)
+												setFieldValue('course_code', selected[0].courseCode)
 											}
 											placeholder="Search course..."
 											renderMenuItemChildren={(option: KthCourse, _, index) => (
@@ -148,16 +151,6 @@ const Form = (props: Props) => {
 										onChange={handleChange}
 									/>
 								</div>
-
-								<div className="col-md-6">
-									<div className="spacing d-xl-none" />
-									<InputField
-										label="Pickup location"
-										name="pickup_location"
-										type="text"
-										onChange={handleChange}
-									/>
-								</div>
 							</div>
 
 							<div className="spacing" />
@@ -177,9 +170,10 @@ const Form = (props: Props) => {
 								name="cover_photo"
 								type="file"
 								text={values.cover_photo && values.cover_photo.name}
-								onChange={event =>
-									setFieldValue('cover_photo', event.currentTarget.files[0])
-								}
+								onChange={event => {
+									console.log(event.currentTarget.files[0]);
+									setFieldValue('cover_photo', event.currentTarget.files[0]);
+								}}
 							/>
 
 							<div className="spacing" />

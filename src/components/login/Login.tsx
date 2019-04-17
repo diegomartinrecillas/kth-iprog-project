@@ -14,7 +14,7 @@ const Login = () => {
 	return (
 		<FacebookLogin
 			appId={facebookAppId}
-			autoLoad={true}
+			autoLoad={false}
 			callback={responseFacebook}
 			scope="public_profile,email,user_link,user_location"
 			cssClass={styles.login}

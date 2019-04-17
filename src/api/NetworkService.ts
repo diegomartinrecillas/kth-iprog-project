@@ -49,8 +49,12 @@ export class NetworkService {
 		return RequestService.get(url);
 	}
 	public static addNewBook(bookData: BookUpload, rundbokToken: string) {
+		console.log(bookData);
 		const url = `${config.apiUrls.rundbok}/student/book/create`;
-		return RequestService.post(url, bookData, rundbokToken);
+		return RequestService.post(url, bookData, rundbokToken, {
+			enctype: 'multipart/form-data',
+			accept: 'application/json',
+		});
 	}
 	public static signIn(facebookToken: string) {
 		const url = `${config.apiUrls.rundbok}/student/sign-in`;
@@ -65,5 +69,9 @@ export class NetworkService {
 	public static getStudentBooks(rundbokToken: string) {
 		const url = `${config.apiUrls.rundbok}/student/books`;
 		return RequestService.get(url, rundbokToken);
+	}
+	public static removeStudent(rundbokToken: string) {
+		const url = `${config.apiUrls.rundbok}/student/remove`;
+		return RequestService.delete(url, rundbokToken);
 	}
 }

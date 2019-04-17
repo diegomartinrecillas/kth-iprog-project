@@ -55,7 +55,6 @@ const Searchbar = (props: RouteComponentProps) => {
 
 	const renderBarItems = () => {
 		switch (status) {
-			case RequestStatus.IDLE:
 			case RequestStatus.LOADING: {
 				return <div className="col-auto">loading...</div>;
 			}
@@ -106,7 +105,7 @@ const Searchbar = (props: RouteComponentProps) => {
 						{/* this needs to be hidden (and not conditionally rendered) due to the way the Facebook Auth call is done by the component */}
 						<div
 							hidden={
-								status === RequestStatus.IDLE ||
+								// status === RequestStatus.IDLE ||
 								status === RequestStatus.LOADING
 							}
 							className="col-auto"
