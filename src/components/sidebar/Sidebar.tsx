@@ -7,10 +7,13 @@ const Sidebar = () => {
 	return (
 		<div className={`${styles.sidebar} container`}>
 			<div className="spacing" />
+			<div className="d-flex" />
 			<Logo />
-			<div className="spacing spacing_lg" />
-			<Selects />
-			<div className="spacing" />
+			<span className="d-none d-lg-block">
+				<div className="spacing spacing_lg" />
+				<Selects />
+				<div className="spacing" />
+			</span>
 		</div>
 	);
 };

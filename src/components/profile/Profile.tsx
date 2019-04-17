@@ -31,6 +31,7 @@ const Profile = () => {
 					<a className="text-danger">Remove account</a>
 				</div>
 			</div>
+			<div className="spacing d-lg-none" />
 		</div>
 	);
 };

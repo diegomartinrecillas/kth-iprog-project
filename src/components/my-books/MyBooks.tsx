@@ -29,7 +29,7 @@ const MyBooks = () => {
 	};
 
 	return (
-		<div className={`${styles.books} container`}>
+		<div className="books-list container">
 			<div className="text-label text-label_lg">MY BOOKS</div>
 			<div className="spacing spacing--medium" />
 			{renderResults()}

@@ -1,3 +1,7 @@
+body {
+	overflow-x: hidden;
+}
+
 .cover {
 	background-color: $color-light-gray;
 	border-radius: $radius;
@@ -6,8 +10,8 @@
 	width: 100%;
 	max-width: 13vw;
 	height: 20vw;
-	min-width: 200px;
-	min-height: 300px;
+	min-width: 166px;
+	min-height: 250px;
 	transition: $transition;
 }
 
@@ -50,4 +54,14 @@ a {
 .text-button-font {
 	font-family: $button-font;
 	font-weight: $button-font-weight;
+}
+
+.books-list {
+	height: calc(100vh - 170px);
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+	@media only screen and (max-width: 991px) {
+		height: auto;
+	}
 }

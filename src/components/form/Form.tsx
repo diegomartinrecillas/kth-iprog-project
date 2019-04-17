@@ -47,7 +47,7 @@ const Form = (props: Props) => {
 			{({ handleChange, handleSubmit, isSubmitting, setFieldValue }) => (
 				<form className={styles.form} onSubmit={handleSubmit}>
 					<div className="row special-gutters">
-						<div className="col-lg-8 col-sm-12">
+						<div className="col-xl-8">
 							<div className="row medium-gutters">
 								<div className="col-md-6">
 									<div className="d-flex flex-column">
@@ -69,6 +69,7 @@ const Form = (props: Props) => {
 								</div>
 
 								<div className="col-md-6">
+									<div className="spacing d-xl-none" />
 									<div className="d-flex flex-column">
 										<label htmlFor="course" className="input-label">
 											Course
@@ -106,6 +107,7 @@ const Form = (props: Props) => {
 								</div>
 
 								<div className="col-md-6">
+									<div className="spacing d-xl-none" />
 									<InputField
 										label="Author"
 										name="author"
@@ -128,6 +130,7 @@ const Form = (props: Props) => {
 								</div>
 
 								<div className="col-md-6">
+									<div className="spacing d-xl-none" />
 									<InputField
 										label="New price"
 										name="new_price"
@@ -150,6 +153,7 @@ const Form = (props: Props) => {
 								</div>
 
 								<div className="col-md-6">
+									<div className="spacing d-xl-none" />
 									<InputField
 										label="Pickup location"
 										name="pickup_location"
@@ -168,7 +172,9 @@ const Form = (props: Props) => {
 								onChange={handleChange}
 							/>
 						</div>
-						<div className="col-lg-4">
+						<div className="col-xl-4">
+							<div className="spacing d-xl-none" />
+
 							<InputField
 								label="Cover picture"
 								name="cover_photo"
@@ -195,6 +201,7 @@ const Form = (props: Props) => {
 								type="submit"
 								disabled={isSubmitting}
 							/>
+							<div className="spacing" />
 						</div>
 					</div>
 				</form>

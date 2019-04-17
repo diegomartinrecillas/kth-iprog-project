@@ -8,10 +8,10 @@ const Home = () => {
 	return (
 		<SearchProvider>
 			<div className="row">
-				<div className="col-lg-3 border-right">
+				<div className="col-lg-4 col-xl-3 border-right">
 					<Sidebar />
 				</div>
-				<div className="col-lg-9">
+				<div className="col-lg-8 col-xl-9">
 					<Search />
 				</div>
 			</div>

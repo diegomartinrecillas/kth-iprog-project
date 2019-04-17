@@ -13,8 +13,9 @@ const BookInfo = (props: Params) => {
 
 	return (
 		<div className="row special-gutters">
-			<div className="col-auto">
+			<div className="col-xl-auto">
 				<img className="cover" src={book.coverPhoto} />
+				<div className="spacing d-xl-none" />
 			</div>
 			<div className="col">
 				<div className={styles.edition}>{book.releaseYear}</div>

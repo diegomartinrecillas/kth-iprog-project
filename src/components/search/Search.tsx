@@ -37,18 +37,19 @@ const Search = () => {
 	};
 
 	return (
-		<div className={styles.search}>
+		<div className="book-list">
 			<div className="container">
 				<div className="spacing" />
 				<Searchbar />
-				<div className="spacing spacing_lg" />
+				<div className="spacing spacing_lg d-none d-xl-block" />
+				<div className="spacing d-xl-none" />
 			</div>
 
 			<Switch>
 				<Route exact path="/">
 					{({ match }) =>
 						match && (
-							<div className={`${styles.books} container`}>
+							<div className="books-list container">
 								<div className="text-label text-label_lg">Latest books</div>
 								<div className="spacing spacing--medium" />
 								{renderResults()}

@@ -43,7 +43,7 @@ const Searchbar = (props: RouteComponentProps) => {
 		switch (status) {
 			case RequestStatus.IDLE:
 			case RequestStatus.LOADING: {
-				return <div>loading...</div>;
+				return <div className="col-auto">loading...</div>;
 			}
 			case RequestStatus.SUCCESS: {
 				return (
@@ -69,7 +69,7 @@ const Searchbar = (props: RouteComponentProps) => {
 										</Link>
 									</div>
 								</div>
-								<div className="col-auto">
+								<div className="col-auto d-none d-lg-block">
 									<div className={styles.separator} />
 								</div>
 							</>
@@ -78,29 +78,16 @@ const Searchbar = (props: RouteComponentProps) => {
 				);
 			}
 			case RequestStatus.ERROR: {
-				return <div>error</div>;
+				return <div className="col-auto">error</div>;
 			}
 		}
 	};
 
 	return (
 		<div className={styles.searchbar}>
-			<div className="row medium-gutters align-items-center">
-				<div className="col">
-					<div className={styles['form-group']}>
-						<i className="far fa-search" />
-						<input
-							onChange={handleSearch}
-							type="text"
-							name="search"
-							id="search"
-							placeholder="Search"
-							defaultValue={query}
-						/>
-					</div>
-				</div>
-				<div className="col">
-					<div className="row justify-content-end medium-gutters align-items-center">
+			<div className="row medium-gutters align-items-center flex-lg-row-reverse">
+				<div className="col-lg-8">
+					<div className="row justify-content-lg-end flex-column-reverse flex-lg-row medium-gutters align-items-lg-center">
 						{renderBarItems()}
 						{/* this needs to be hidden (and not conditionally rendered) due to the way the Facebook Auth call is done by the component */}
 						<div
@@ -114,6 +101,22 @@ const Searchbar = (props: RouteComponentProps) => {
 						</div>
 					</div>
 				</div>
+				{location.pathname === '/' && (
+					<div className="col-lg-4">
+						<div className="spacing d-lg-none" />
+						<div className={styles['form-group']}>
+							<i className="far fa-search" />
+							<input
+								onChange={handleSearch}
+								type="text"
+								name="search"
+								id="search"
+								placeholder="Search"
+								defaultValue={query}
+							/>
+						</div>
+					</div>
+				)}
 			</div>
 		</div>
 	);

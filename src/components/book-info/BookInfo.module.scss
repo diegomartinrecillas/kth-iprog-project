@@ -12,6 +12,10 @@
 	font-size: 34px;
 	font-weight: $headline-font-weight;
 	margin-bottom: 0.25rem;
+
+	@media only screen and (max-width: 991px) {
+		font-size: 30px;
+	}
 }
 
 .author {

@@ -24,6 +24,11 @@
 		&:hover {
 			visibility: visible;
 		}
+
+		@media only screen and (max-width: 991px) {
+			left: 0;
+			right: auto;
+		}
 	}
 
 	.links {
