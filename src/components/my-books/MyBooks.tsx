@@ -17,7 +17,7 @@ const MyBooks = () => {
 			}
 			case RequestStatus.SUCCESS: {
 				return results.length > 0 ? (
-					<Books books={results} />
+					<Books editable={true} books={results} />
 				) : (
 					<div>You don't have any books listed.</div>
 				);
