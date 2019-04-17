@@ -16,6 +16,7 @@
 		"react-bootstrap-typeahead": "^4.0.0-alpha.9",
 		"react-dom": "^16.8.4",
 		"react-facebook-login": "^4.1.1",
+		"react-pure-lifecycle": "^3.0.0",
 		"react-router-dom": "^4.4.0",
 		"react-scripts": "2.1.8",
 		"typescript": "3.3.3333",
