@@ -16,9 +16,12 @@ export const UserContext = React.createContext<UserContextValue>(null);
 export const UserConsumer = UserContext.Consumer;
 
 export const UserProvider = (props: PropsWithChildren<{}>) => {
-	const [user, setUser] = useState<User>(null);
-	const [signedIn, setSignedIn] = useState(false);
-	const [status, setStatus] = useState(RequestStatus.IDLE);
+	const storedUser = localStorage.getItem('user');
+	const [user, setUser] = useState<User>(new User(JSON.parse(storedUser)));
+	const [signedIn, setSignedIn] = useState(storedUser ? true : false);
+	const [status, setStatus] = useState(
+		storedUser ? RequestStatus.SUCCESS : RequestStatus.IDLE
+	);
 
 	const contextValue = useMemo(
 		(): UserContextValue => ({
@@ -32,10 +35,12 @@ export const UserProvider = (props: PropsWithChildren<{}>) => {
 						setUser(new User(response));
 						setSignedIn(true);
 						setStatus(RequestStatus.SUCCESS);
+						localStorage.setItem('user', JSON.stringify(response));
 					})
 					.catch(() => setStatus(RequestStatus.ERROR));
 			},
 			signOut: () => {
+				localStorage.removeItem('user');
 				setStatus(RequestStatus.LOADING);
 				history.push('/');
 				NetworkService.signOut(user.rundbokToken)
