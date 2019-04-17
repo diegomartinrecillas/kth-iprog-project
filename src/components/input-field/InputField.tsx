@@ -9,10 +9,11 @@ interface Props
 	label: string;
 	name: string;
 	type: string;
+	text?: string;
 }
 
 const InputField = (props: Props) => {
-	const { label, name, type, ...rest } = props;
+	const { label, name, type, text, ...rest } = props;
 	return (
 		<div className={'d-flex flex-column ' + styles['input-field']}>
 			<label htmlFor={name} className="input-label">
@@ -50,7 +51,7 @@ const InputField = (props: Props) => {
 						id="customFile"
 					/>
 					<label className="custom-file-label" htmlFor="customFile">
-						Choose file
+						{text || 'Choose file'}
 					</label>
 				</div>
 			)}

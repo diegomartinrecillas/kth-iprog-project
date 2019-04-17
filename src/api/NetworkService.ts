@@ -1,6 +1,6 @@
 import { RequestService } from './RequestService';
 import { config } from './config';
-
+import { BookUpload } from '../models/BookUpload';
 export class NetworkService {
 	public static getProgrammes() {
 		const url = `${config.apiUrls.rundbok}/programmes`;
@@ -48,9 +48,9 @@ export class NetworkService {
 		const url = `${config.apiUrls.googleBooks}/${id}`;
 		return RequestService.get(url);
 	}
-	public static addNewBook(book: any, rundbokToken: string) {
+	public static addNewBook(bookData: BookUpload, rundbokToken: string) {
 		const url = `${config.apiUrls.rundbok}/student/book/create`;
-		return RequestService.post(url, book, rundbokToken);
+		return RequestService.post(url, bookData, rundbokToken);
 	}
 	public static signIn(facebookToken: string) {
 		const url = `${config.apiUrls.rundbok}/student/sign-in`;
@@ -61,5 +61,9 @@ export class NetworkService {
 	public static signOut(rundbokToken: string) {
 		const url = `${config.apiUrls.rundbok}/student/sign-out`;
 		return RequestService.post(url, null, rundbokToken);
+	}
+	public static getStudentBooks(rundbokToken: string) {
+		const url = `${config.apiUrls.rundbok}/student/books`;
+		return RequestService.get(url, rundbokToken);
 	}
 }

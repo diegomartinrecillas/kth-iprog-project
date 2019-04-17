@@ -12,6 +12,7 @@ import { useProgrammes } from '../../hooks/useKthProgrammes';
 import { useCourses } from '../../hooks/useKthCourses';
 import { NetworkService, RequestStatus } from '../../api';
 import { KthCourse } from '../../models/KthCourse';
+import { BookUpload } from '../../models/BookUpload';
 
 interface Props {
 	add?: boolean;
@@ -25,26 +26,22 @@ const Form = (props: Props) => {
 
 	return (
 		<Formik
-			initialValues={{
-				cover_photo: null,
-				programme: '',
-				course: '',
-				title: '',
-				author: '',
-				price: null,
-				new_price: null,
-				release_year: null,
-				pickup_location: '',
-				description: '',
-				personal_description: '',
-			}}
-			onSubmit={values => {
+			initialValues={new BookUpload()}
+			onSubmit={(values, { setSubmitting }) => {
+				setSubmitting(true);
 				NetworkService.addNewBook(values, user.rundbokToken)
+					.finally(() => setSubmitting(false))
 					.then(response => console.log(response))
 					.catch(error => console.log(error));
 			}}
 		>
-			{({ handleChange, handleSubmit, isSubmitting, setFieldValue }) => (
+			{({
+				values,
+				handleChange,
+				handleSubmit,
+				isSubmitting,
+				setFieldValue,
+			}) => (
 				<form className={styles.form} onSubmit={handleSubmit}>
 					<div className="row special-gutters">
 						<div className="col-xl-8">
@@ -179,6 +176,7 @@ const Form = (props: Props) => {
 								label="Cover picture"
 								name="cover_photo"
 								type="file"
+								text={values.cover_photo && values.cover_photo.name}
 								onChange={event =>
 									setFieldValue('cover_photo', event.currentTarget.files[0])
 								}

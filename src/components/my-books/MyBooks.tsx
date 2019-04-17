@@ -1,13 +1,25 @@
-import React, { useContext } from 'react';
-import { RequestStatus } from '../../api';
+import React, { useEffect, useState, useContext } from 'react';
+import { RequestStatus, NetworkService } from '../../api';
 
-import EditButton from '../edit-my-books/EditButton';
 import Books from '../books/Books';
-import styles from './MyBooks.module.scss';
-import { SearchContext } from '../../contexts/Search.context';
+import { UserContext } from '../../contexts';
+import { Book } from '../../models/Book';
 
 const MyBooks = () => {
-	const { results, status } = useContext(SearchContext);
+	const { user } = useContext(UserContext);
+	const token = user && user.rundbokToken;
+	const [status, setStatus] = useState(RequestStatus.IDLE);
+	const [books, setBooks] = useState([]);
+
+	useEffect(() => {
+		if (!user) return;
+		NetworkService.getStudentBooks(token)
+			.then(response => {
+				setBooks(response.data.map((book: any) => new Book(book)));
+				setStatus(RequestStatus.SUCCESS);
+			})
+			.catch(() => setStatus(RequestStatus.ERROR));
+	}, [user]);
 
 	const renderResults = () => {
 		switch (status) {
@@ -16,8 +28,8 @@ const MyBooks = () => {
 				return <div>loading...</div>;
 			}
 			case RequestStatus.SUCCESS: {
-				return results.length > 0 ? (
-					<Books editable={true} books={results} />
+				return books.length > 0 ? (
+					<Books editable={true} books={books} />
 				) : (
 					<div>You don't have any books listed.</div>
 				);
