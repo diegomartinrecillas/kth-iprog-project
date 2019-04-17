@@ -1,7 +1,7 @@
 import React, { useMemo, PropsWithChildren, useState } from 'react';
 import { NetworkService, RequestStatus } from '../api/';
-
 import { User } from '../models/User';
+import history from '../router/history';
 
 export interface UserContextValue {
 	user: User;
@@ -37,6 +37,7 @@ export const UserProvider = (props: PropsWithChildren<{}>) => {
 			},
 			signOut: () => {
 				setStatus(RequestStatus.LOADING);
+				history.push('/');
 				NetworkService.signOut(user.rundbokToken)
 					.then(response => {
 						setUser(null);
