@@ -16,11 +16,20 @@ const Searchbar = (props: RouteComponentProps) => {
 	useEffect(() => {
 		// get the current search param value for 'query'
 		const initialQuery = (qs.parse(location.search).query as string) || '';
+		const programmeId =
+			(qs.parse(location.search).programme_id as string) || '';
+		const courseId = (qs.parse(location.search).course_id as string) || '';
 		// if there's no 'query' search param defined, set it to ''
-		!initialQuery &&
-			history.replace({ search: qs.stringify({ query: initialQuery }) });
+		(!initialQuery || !programmeId || !courseId) &&
+			history.replace({
+				search: qs.stringify({
+					query: initialQuery,
+					programme_id: programmeId,
+					course_id: courseId,
+				}),
+			});
 		// initial search depending of the iniitial search params
-		search(initialQuery);
+		search({ query: initialQuery, programmeId, courseId });
 	}, []);
 
 	let timer: ReturnType<typeof setTimeout>;
@@ -33,8 +42,13 @@ const Searchbar = (props: RouteComponentProps) => {
 		}
 		timer = setTimeout(() => {
 			// update the search params to reflect the search state and redirect to the home page
-			history.push({ search: qs.stringify({ query: value }), pathname: '/' });
-			search(value);
+			history.push({
+				search: qs.stringify({ ...qs.parse(location.search), query: value }),
+				pathname: '/',
+			});
+			search({
+				query: value,
+			});
 			timer = null;
 		}, 300);
 	};

@@ -26,8 +26,14 @@ export class NetworkService {
 		const url = `${config.apiUrls.rundbok}/courses/${code}`;
 		return RequestService.get(url);
 	}
-	public static searchListedBooks(query: string) {
-		const url = `${config.apiUrls.rundbok}/books/search?query=${query}`;
+	public static searchListedBooks(
+		query: string,
+		programmeId: string,
+		courseId: string
+	) {
+		const url = `${
+			config.apiUrls.rundbok
+		}/books/search?query=${query}&programme_id=${programmeId}&course_id=${courseId}`;
 		return RequestService.get(url);
 	}
 	public static getListedBookById(id: string) {

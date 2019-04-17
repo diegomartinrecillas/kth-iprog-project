@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
+import qs from 'query-string';
+
 import { useAvailableProgrammes } from '../../hooks/useAvailableProgrammes';
 import { RequestStatus } from '../../api';
+import { SearchContext } from '../../contexts';
 
 import styles from './Selects.module.scss';
-import { number } from 'prop-types';
 import { Programme } from '../../models/Programme';
 import { Course } from '../../models/Course';
 
-interface Props {
-	programmes?: Programme[];
-	courses?: Course[];
-}
-
-const Selects = (props: Props) => {
+const Selects = (props: RouteComponentProps) => {
+	const { history } = props;
+	const { search } = useContext(SearchContext);
 	const [programmes, programmesStatus] = useAvailableProgrammes();
 	const [courses, setCourses] = useState([]);
 
@@ -39,8 +39,17 @@ const Selects = (props: Props) => {
 						<p
 							className="link"
 							key={index}
-							onClick={event => {
+							onClick={_ => {
 								setCourses(programme.courses);
+								// update the search params to reflect the search state and redirect to the home page
+								history.push({
+									search: qs.stringify({
+										...qs.parse(location.search),
+										programme_id: programme.id,
+									}),
+									pathname: '/',
+								});
+								search({ programmeId: programme.id.toString() });
 							}}
 						>
 							{programme.name}
@@ -58,7 +67,21 @@ const Selects = (props: Props) => {
 			{courses &&
 				courses.map((course: Course, index: number) => {
 					return (
-						<p className="link" key={index}>
+						<p
+							className="link"
+							key={index}
+							onClick={_ => {
+								// update the search params to reflect the search state and redirect to the home page
+								history.push({
+									search: qs.stringify({
+										...qs.parse(location.search),
+										course_id: course.id,
+									}),
+									pathname: '/',
+								});
+								search({ courseId: course.id.toString() });
+							}}
+						>
 							{course.name}
 						</p>
 					);
@@ -70,6 +93,15 @@ const Selects = (props: Props) => {
 					<div className="back-button">
 						<a
 							onClick={() => {
+								// update the search params to reflect the search state and redirect to the home page
+								history.push({
+									search: qs.stringify({
+										...qs.parse(location.search),
+										course_id: '',
+									}),
+									pathname: '/',
+								});
+								search({ courseId: '' });
 								setCourses([]);
 							}}
 						>
@@ -82,4 +114,4 @@ const Selects = (props: Props) => {
 	);
 };
 
-export default Selects;
+export default withRouter(Selects);
