@@ -13,6 +13,8 @@ export class RequestService {
 			const jsonData = await res.json();
 			return jsonData;
 		} catch (err) {
+			window.location.href = '/';
+			localStorage.removeItem('user');
 			throw err;
 		}
 	}
@@ -31,6 +33,8 @@ export class RequestService {
 			const jsonData = await res.json();
 			return jsonData;
 		} catch (err) {
+			window.location.href = '/';
+			localStorage.removeItem('user');
 			throw err;
 		}
 	}
@@ -56,6 +60,8 @@ export class RequestService {
 			const jsonData = await res.json();
 			return jsonData;
 		} catch (err) {
+			window.location.href = '/';
+			localStorage.removeItem('user');
 			throw err;
 		}
 	}

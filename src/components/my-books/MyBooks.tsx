@@ -13,6 +13,7 @@ const MyBooks = () => {
 
 	useEffect(() => {
 		if (!user) return;
+		console.log(token);
 		NetworkService.getStudentBooks(token)
 			.then(response => {
 				setBooks(response.data.map((book: any) => new Book(book)));
