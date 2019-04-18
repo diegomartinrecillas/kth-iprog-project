@@ -2,7 +2,7 @@
 
 export class BookUpload {
 	public id: number;
-	public cover_photo: File | string = null;
+	public cover_photo: any;
 	public programme_code: string;
 	public course_code: string;
 	public title: string;

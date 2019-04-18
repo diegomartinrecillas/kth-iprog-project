@@ -33,9 +33,34 @@ const Form = (props: Props) => {
 		<Formik
 			initialValues={book ? book : new BookUpload()}
 			onSubmit={(values, { setSubmitting }) => {
+				const data = new FormData();
+				const {
+					author,
+					programme_code,
+					course_code,
+					price,
+					new_price,
+					personal_description,
+					description,
+					release_year,
+					title,
+					cover_photo,
+				} = values;
+
+				data.append('author', author);
+				data.append('programme_code', programme_code);
+				data.append('course_code', course_code);
+				data.append('price', price.toString());
+				data.append('new_price', new_price.toString());
+				data.append('personal_description', personal_description);
+				data.append('description', description);
+				data.append('release_year', release_year.toString());
+				data.append('title', title);
+				data.append('cover_photo', cover_photo);
+
 				setSubmitting(true);
 				if (add) {
-					NetworkService.addNewBook(user.rundbokToken, values)
+					NetworkService.addNewBook(user.rundbokToken, data)
 						.finally(() => setSubmitting(false))
 						.then(response => {
 							search({});
@@ -43,7 +68,7 @@ const Form = (props: Props) => {
 						})
 						.catch(error => console.log(error));
 				} else {
-					NetworkService.editBook(user.rundbokToken, values, book.id)
+					NetworkService.editBook(user.rundbokToken, data, book.id)
 						.finally(() => setSubmitting(false))
 						.then(response => {
 							search({});
@@ -230,10 +255,9 @@ const Form = (props: Props) => {
 									name="cover_photo"
 									type="file"
 									text={values.cover_photo && (values.cover_photo as File).name}
-									onChange={event => {
-										console.log(event.currentTarget.files[0]);
-										setFieldValue('cover_photo', event.currentTarget.files[0]);
-									}}
+									onChange={event =>
+										setFieldValue('cover_photo', event.currentTarget.files[0])
+									}
 								/>
 
 								<div className="spacing" />
@@ -244,6 +268,13 @@ const Form = (props: Props) => {
 									type="textarea"
 									defaultValue={personal_description}
 									onChange={handleChange}
+								/>
+
+								<input
+									hidden
+									name="authorization"
+									type="text"
+									defaultValue={user && user.rundbokToken}
 								/>
 
 								<div className="spacing" />

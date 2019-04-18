@@ -65,4 +65,30 @@ export class RequestService {
 			throw err;
 		}
 	}
+
+	public static async postForm(
+		url: string,
+		formData: FormData,
+		authorization?: string,
+		extraHeaders = {}
+	) {
+		const options = {
+			method: 'POST',
+			headers: {
+				authorization,
+				...extraHeaders,
+			},
+			body: formData,
+		};
+
+		try {
+			const res = await fetch(encodeURI(url), options);
+			const jsonData = await res.json();
+			return jsonData;
+		} catch (err) {
+			window.location.href = '/';
+			localStorage.removeItem('user');
+			throw err;
+		}
+	}
 }

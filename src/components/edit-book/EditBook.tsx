@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 import Form from '../form/Form';
-import { UserContext } from '../../contexts';
+import { UserContext, SearchContext } from '../../contexts';
 import { RequestStatus, NetworkService } from '../../api';
 import { useBook } from '../../hooks/useBook';
 
@@ -13,6 +13,7 @@ interface MatchParams {
 const EditBook = (props: RouteComponentProps<MatchParams>) => {
 	const { match, history } = props;
 	const { user } = useContext(UserContext);
+	const { search } = useContext(SearchContext);
 	const [status, setStatus] = useState(RequestStatus.IDLE);
 	const [book, bookStatus] = useBook(match.params.bookId);
 
@@ -21,6 +22,7 @@ const EditBook = (props: RouteComponentProps<MatchParams>) => {
 
 		NetworkService.removeBook(user.rundbokToken, match.params.bookId)
 			.then(() => {
+				search({});
 				history.push('/my-books');
 				setStatus(RequestStatus.SUCCESS);
 			})
