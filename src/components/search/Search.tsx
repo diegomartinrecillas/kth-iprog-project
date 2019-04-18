@@ -5,6 +5,8 @@ import { RequestStatus } from '../../api';
 
 import { SearchContext } from '../../contexts/Search.context';
 
+import PrivateRoute from '../private-route/PrivateRoute';
+
 import Searchbar from '../searchbar/Searchbar';
 import Books from '../books/Books';
 import ViewBook from '../view-book/ViewBook';
@@ -14,9 +16,11 @@ import AddBook from '../add-book/AddBook';
 
 import styles from './Search.module.scss';
 import Spinner from '../spinner/Spinner';
+import { UserContext } from '../../contexts';
 
 const Search = () => {
 	const { results, status } = useContext(SearchContext);
+	const { signedIn } = useContext(UserContext);
 
 	const renderResults = () => {
 		switch (status) {
@@ -60,11 +64,22 @@ const Search = () => {
 				</Route>
 
 				<Route path="/book/:bookId" component={ViewBook} />
-				<Route path="/edit/:bookId" component={EditBook} />
 
-				<Route path="/add" component={AddBook} />
-
-				<Route path="/my-books" component={MyBooks} />
+				<PrivateRoute
+					path="/edit/:bookId"
+					component={EditBook}
+					isAuthenticated={signedIn}
+				/>
+				<PrivateRoute
+					path="/add"
+					component={AddBook}
+					isAuthenticated={signedIn}
+				/>
+				<PrivateRoute
+					path="/my-books"
+					component={MyBooks}
+					isAuthenticated={signedIn}
+				/>
 			</Switch>
 		</div>
 	);
