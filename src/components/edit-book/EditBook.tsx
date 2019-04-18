@@ -36,27 +36,14 @@ const EditBook = (props: RouteComponentProps<MatchParams>) => {
 				<div className="d-flex">
 					<div className="text-label text-label_lg">EDIT BOOK</div>
 					<div className="spacing-h" />
-					{(() => {
-						switch (status) {
-							case RequestStatus.IDLE: {
-								return (
-									<a
-										onClick={removeBook}
-										className="text-danger font-weight-bold"
-									>
-										<i className="fas fa-trash mr-2" />
-										Remove book
-									</a>
-								);
-							}
-							case RequestStatus.LOADING: {
-								return <Spinner />;
-							}
-							case RequestStatus.ERROR: {
-								return <div>error</div>;
-							}
-						}
-					})()}
+					<a
+						onClick={status !== RequestStatus.LOADING && removeBook}
+						className={`${status === RequestStatus.LOADING &&
+							'disabled'} btn p-0 text-danger font-weight-bold`}
+					>
+						<i className="fas fa-trash mr-2" />
+						Remove book
+					</a>
 				</div>
 				<div className="spacing spacing--medium" />
 				{bookStatus === RequestStatus.SUCCESS && (
