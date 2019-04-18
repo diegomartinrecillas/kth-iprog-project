@@ -7,6 +7,7 @@ import { SearchContext, UserContext } from '../../contexts';
 import Login from '../login/Login';
 import Profile from '../profile/Profile';
 import { RequestStatus } from '../../api';
+import Spinner from '../spinner/Spinner';
 
 const Searchbar = (props: RouteComponentProps) => {
 	const { search, query } = useContext(SearchContext);
@@ -56,7 +57,7 @@ const Searchbar = (props: RouteComponentProps) => {
 	const renderBarItems = () => {
 		switch (status) {
 			case RequestStatus.LOADING: {
-				return <div className="col-auto">loading...</div>;
+				return <Spinner />;
 			}
 			case RequestStatus.SUCCESS: {
 				return (

@@ -8,6 +8,7 @@ import Seller from '../seller/Seller';
 
 import styles from './ViewBook.module.scss';
 import { RequestStatus } from '../../api';
+import Spinner from '../spinner/Spinner';
 
 interface MatchParams {
 	bookId: string;
@@ -22,7 +23,7 @@ const ViewBook = (props: RouteComponentProps<MatchParams>) => {
 		switch (status) {
 			case RequestStatus.IDLE:
 			case RequestStatus.LOADING: {
-				return <div>loading...</div>;
+				return <Spinner />;
 			}
 			case RequestStatus.SUCCESS: {
 				return (

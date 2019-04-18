@@ -5,6 +5,7 @@ import Form from '../form/Form';
 import { UserContext, SearchContext } from '../../contexts';
 import { RequestStatus, NetworkService } from '../../api';
 import { useBook } from '../../hooks/useBook';
+import Spinner from '../spinner/Spinner';
 
 interface MatchParams {
 	bookId: string;
@@ -49,7 +50,7 @@ const EditBook = (props: RouteComponentProps<MatchParams>) => {
 								);
 							}
 							case RequestStatus.LOADING: {
-								return <div>loading...</div>;
+								return <Spinner />;
 							}
 							case RequestStatus.ERROR: {
 								return <div>error</div>;

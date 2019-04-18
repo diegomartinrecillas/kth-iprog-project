@@ -4,6 +4,7 @@ import { RequestStatus, NetworkService } from '../../api';
 import Books from '../books/Books';
 import { UserContext } from '../../contexts';
 import { Book } from '../../models/Book';
+import Spinner from '../spinner/Spinner';
 
 const MyBooks = () => {
 	const { user } = useContext(UserContext);
@@ -25,7 +26,7 @@ const MyBooks = () => {
 		switch (status) {
 			case RequestStatus.IDLE:
 			case RequestStatus.LOADING: {
-				return <div>loading...</div>;
+				return <Spinner />;
 			}
 			case RequestStatus.SUCCESS: {
 				return books.length > 0 ? (

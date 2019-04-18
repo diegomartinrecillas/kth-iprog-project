@@ -13,6 +13,7 @@ import MyBooks from '../my-books/MyBooks';
 import AddBook from '../add-book/AddBook';
 
 import styles from './Search.module.scss';
+import Spinner from '../spinner/Spinner';
 
 const Search = () => {
 	const { results, status } = useContext(SearchContext);
@@ -21,7 +22,7 @@ const Search = () => {
 		switch (status) {
 			case RequestStatus.IDLE:
 			case RequestStatus.LOADING: {
-				return <div>loading...</div>;
+				return <Spinner />;
 			}
 			case RequestStatus.SUCCESS: {
 				return results.length > 0 ? (
