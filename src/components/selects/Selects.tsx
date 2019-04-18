@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import qs from 'query-string';
 
@@ -15,6 +15,18 @@ const Selects = (props: RouteComponentProps) => {
 	const { search } = useContext(SearchContext);
 	const [programmes, programmesStatus] = useAvailableProgrammes();
 	const [courses, setCourses] = useState([]);
+
+	useEffect(() => {
+		if (programmesStatus !== RequestStatus.SUCCESS) return;
+		const programmeId =
+			(qs.parse(location.search).programme_id as string) || '';
+		if (programmes && programmeId) {
+			const selectedProgramme = programmes.find(
+				programme => programme.id.toString() === programmeId
+			);
+			setCourses(selectedProgramme.courses);
+		}
+	}, [programmesStatus]);
 
 	if (
 		programmesStatus === RequestStatus.IDLE ||
@@ -98,6 +110,7 @@ const Selects = (props: RouteComponentProps) => {
 									search: qs.stringify({
 										...qs.parse(location.search),
 										course_id: '',
+										programme_id: '',
 									}),
 									pathname: '/',
 								});
