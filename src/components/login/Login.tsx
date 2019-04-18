@@ -16,7 +16,7 @@ const Login = () => {
 			appId={facebookAppId}
 			autoLoad={false}
 			callback={responseFacebook}
-			scope="public_profile,email,link,location"
+			scope="public_profile,email,user_link,user_location"
 			cssClass={styles.login}
 			textButton="Continue with Facebook"
 			icon="fab fa-facebook-square"
