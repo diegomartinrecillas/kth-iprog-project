@@ -9,6 +9,8 @@ export interface UserContextValue {
 	status: NetworkService;
 	signIn: (facebookToken: string) => void;
 	signOut: () => void;
+	refresh: () => void;
+	shouldRefresh: boolean;
 }
 
 export const UserContext = React.createContext<UserContextValue>(null);
@@ -17,6 +19,7 @@ export const UserConsumer = UserContext.Consumer;
 
 export const UserProvider = (props: PropsWithChildren<{}>) => {
 	const storedUser = localStorage.getItem('user');
+	const [shouldRefresh, setRefresh] = useState(false);
 	const [user, setUser] = useState<User>(new User(JSON.parse(storedUser)));
 	const [signedIn, setSignedIn] = useState(storedUser ? true : false);
 	const [status, setStatus] = useState(
@@ -51,8 +54,10 @@ export const UserProvider = (props: PropsWithChildren<{}>) => {
 					})
 					.catch(() => setStatus(RequestStatus.ERROR));
 			},
+			refresh: () => setRefresh(true),
+			shouldRefresh,
 		}),
-		[status]
+		[status, shouldRefresh]
 	);
 
 	return (

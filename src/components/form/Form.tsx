@@ -26,7 +26,7 @@ interface Props extends RouteComponentProps {
 
 const Form = (props: Props) => {
 	const { add, book, history, setStatus } = props;
-	const { user } = useContext(UserContext);
+	const { user, refresh } = useContext(UserContext);
 	const { search } = useContext(SearchContext);
 	const [programmes, programmeStatus] = useProgrammes();
 	const [courses, courseStatus, setCourseQuery] = useCourses();
@@ -76,6 +76,7 @@ const Form = (props: Props) => {
 						.finally(() => setSubmitting(false))
 						.then(response => {
 							search({});
+							refresh();
 							history.replace('/my-books');
 							setStatus(RequestStatus.SUCCESS);
 						})
@@ -130,10 +131,12 @@ const Form = (props: Props) => {
 												labelKey="title"
 												options={programmes}
 												onChange={selected =>
-													setFieldValue(
-														'programme_code',
-														selected[0].programmeCode
-													)
+													selected[0]
+														? setFieldValue(
+																'programme_code',
+																selected[0].programmeCode
+														  )
+														: undefined
 												}
 												placeholder="Search programme..."
 											/>
@@ -165,7 +168,12 @@ const Form = (props: Props) => {
 												minLength={3}
 												onSearch={setCourseQuery}
 												onChange={selected =>
-													setFieldValue('course_code', selected[0].courseCode)
+													selected[0]
+														? setFieldValue(
+																'course_code',
+																selected[0].courseCode
+														  )
+														: undefined
 												}
 												placeholder="Search course..."
 												renderMenuItemChildren={(

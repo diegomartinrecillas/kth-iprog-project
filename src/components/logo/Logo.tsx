@@ -1,12 +1,21 @@
-import React from 'react';
-import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Logo.module.scss';
+import { SearchContext } from '../../contexts';
 
-const Logo = (props: RouteComponentProps) => {
-	const { location } = props;
-
+const Logo = () => {
+	const { search } = useContext(SearchContext);
 	return (
-		<Link to={{ ...location, pathname: '/' }}>
+		<Link
+			to={'/'}
+			onClick={() =>
+				search({
+					query: '',
+					programmeId: '',
+					courseId: '',
+				})
+			}
+		>
 			<div className={styles.logo}>
 				<span className="d-flex align-items-center">
 					<span>
@@ -29,4 +38,4 @@ const Logo = (props: RouteComponentProps) => {
 	);
 };
 
-export default withRouter(Logo);
+export default Logo;

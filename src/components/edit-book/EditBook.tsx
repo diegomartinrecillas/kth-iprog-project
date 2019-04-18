@@ -37,7 +37,7 @@ const EditBook = (props: RouteComponentProps<MatchParams>) => {
 					<div className="text-label text-label_lg">EDIT BOOK</div>
 					<div className="spacing-h" />
 					<a
-						onClick={status !== RequestStatus.LOADING && removeBook}
+						onClick={status !== RequestStatus.LOADING ? removeBook : undefined}
 						className={`${status === RequestStatus.LOADING &&
 							'disabled'} btn p-0 text-danger font-weight-bold`}
 					>
