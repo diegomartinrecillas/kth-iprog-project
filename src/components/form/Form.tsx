@@ -16,14 +16,16 @@ import { NetworkService, RequestStatus } from '../../api';
 import { KthCourse } from '../../models/KthCourse';
 import { BookUpload } from '../../models/BookUpload';
 import { SearchContext } from '../../contexts';
+import Spinner from '../spinner/Spinner';
 
 interface Props extends RouteComponentProps {
 	add?: boolean;
 	book?: BookUpload;
+	setStatus?: (status: RequestStatus) => void;
 }
 
 const Form = (props: Props) => {
-	const { add, book, history } = props;
+	const { add, book, history, setStatus } = props;
 	const { user } = useContext(UserContext);
 	const { search } = useContext(SearchContext);
 	const [programmes, programmeStatus] = useProgrammes();
@@ -66,15 +68,18 @@ const Form = (props: Props) => {
 							search({});
 							history.replace('/');
 						})
-						.catch(error => console.log(error));
+
+						.catch();
 				} else {
+					setStatus(RequestStatus.LOADING);
 					NetworkService.editBook(user.rundbokToken, data, book.id)
 						.finally(() => setSubmitting(false))
 						.then(response => {
 							search({});
 							history.replace('/my-books');
+							setStatus(RequestStatus.SUCCESS);
 						})
-						.catch(error => console.log(error));
+						.catch(() => setStatus(RequestStatus.ERROR));
 				}
 			}}
 		>
@@ -279,12 +284,17 @@ const Form = (props: Props) => {
 
 								<div className="spacing" />
 
-								<Button
-									text={add ? 'Add book' : 'Edit book'}
-									icon={add ? 'plus' : 'edit'}
-									type="submit"
-									disabled={isSubmitting}
-								/>
+								{isSubmitting ? (
+									<Spinner />
+								) : (
+									<Button
+										text={add ? 'Add book' : 'Edit book'}
+										icon={add ? 'plus' : 'edit'}
+										type="submit"
+										disabled={isSubmitting}
+									/>
+								)}
+
 								<div className="spacing" />
 							</div>
 						</div>
