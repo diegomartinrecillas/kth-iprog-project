@@ -66,9 +66,9 @@ const Form = (props: Props) => {
 						.finally(() => setSubmitting(false))
 						.then(response => {
 							search({});
-							history.replace('/');
+							refresh();
+							history.replace('/my-books');
 						})
-
 						.catch();
 				} else {
 					setStatus(RequestStatus.LOADING);
