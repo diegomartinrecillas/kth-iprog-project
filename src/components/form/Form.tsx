@@ -248,6 +248,23 @@ const Form = (props: Props) => {
 											onChange={handleChange}
 										/>
 									</div>
+
+									<div className="col-md-6">
+										<InputField
+											label="Cover picture"
+											name="cover_photo"
+											type="file"
+											text={
+												values.cover_photo && (values.cover_photo as File).name
+											}
+											onChange={event =>
+												setFieldValue(
+													'cover_photo',
+													event.currentTarget.files[0]
+												)
+											}
+										/>
+									</div>
 								</div>
 
 								<div className="spacing" />
@@ -262,18 +279,6 @@ const Form = (props: Props) => {
 							</div>
 							<div className="col-xl-4">
 								<div className="spacing d-xl-none" />
-
-								<InputField
-									label="Cover picture"
-									name="cover_photo"
-									type="file"
-									text={values.cover_photo && (values.cover_photo as File).name}
-									onChange={event =>
-										setFieldValue('cover_photo', event.currentTarget.files[0])
-									}
-								/>
-
-								<div className="spacing" />
 
 								<InputField
 									label="Book condition"
