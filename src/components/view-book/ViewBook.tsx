@@ -32,18 +32,16 @@ const ViewBook = (props: RouteComponentProps<MatchParams>) => {
 							{programme.name} / {course.name}
 						</div>
 						<div className="spacing" />
-						<div className="d-flex">
-							<div className="row special-gutters">
-								<div className="col-xl-8">
-									<BookInfo book={book} />
-								</div>
-								<div className="col-sm-6 col-xl-4">
-									<div className="spacing d-xl-none" />
-									<Seller
-										personalDescription={book.personalDescription}
-										student={student}
-									/>
-								</div>
+						<div className="row special-gutters">
+							<div className="col-xl-8">
+								<BookInfo book={book} />
+							</div>
+							<div className="col-sm-6 col-xl-4">
+								<div className="spacing d-xl-none" />
+								<Seller
+									personalDescription={book.personalDescription}
+									student={student}
+								/>
 							</div>
 						</div>
 					</>
