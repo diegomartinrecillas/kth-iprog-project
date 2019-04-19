@@ -5,7 +5,6 @@ import Form from '../form/Form';
 import { UserContext, SearchContext } from '../../contexts';
 import { RequestStatus, NetworkService } from '../../api';
 import { useBook } from '../../hooks/useBook';
-import Spinner from '../spinner/Spinner';
 
 interface MatchParams {
 	bookId: string;
