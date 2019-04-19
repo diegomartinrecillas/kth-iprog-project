@@ -9,6 +9,7 @@ import { SearchContext } from '../../contexts';
 import styles from './Selects.module.scss';
 import { Programme } from '../../models/Programme';
 import { Course } from '../../models/Course';
+import Spinner from '../spinner/Spinner';
 
 const Selects = (props: RouteComponentProps) => {
 	const { history } = props;
@@ -33,7 +34,7 @@ const Selects = (props: RouteComponentProps) => {
 		programmesStatus === RequestStatus.LOADING ||
 		!courses
 	) {
-		return <div>Loading...</div>;
+		return <Spinner />;
 	}
 
 	return (
